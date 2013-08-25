@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "CDUtility.h"
 #import "CDUserListViewController.h"
 #import "CDCakeViewController.h"
