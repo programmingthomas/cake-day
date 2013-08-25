@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E91F396717CA7FA900CB59DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396617CA7FA900CB59DB /* UIKit.framework */; };
+		E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
+		E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */; };
+		E91F397117CA7FAA00CB59DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */; };
+		E91F397317CA7FAA00CB59DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397217CA7FAA00CB59DB /* main.m */; };
+		E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */; };
+		E91F397917CA7FAA00CB59DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F397817CA7FAA00CB59DB /* Default.png */; };
+		E91F397B17CA7FAA00CB59DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F397A17CA7FAA00CB59DB /* Default@2x.png */; };
+		E91F397D17CA7FAA00CB59DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F397C17CA7FAA00CB59DB /* Default-568h@2x.png */; };
+		E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */; };
+		E91F398317CA7FAA00CB59DB /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F398217CA7FAA00CB59DB /* CDViewController.m */; };
+		E91F398B17CA7FAA00CB59DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F398A17CA7FAA00CB59DB /* SenTestingKit.framework */; };
+		E91F398C17CA7FAA00CB59DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396617CA7FA900CB59DB /* UIKit.framework */; };
+		E91F398D17CA7FAA00CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
+		E91F399517CA7FAA00CB59DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E91F399317CA7FAA00CB59DB /* InfoPlist.strings */; };
+		E91F399817CA7FAA00CB59DB /* Cake_DayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F399717CA7FAA00CB59DB /* Cake_DayTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E91F398E17CA7FAA00CB59DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E91F395B17CA7FA900CB59DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E91F396217CA7FA900CB59DB;
+			remoteInfo = "Cake Day";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E91F396317CA7FA900CB59DB /* Cake Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91F396617CA7FA900CB59DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E91F396817CA7FA900CB59DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake Day-Info.plist"; sourceTree = "<group>"; };
+		E91F397017CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E91F397217CA7FAA00CB59DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Prefix.pch"; sourceTree = "<group>"; };
+		E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
+		E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
+		E91F397817CA7FAA00CB59DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E91F397A17CA7FAA00CB59DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E91F397C17CA7FAA00CB59DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E91F397F17CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		E91F398117CA7FAA00CB59DB /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
+		E91F398217CA7FAA00CB59DB /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
+		E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake DayTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91F398A17CA7FAA00CB59DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake DayTests-Info.plist"; sourceTree = "<group>"; };
+		E91F399417CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E91F399617CA7FAA00CB59DB /* Cake_DayTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cake_DayTests.h; sourceTree = "<group>"; };
+		E91F399717CA7FAA00CB59DB /* Cake_DayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cake_DayTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E91F396017CA7FA900CB59DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F396717CA7FA900CB59DB /* UIKit.framework in Frameworks */,
+				E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */,
+				E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91F398517CA7FAA00CB59DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F398B17CA7FAA00CB59DB /* SenTestingKit.framework in Frameworks */,
+				E91F398C17CA7FAA00CB59DB /* UIKit.framework in Frameworks */,
+				E91F398D17CA7FAA00CB59DB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E91F395A17CA7FA900CB59DB = {
+			isa = PBXGroup;
+			children = (
+				E91F396C17CA7FA900CB59DB /* Cake Day */,
+				E91F399017CA7FAA00CB59DB /* Cake DayTests */,
+				E91F396517CA7FA900CB59DB /* Frameworks */,
+				E91F396417CA7FA900CB59DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E91F396417CA7FA900CB59DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E91F396317CA7FA900CB59DB /* Cake Day.app */,
+				E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E91F396517CA7FA900CB59DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E91F396617CA7FA900CB59DB /* UIKit.framework */,
+				E91F396817CA7FA900CB59DB /* Foundation.framework */,
+				E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */,
+				E91F398A17CA7FAA00CB59DB /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E91F396C17CA7FA900CB59DB /* Cake Day */ = {
+			isa = PBXGroup;
+			children = (
+				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
+				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
+				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
+				E91F398117CA7FAA00CB59DB /* CDViewController.h */,
+				E91F398217CA7FAA00CB59DB /* CDViewController.m */,
+				E91F396D17CA7FAA00CB59DB /* Supporting Files */,
+			);
+			path = "Cake Day";
+			sourceTree = "<group>";
+		};
+		E91F396D17CA7FAA00CB59DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */,
+				E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */,
+				E91F397217CA7FAA00CB59DB /* main.m */,
+				E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */,
+				E91F397817CA7FAA00CB59DB /* Default.png */,
+				E91F397A17CA7FAA00CB59DB /* Default@2x.png */,
+				E91F397C17CA7FAA00CB59DB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E91F399017CA7FAA00CB59DB /* Cake DayTests */ = {
+			isa = PBXGroup;
+			children = (
+				E91F399617CA7FAA00CB59DB /* Cake_DayTests.h */,
+				E91F399717CA7FAA00CB59DB /* Cake_DayTests.m */,
+				E91F399117CA7FAA00CB59DB /* Supporting Files */,
+			);
+			path = "Cake DayTests";
+			sourceTree = "<group>";
+		};
+		E91F399117CA7FAA00CB59DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */,
+				E91F399317CA7FAA00CB59DB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E91F396217CA7FA900CB59DB /* Cake Day */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E91F399B17CA7FAA00CB59DB /* Build configuration list for PBXNativeTarget "Cake Day" */;
+			buildPhases = (
+				E91F395F17CA7FA900CB59DB /* Sources */,
+				E91F396017CA7FA900CB59DB /* Frameworks */,
+				E91F396117CA7FA900CB59DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cake Day";
+			productName = "Cake Day";
+			productReference = E91F396317CA7FA900CB59DB /* Cake Day.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E91F398817CA7FAA00CB59DB /* Cake DayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E91F399E17CA7FAA00CB59DB /* Build configuration list for PBXNativeTarget "Cake DayTests" */;
+			buildPhases = (
+				E91F398417CA7FAA00CB59DB /* Sources */,
+				E91F398517CA7FAA00CB59DB /* Frameworks */,
+				E91F398617CA7FAA00CB59DB /* Resources */,
+				E91F398717CA7FAA00CB59DB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E91F398F17CA7FAA00CB59DB /* PBXTargetDependency */,
+			);
+			name = "Cake DayTests";
+			productName = "Cake DayTests";
+			productReference = E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E91F395B17CA7FA900CB59DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Thomas Denney";
+			};
+			buildConfigurationList = E91F395E17CA7FA900CB59DB /* Build configuration list for PBXProject "Cake Day" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E91F395A17CA7FA900CB59DB;
+			productRefGroup = E91F396417CA7FA900CB59DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E91F396217CA7FA900CB59DB /* Cake Day */,
+				E91F398817CA7FAA00CB59DB /* Cake DayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E91F396117CA7FA900CB59DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F397117CA7FAA00CB59DB /* InfoPlist.strings in Resources */,
+				E91F397917CA7FAA00CB59DB /* Default.png in Resources */,
+				E91F397B17CA7FAA00CB59DB /* Default@2x.png in Resources */,
+				E91F397D17CA7FAA00CB59DB /* Default-568h@2x.png in Resources */,
+				E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91F398617CA7FAA00CB59DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F399517CA7FAA00CB59DB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E91F398717CA7FAA00CB59DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E91F395F17CA7FA900CB59DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F397317CA7FAA00CB59DB /* main.m in Sources */,
+				E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */,
+				E91F398317CA7FAA00CB59DB /* CDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91F398417CA7FAA00CB59DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91F399817CA7FAA00CB59DB /* Cake_DayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E91F398F17CA7FAA00CB59DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E91F396217CA7FA900CB59DB /* Cake Day */;
+			targetProxy = E91F398E17CA7FAA00CB59DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E91F397017CA7FAA00CB59DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E91F397F17CA7FAA00CB59DB /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		E91F399317CA7FAA00CB59DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E91F399417CA7FAA00CB59DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E91F399917CA7FAA00CB59DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E91F399A17CA7FAA00CB59DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E91F399C17CA7FAA00CB59DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
+				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E91F399D17CA7FAA00CB59DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
+				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E91F399F17CA7FAA00CB59DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cake Day.app/Cake Day";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
+				INFOPLIST_FILE = "Cake DayTests/Cake DayTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E91F39A017CA7FAA00CB59DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cake Day.app/Cake Day";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
+				INFOPLIST_FILE = "Cake DayTests/Cake DayTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E91F395E17CA7FA900CB59DB /* Build configuration list for PBXProject "Cake Day" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91F399917CA7FAA00CB59DB /* Debug */,
+				E91F399A17CA7FAA00CB59DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E91F399B17CA7FAA00CB59DB /* Build configuration list for PBXNativeTarget "Cake Day" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91F399C17CA7FAA00CB59DB /* Debug */,
+				E91F399D17CA7FAA00CB59DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E91F399E17CA7FAA00CB59DB /* Build configuration list for PBXNativeTarget "Cake DayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91F399F17CA7FAA00CB59DB /* Debug */,
+				E91F39A017CA7FAA00CB59DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E91F395B17CA7FA900CB59DB /* Project object */;
+}
