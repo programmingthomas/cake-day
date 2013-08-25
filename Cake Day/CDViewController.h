@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDUtility.h"
+#import "CDUserListViewController.h"
+#import "CDCakeViewController.h"
 
-@interface CDViewController : UIViewController
+@interface CDViewController : UIViewController<CakeDelegate>
+
+@property FMDatabase * database;
+
+@property BOOL menuVisible;
+
+@property (weak, nonatomic) IBOutlet UIView *cakeViewContainer;
+
+@property CDUserListViewController * userListViewController;
+@property CDCakeViewController * cakeViewController;
 
 @end

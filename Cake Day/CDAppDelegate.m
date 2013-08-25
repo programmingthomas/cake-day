@@ -12,7 +12,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Crashlytics startWithAPIKey:@"854df6f7c8e401bda950765a0bb1d68b0ab9d717"];
+    self.database = [CDUtility database];
+    if ([self.database open])
+    {
+        if (![self.database executeUpdate:@"create table users (id integer primary key autoincrement, username string, cakeday int)"])
+        {
+            NSLog(@"Database create failed = %@", self.database.lastErrorMessage);
+        }
+        [self.database close];
+    }
+    if ([[UINavigationBar appearance] respondsToSelector:@selector(setTitleTextAttributes:)])
+    {
+        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont flatFontOfSize:0], UITextAttributeTextColor:[UIColor cloudsColor], UITextAttributeTextShadowColor:[UIColor clearColor], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero]}];
+    }
+    CDViewController * viewController = (CDViewController*)self.window.rootViewController;
+    viewController.database = self.database;
     return YES;
 }
 							
@@ -40,7 +55,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self.database close];
 }
 
 @end

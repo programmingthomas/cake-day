@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Crashlytics/Crashlytics.h>
+#import "CDUtility.h"
+#import "CDViewController.h"
 
 @interface CDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property FMDatabase * database;
 
 @end

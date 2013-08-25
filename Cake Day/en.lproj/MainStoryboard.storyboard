@@ -1,23 +1,166 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="CDViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-bf-bbJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="OQe-X5-jPx" kind="embed" id="IYu-aL-jab"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AH-5e-Til">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="Rgv-7q-qku" kind="embed" id="aHP-GH-2UD"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8AH-5e-Til" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="240" id="3Tc-z9-l2E"/>
+                            <constraint firstAttribute="trailing" secondItem="CK4-bf-bbJ" secondAttribute="trailing" constant="80" id="8nW-lO-14r"/>
+                            <constraint firstItem="CK4-bf-bbJ" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="9Me-Io-kzs"/>
+                            <constraint firstItem="CK4-bf-bbJ" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="MG3-Rz-JhW"/>
+                            <constraint firstItem="8AH-5e-Til" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="OBf-cw-g9J"/>
+                            <constraint firstItem="CK4-bf-bbJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="TZg-v6-VHu"/>
+                            <constraint firstAttribute="trailing" secondItem="8AH-5e-Til" secondAttribute="trailing" constant="-240" id="VuK-lR-UDT"/>
+                            <constraint firstItem="8AH-5e-Til" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="emb-pG-waW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cakeViewContainer" destination="8AH-5e-Til" id="HTV-Ig-4vg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-53" y="130"/>
+        </scene>
+        <!--User List View Controller-->
+        <scene sceneID="PDk-dl-osi">
+            <objects>
+                <tableViewController id="OQe-X5-jPx" customClass="CDUserListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OCQ-D4-5da">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="8Fn-Iz-ibq" style="IBUITableViewCellStyleDefault" id="4yY-FM-8Q1">
+                                <rect key="frame" x="0.0" y="22" width="240" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fn-Iz-ibq">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OQe-X5-jPx" id="rx5-aY-K77"/>
+                            <outlet property="delegate" destination="OQe-X5-jPx" id="b7E-GM-IlO"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-yi-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="-174"/>
+        </scene>
+        <!--Cake View Controller-->
+        <scene sceneID="sf6-bZ-mhy">
+            <objects>
+                <viewController id="Rgv-7q-qku" customClass="CDCakeViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wiH-jh-XvY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efA-j6-qcC">
+                                <items>
+                                    <navigationItem title="Title" id="S0I-AC-TFc">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="gGx-2u-OiB">
+                                            <connections>
+                                                <action selector="menuTapped:" destination="Rgv-7q-qku" id="ODs-Ys-iMM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-ca-c4x">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" type="user" id="8Lm-At-Vn6"/>
+                                    <constraint firstAttribute="height" constant="280" type="user" id="Ia9-kb-rXe"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Countdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEC-58-3te">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="efA-j6-qcC" firstAttribute="top" secondItem="wiH-jh-XvY" secondAttribute="top" type="default" id="1sI-ay-fWd"/>
+                            <constraint firstItem="YEC-58-3te" firstAttribute="top" secondItem="5YA-ca-c4x" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9lD-gP-buv"/>
+                            <constraint firstItem="5YA-ca-c4x" firstAttribute="top" secondItem="wiH-jh-XvY" secondAttribute="top" constant="64" type="user" id="CRJ-mm-L6I"/>
+                            <constraint firstItem="YEC-58-3te" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Gdm-dw-74m"/>
+                            <constraint firstAttribute="centerX" secondItem="5YA-ca-c4x" secondAttribute="centerX" type="user" id="V4x-Kd-iT2"/>
+                            <constraint firstItem="efA-j6-qcC" firstAttribute="trailing" secondItem="wiH-jh-XvY" secondAttribute="trailing" type="default" id="cNa-5Z-Nqs"/>
+                            <constraint firstItem="efA-j6-qcC" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" type="default" id="ftD-dI-dNK"/>
+                            <constraint firstAttribute="trailing" secondItem="YEC-58-3te" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="j1M-kB-nr4"/>
+                            <constraint firstItem="5YA-ca-c4x" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="yio-dU-pAa"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="countdownLabel" destination="YEC-58-3te" id="AAd-ax-V0b"/>
+                        <outlet property="menuButton" destination="gGx-2u-OiB" id="2V1-5g-4JH"/>
+                        <outlet property="navigationBar" destination="efA-j6-qcC" id="Den-cW-xsQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8R-xx-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517" y="531"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CDCakeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDCakeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuTapped:"/>
+                <relationship kind="outlet" name="countdownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+            </relationships>
+        </class>
+        <class className="CDUserListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDUserListViewController.h"/>
+        </class>
+        <class className="CDViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cakeViewContainer" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
