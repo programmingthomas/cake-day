@@ -57,6 +57,8 @@
 		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
 		E91F3A0217CA934D00CB59DB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E91F3A0117CA934D00CB59DB /* Lato-Bold.ttf */; };
 		E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2417CB2A3C00CB59DB /* Hamburger.m */; };
+		E91F3A2817CB39D800CB59DB /* Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2717CB39D800CB59DB /* Add.m */; };
+		E91F3A2B17CB39F900CB59DB /* CDImages.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2A17CB39F900CB59DB /* CDImages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,10 @@
 		E91F3A0117CA934D00CB59DB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../FlatUIKit/Resources/Lato-Bold.ttf"; sourceTree = "<group>"; };
 		E91F3A2317CB2A3C00CB59DB /* Hamburger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hamburger.h; sourceTree = "<group>"; };
 		E91F3A2417CB2A3C00CB59DB /* Hamburger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hamburger.m; sourceTree = "<group>"; };
+		E91F3A2617CB39D800CB59DB /* Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add.h; sourceTree = "<group>"; };
+		E91F3A2717CB39D800CB59DB /* Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add.m; sourceTree = "<group>"; };
+		E91F3A2917CB39F900CB59DB /* CDImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImages.h; sourceTree = "<group>"; };
+		E91F3A2A17CB39F900CB59DB /* CDImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImages.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,9 +371,13 @@
 		E91F3A2217CB292F00CB59DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E91F3A2617CB39D800CB59DB /* Add.h */,
+				E91F3A2717CB39D800CB59DB /* Add.m */,
 				E91F3A2317CB2A3C00CB59DB /* Hamburger.h */,
 				E91F3A2417CB2A3C00CB59DB /* Hamburger.m */,
 				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
+				E91F3A2917CB39F900CB59DB /* CDImages.h */,
+				E91F3A2A17CB39F900CB59DB /* CDImages.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -530,6 +540,8 @@
 				E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */,
 				E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */,
 				E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */,
+				E91F3A2817CB39D800CB59DB /* Add.m in Sources */,
+				E91F3A2B17CB39F900CB59DB /* CDImages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

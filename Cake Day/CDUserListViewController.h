@@ -10,6 +10,7 @@
 #import "FlatUIKit.h"
 #import "CDUtility.h"
 #import "CDUser.h"
+#import "CDImages.h"
 
 @protocol MasterViewDelegate <NSObject>
 

@@ -21,14 +21,8 @@
     [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(20, 20), NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    HamburgerDrawingFunction(context, CGRectMake(0, 0, 20, 20));
-    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.menuButton.image = image;
-    
+
+    self.menuButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"hamburger"];
 }
 
 - (void)didReceiveMemoryWarning

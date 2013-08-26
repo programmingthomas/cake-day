@@ -73,6 +73,7 @@
     if (indexPath.section == 0)
     {
         cell.textLabel.text = @"Add user";
+        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"add"];
     }
     else if (indexPath.section == 2)
     {
@@ -82,6 +83,7 @@
     {
         CDUser * user = self.users[indexPath.row];
         cell.textLabel.text = user.username;
+        cell.imageView.image = nil;
     }
     cell.textLabel.font = [UIFont flatFontOfSize:20];
     cell.textLabel.textColor = [UIColor cloudsColor];

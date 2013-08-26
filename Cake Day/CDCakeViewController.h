@@ -10,7 +10,7 @@
 #import "CDUtility.h"
 #import "FlatUIKit.h"
 #import "CDUser.h"
-#import "Hamburger.h"
+#import "CDImages.h"
 
 @protocol DetailViewDelegate <NSObject>
 

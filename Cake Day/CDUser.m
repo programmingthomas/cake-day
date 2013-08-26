@@ -57,21 +57,30 @@
     notification.soundName = UILocalNotificationDefaultSoundName;
     notification.userInfo = @{@"uid": [self localNotificationUID]};
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    NSLog(@"Configured local notification to repeat regularly");
 }
 
 -(UILocalNotification*)localNotification
 {
     NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    UILocalNotification * notification;
+    BOOL foundNotification = NO;
     for (UILocalNotification * localNotification in localNotifications)
     {
         NSString * uid = localNotification.userInfo[@"uid"];
         if ([uid isEqualToString:[self localNotificationUID]])
         {
-            return localNotification;
+            if (!foundNotification)
+            {
+                notification = localNotification;
+                foundNotification = YES;
+            }
+            else
+            {
+                [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+            }
         }
     }
-    return [[UILocalNotification alloc] init];
+    return foundNotification ? notification : [UILocalNotification new];
 }
 
 -(NSString*)localNotificationUID
@@ -81,8 +90,15 @@
 
 -(void)deleteLocalNotification
 {
-    [[UIApplication sharedApplication] cancelLocalNotification:[self localNotification]];
-    NSLog(@"Removed notification");
+    NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification * notification in localNotifications)
+    {
+        NSString * uid = notification.userInfo[@"uid"];
+        if ([uid isEqualToString:[self localNotificationUID]])
+        {
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+        }
+    }
 }
 
 @end
