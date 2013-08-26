@@ -58,28 +58,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.users.count + 2;
+    return section == 1 ? self.users.count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (indexPath.row == 0)
+    if (indexPath.section == 0)
     {
         cell.textLabel.text = @"Add user";
     }
-    else if (indexPath.row == self.users.count + 1)
+    else if (indexPath.section == 2)
     {
         cell.textLabel.text = @"Rate Cake Day";
     }
     else
     {
-        CDUser * user = self.users[indexPath.row - 1];
+        CDUser * user = self.users[indexPath.row];
         cell.textLabel.text = user.username;
     }
     cell.textLabel.font = [UIFont flatFontOfSize:20];
@@ -87,56 +87,138 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
+-(float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return indexPath.section == 1;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        CDUser * user = self.users[indexPath.row];
+        if ([self.database open])
+        {
+            if (![self.database executeUpdate:@"delete from users where id = ?", user.databaseId])
+            {
+                NSLog(@"Error deleting = %@", self.database.lastErrorMessage);
+            }
+            [self.database close];
+        }
+        [self.users removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        
+        [self.masterViewDelegate userDeleted:user];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+-(void)addUser
 {
+    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter Reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.addUserAlert show];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    if (alertView == self.addUserAlert && buttonIndex == 1)
+    {
+        NSString * username = [self.addUserAlert textFieldAtIndex:0].text;
+        username = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        [self addUserForName:username];
+    }
 }
-*/
+
+-(void)addUserForName:(NSString*)username
+{
+    NSString * usernameURLString = [NSString stringWithFormat:@"http://reddit.com/user/%@/about.json", username];
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        NSError * error;
+        NSDictionary * data = [CDUtility redditData:usernameURLString withError:&error];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (error == nil)
+            {
+                NSString * username = data[@"name"];
+                NSNumber * createdUTC = data[@"created_utc"];
+                [self createNewUser:username andCreationDate:createdUTC];
+            }
+            else
+            {
+                NSLog(@"Failed to get Reddit data = %@", error.localizedDescription);
+                [self usernameError:username];
+            }
+        }];
+    }];
+}
+
+-(void)createNewUser:(NSString*)username andCreationDate:(NSNumber*)created
+{
+    //Check if the username has already been added
+    if (![self showUserWithName:username])
+    {
+        if ([self.database open])
+        {
+            if ([self.database executeUpdate:@"insert into users(username, cakeday) values (?,?)", username, created])
+            {
+                [self update];
+                [self showUserWithName:username];
+            }
+            else
+            {
+                NSLog(@"Failed to insert user = %@", self.database.lastErrorMessage);
+            }
+            [self.database close];
+        }
+    }
+}
+
+-(BOOL)showUserWithName:(NSString*)username
+{
+    for (CDUser * user in self.users)
+    {
+        if ([user.username isEqualToString:username])
+        {
+            [self.masterViewDelegate userSelected:user];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)usernameError:(NSString*)username
+{
+    UIAlertView * failedAlert = [[UIAlertView alloc] initWithTitle:@"Failed to find user" message:[NSString stringWithFormat:@"Sorry, the user %@ could not be found", username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [failedAlert show];
+}
+
+-(void)rate
+{
+    NSURL * url = [NSURL URLWithString:@"some app store URL"];
+    [[UIApplication sharedApplication] openURL:url];
+}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (indexPath.section == 0)
+    {
+        [self addUser];
+    }
+    else if (indexPath.section == 2)
+    {
+        [self rate];
+    }
+    else
+    {
+        CDUser * user = self.users[indexPath.row];
+        [self.masterViewDelegate userSelected:user];
+    }
 }
 
 @end

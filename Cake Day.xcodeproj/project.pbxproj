@@ -55,6 +55,8 @@
 		E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F917CA83E500CB59DB /* CDUserListViewController.m */; };
 		E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FC17CA85D500CB59DB /* CDUser.m */; };
 		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
+		E91F3A0217CA934D00CB59DB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E91F3A0117CA934D00CB59DB /* Lato-Bold.ttf */; };
+		E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2417CB2A3C00CB59DB /* Hamburger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,9 @@
 		E91F39FC17CA85D500CB59DB /* CDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUser.m; sourceTree = "<group>"; };
 		E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeViewController.h; sourceTree = "<group>"; };
 		E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeViewController.m; sourceTree = "<group>"; };
+		E91F3A0117CA934D00CB59DB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../FlatUIKit/Resources/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		E91F3A2317CB2A3C00CB59DB /* Hamburger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hamburger.h; sourceTree = "<group>"; };
+		E91F3A2417CB2A3C00CB59DB /* Hamburger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hamburger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,22 +222,12 @@
 		E91F396C17CA7FA900CB59DB /* Cake Day */ = {
 			isa = PBXGroup;
 			children = (
+				E91F3A2117CB291700CB59DB /* Model */,
+				E91F3A2217CB292F00CB59DB /* View */,
+				E91F3A2017CB290900CB59DB /* Controller */,
 				E91F39B517CA815B00CB59DB /* FlatUIKit */,
 				E91F39A517CA813B00CB59DB /* FMDB */,
-				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
-				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
-				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
-				E91F398117CA7FAA00CB59DB /* CDViewController.h */,
-				E91F398217CA7FAA00CB59DB /* CDViewController.m */,
 				E91F396D17CA7FAA00CB59DB /* Supporting Files */,
-				E91F39F517CA824F00CB59DB /* CDUtility.h */,
-				E91F39F617CA824F00CB59DB /* CDUtility.m */,
-				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
-				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
-				E91F39FB17CA85D500CB59DB /* CDUser.h */,
-				E91F39FC17CA85D500CB59DB /* CDUser.m */,
-				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
-				E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */,
 			);
 			path = "Cake Day";
 			sourceTree = "<group>";
@@ -335,9 +330,46 @@
 		E91F39ED17CA817C00CB59DB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E91F3A0117CA934D00CB59DB /* Lato-Bold.ttf */,
 				E91F39EE17CA819300CB59DB /* Lato-Regular.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		E91F3A2017CB290900CB59DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
+				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
+				E91F398117CA7FAA00CB59DB /* CDViewController.h */,
+				E91F398217CA7FAA00CB59DB /* CDViewController.m */,
+				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
+				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
+				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
+				E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E91F3A2117CB291700CB59DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E91F39F517CA824F00CB59DB /* CDUtility.h */,
+				E91F39F617CA824F00CB59DB /* CDUtility.m */,
+				E91F39FB17CA85D500CB59DB /* CDUser.h */,
+				E91F39FC17CA85D500CB59DB /* CDUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E91F3A2217CB292F00CB59DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E91F3A2317CB2A3C00CB59DB /* Hamburger.h */,
+				E91F3A2417CB2A3C00CB59DB /* Hamburger.m */,
+				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +451,7 @@
 				E91F397D17CA7FAA00CB59DB /* Default-568h@2x.png in Resources */,
 				E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */,
 				E91F39EF17CA819300CB59DB /* Lato-Regular.ttf in Resources */,
+				E91F3A0217CA934D00CB59DB /* Lato-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +529,7 @@
 				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
 				E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */,
 				E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */,
+				E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

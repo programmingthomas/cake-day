@@ -7,20 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDUtility.h"
 #import "FlatUIKit.h"
+#import "CDUser.h"
+#import "Hamburger.h"
 
-@protocol CakeDelegate <NSObject>
+@protocol DetailViewDelegate <NSObject>
 
--(void)menuTapped;
+-(void)showMenu;
+-(void)hideDetailView;
 
 @end
 
 @interface CDCakeViewController : UIViewController
 
-@property id<CakeDelegate> cakeDelegate;
+@property (nonatomic) CDUser * user;
+
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+
 - (IBAction)menuTapped:(id)sender;
+
+@property NSTimer * timer;
+@property id<DetailViewDelegate> detailViewDelegate;
+
+
 
 @end

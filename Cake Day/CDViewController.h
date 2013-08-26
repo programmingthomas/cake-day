@@ -12,13 +12,14 @@
 #import "CDUserListViewController.h"
 #import "CDCakeViewController.h"
 
-@interface CDViewController : UIViewController<CakeDelegate>
+@interface CDViewController : UIViewController<MasterViewDelegate, DetailViewDelegate>
 
 @property FMDatabase * database;
 
 @property BOOL menuVisible;
 
 @property (weak, nonatomic) IBOutlet UIView *cakeViewContainer;
+@property (weak, nonatomic) IBOutlet UIView *listViewContainer;
 
 @property CDUserListViewController * userListViewController;
 @property CDCakeViewController * cakeViewController;

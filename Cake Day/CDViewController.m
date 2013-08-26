@@ -20,11 +20,11 @@
     self.userListViewController = self.childViewControllers[0];
     self.cakeViewController = self.childViewControllers[1];
     self.userListViewController.database = self.database;
-    self.cakeViewController.cakeDelegate = self;
+    self.userListViewController.masterViewDelegate = self;
+    self.cakeViewController.detailViewDelegate = self;
     self.menuVisible = YES;
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCakeViewController:)];
     [self.cakeViewContainer addGestureRecognizer:tapGesture];
-    [self shadowsAndCorners:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,37 +33,60 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Model update methods
+
+-(void)userDeleted:(CDUser*)user
+{
+    if (user == self.cakeViewController.user)
+    {
+        [self hideDetailView];
+    }
+}
+
+-(void)userSelected:(CDUser *)user
+{
+    self.cakeViewController.user = user;
+    [self showDetailView];
+}
+
+#pragma mark - View update methods
+
+//This will completely show the detail view (i.e. only thing visible)
+-(void)showDetailView
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        self.cakeViewContainer.frame = self.view.bounds;
+        self.menuVisible = NO;
+    }];
+}
+
+//This will completely hide the detail view (i.e. menu is only thing visible)
+-(void)hideDetailView
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.listViewContainer.frame = self.view.bounds;
+        self.menuVisible = YES;
+    }];
+}
+
+//This will show the menu, however a small section of the detail view will still be visible
+-(void)showMenu
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
+        self.menuVisible = YES;
+    }];
+}
+
+//If the menu is visible show the detail view
 -(void)tapOnCakeViewController:(id)sender
 {
     if (self.menuVisible)
     {
-        [UIView animateWithDuration:0.25f animations:^{
-            self.cakeViewContainer.frame = self.view.bounds;
-            [self shadowsAndCorners:NO];
-        } completion:^(BOOL finished) {
-            self.menuVisible = NO;
-        }];
+        [self showDetailView];
     }
-}
-
--(void)menuTapped
-{
-    if (!self.menuVisible)
-    {
-        [UIView animateWithDuration:0.25f animations:^{
-            self.cakeViewContainer.frame = CGRectMake(240, 0, CGRectGetHeight(self.view.bounds), CGRectGetHeight(self.view.bounds));
-            [self shadowsAndCorners:YES];
-        } completion:^(BOOL finished) {
-            self.menuVisible = YES;
-        }];
-    }
-}
-
--(void)shadowsAndCorners:(BOOL)enabled
-{
-    self.cakeViewContainer.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.cakeViewContainer.layer.shadowOpacity = enabled ? 0.5f : 0;
-    self.cakeViewContainer.layer.shadowOffset = CGSizeMake(-5, 0);
 }
 
 @end

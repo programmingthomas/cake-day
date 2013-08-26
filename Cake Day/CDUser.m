@@ -24,7 +24,19 @@
 
 -(NSDate*)nextCakeDay
 {
-    
+    //This is inefficient as fuck, but it works
+    NSDate * cakeday = self.cakeDay;
+    while (YES) {
+        //Cakeday is after today
+        if ([cakeday compare:[NSDate date]] == NSOrderedDescending)
+        {
+            return cakeday;
+        }
+        NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents * offset = [NSDateComponents new];
+        [offset setYear:1];
+        cakeday = [gregorian dateByAddingComponents:offset toDate:cakeday options:0];
+    }
 }
 
 -(NSTimeInterval)timeToCakeDay

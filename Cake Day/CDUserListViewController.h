@@ -11,9 +11,20 @@
 #import "CDUtility.h"
 #import "CDUser.h"
 
-@interface CDUserListViewController : UITableViewController
+@protocol MasterViewDelegate <NSObject>
+
+-(void)userDeleted:(CDUser*)user;
+-(void)userSelected:(CDUser*)user;
+
+@end
+
+@interface CDUserListViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic) FMDatabase * database;
-@property NSArray * users;
+@property NSMutableArray * users;
+
+@property UIAlertView * addUserAlert;
+
+@property id<MasterViewDelegate> masterViewDelegate;
 
 @end

@@ -13,5 +13,7 @@
 
 +(FMDatabase*)database;
 +(NSString*)documentsDirectory;
++(NSDictionary*)redditData:(NSString*)redditURL withError:(NSError**)errorPtr;
++(NSString*)durationString:(NSTimeInterval)dur;
 
 @end
