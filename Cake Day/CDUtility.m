@@ -27,47 +27,47 @@ static char S(int v)
 
 +(NSDictionary*)redditData:(NSString *)redditURL withError:(NSError *__autoreleasing *)errorPtr
 {
-    NSURL * url = [NSURL URLWithString:redditURL];
-    if (url != nil)
+    NSString* userAgent = @"cakeday/1.0 by /u/ProgrammingThomas";
+    NSURL* url = [NSURL URLWithString:redditURL];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request addValue:userAgent forHTTPHeaderField:@"User-Agent"];
+    
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+    NSData* jsonData = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    if (error != nil)
     {
-        NSError * error;
-        NSData * jsonData = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-            if (error != nil)
-            {
-                *errorPtr = error;
-            }
-            else
-            {
-                NSError * jsonError;
-                NSDictionary * json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&jsonError];
-                if (jsonError != nil)
-                {
-                    *errorPtr = jsonError;
-                }
-                else
-                {
-                    if ([json objectForKey:@"error"] != nil)
-                    {
-                        *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
-                    }
-                    else
-                    {
-                        NSDictionary * data = json[@"data"];
-                        if (data)
-                        {
-                            return data;
-                        }
-                        else
-                        {
-                            *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
-                        }
-                    }
-                }
-            }
+        *errorPtr = error;
     }
     else
     {
-        *errorPtr = [NSError errorWithDomain:@"" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Couldn't create URL"}];
+        NSError * jsonError;
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&jsonError];
+        if (jsonError != nil)
+        {
+            *errorPtr = jsonError;
+        }
+        else
+        {
+            if ([json objectForKey:@"error"] != nil)
+            {
+                *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
+            }
+            else
+            {
+                NSDictionary * data = json[@"data"];
+                if (data)
+                {
+                    return data;
+                }
+                else
+                {
+                    *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
+                }
+            }
+        }
     }
     return nil;
 }
