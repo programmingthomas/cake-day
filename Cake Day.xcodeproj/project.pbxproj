@@ -735,6 +735,7 @@
 		E91F399D17CA7FAA00CB59DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -743,6 +744,7 @@
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

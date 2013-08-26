@@ -98,6 +98,11 @@
                                                 <action selector="menuTapped:" destination="Rgv-7q-qku" id="ODs-Ys-iMM"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="zhQ-fH-gHm">
+                                            <connections>
+                                                <action selector="shareTapped:" destination="Rgv-7q-qku" id="RG6-9z-BNP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -135,6 +140,7 @@
                         <outlet property="menuButton" destination="gGx-2u-OiB" id="2V1-5g-4JH"/>
                         <outlet property="navItem" destination="S0I-AC-TFc" id="f9K-LS-nPJ"/>
                         <outlet property="navigationBar" destination="efA-j6-qcC" id="Den-cW-xsQ"/>
+                        <outlet property="shareButton" destination="zhQ-fH-gHm" id="Tue-DP-4ey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8R-xx-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,11 +156,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CDCakeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="menuTapped:"/>
+                <relationship kind="action" name="shareTapped:"/>
                 <relationship kind="outlet" name="cakeView" candidateClass="CDCakeView"/>
                 <relationship kind="outlet" name="countdownLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="menuButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="CDUserListViewController" superclassName="UITableViewController">

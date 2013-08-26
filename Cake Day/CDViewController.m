@@ -40,6 +40,19 @@
     }
 }
 
+-(void)viewDidLayoutSubviews
+{
+    if (self.menuVisible)
+    {
+        [self showMenu];
+    }
+    else
+    {
+        self.cakeViewContainer.frame = self.view.bounds;
+        self.menuVisible = NO;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

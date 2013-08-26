@@ -19,6 +19,7 @@
     [super viewDidLoad];
     [self.navigationBar configureFlatNavigationBarWithColor:[UIColor wetAsphaltColor]];
     [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];
 
@@ -29,6 +30,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)shareTapped:(id)sender
+{
+    self.shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share text", @"Share cake", nil];
+    [self.shareActionSheet showFromBarButtonItem:self.shareButton animated:YES];
+    [self.detailViewDelegate showDetailView];
 }
 
 - (IBAction)menuTapped:(id)sender
@@ -62,6 +70,33 @@
         self.cakeView.candles = self.user.yearsOld;
         NSTimeInterval timeToNextCakeDay = [self.user timeToCakeDay];
         self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:timeToNextCakeDay], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+    }
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet == self.shareActionSheet)
+    {
+        NSString * shareString = [NSString stringWithFormat:@"It is %@ until %@ cake day!", [CDUtility durationString:self.user.timeToCakeDay], [self.user usernameWithApostrophe]];
+        if (buttonIndex == 0)
+        {
+            UIActivityViewController * shareController = [[UIActivityViewController alloc] initWithActivityItems:@[shareString] applicationActivities:nil];
+            [self presentViewController:shareController animated:YES completion:nil];
+        }
+        else if (buttonIndex == 1)
+        {
+            [[NSOperationQueue new] addOperationWithBlock:^{
+                //Good size for Instagram
+                UIGraphicsBeginImageContextWithOptions(CGSizeMake(612, 612), NO, 0);
+                [self.cakeView drawRect:CGRectMake(0, 0, 612, 612)];
+                UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    UIActivityViewController * shareController = [[UIActivityViewController alloc] initWithActivityItems:@[shareString, image] applicationActivities:nil];
+                    [self presentViewController:shareController animated:YES completion:nil];
+                }];
+            }];
+        }
     }
 }
 

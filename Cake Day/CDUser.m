@@ -55,12 +55,17 @@
     return [components year];
 }
 
+-(NSString*)usernameWithApostrophe
+{
+    return [NSString stringWithFormat:@"%@'%c", self.username, [self.username hasSuffix:@"s"] ? 0 : 's'];
+}
+
 -(void)createLocalNotification
 {
     UILocalNotification * notification = [self localNotification];
     notification.fireDate = self.nextCakeDay;
     notification.repeatInterval = NSYearCalendarUnit;
-    notification.alertBody = [NSString stringWithFormat:@"It's %@'%c cake day!", self.username, [self.username hasSuffix:@"s"] ? 0 : 's'];
+    notification.alertBody = [NSString stringWithFormat:@"It's %@ cake day!", self.usernameWithApostrophe];
     //I'm not sure if this is going to fuck up notifications for foreigners - it shouldn't (I am testing in BST)
     notification.timeZone = [NSTimeZone systemTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;

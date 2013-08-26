@@ -17,6 +17,7 @@
 -(NSDate*)nextCakeDay;
 -(NSTimeInterval)timeToCakeDay;
 -(int)yearsOld;
+-(NSString*)usernameWithApostrophe;
 
 -(void)createLocalNotification;
 -(void)deleteLocalNotification;
