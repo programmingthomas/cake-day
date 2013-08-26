@@ -70,6 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.backgroundColor = self.tableView.backgroundColor;
     if (indexPath.section == 0)
     {
         cell.textLabel.text = @"Add user";
@@ -124,7 +125,7 @@
 
 -(void)addUser
 {
-    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter Reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
     self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [self.addUserAlert show];
 }

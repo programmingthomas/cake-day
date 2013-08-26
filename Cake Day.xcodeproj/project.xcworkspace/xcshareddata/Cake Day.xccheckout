@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>11133DEE-34C9-4FA6-9D53-552FAA7C9324</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cake Day</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>056D8B73-0969-4CF4-913D-608375E162FA</key>
+		<string>https://github.com/Grouper/FlatUIKit.git</string>
+		<key>5D0F32E2-C576-4A90-9DDF-16F00949BD4C</key>
+		<string>https://github.com/ccgus/fmdb.git</string>
+		<key>ACAB038B-D746-4D57-96FD-DFB8765686DD</key>
+		<string>https://bitbucket.org/programmingthomas/cake-day.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cake Day.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>056D8B73-0969-4CF4-913D-608375E162FA</key>
+		<string>../../../FlatUIKit</string>
+		<key>5D0F32E2-C576-4A90-9DDF-16F00949BD4C</key>
+		<string>../../../fmdb</string>
+		<key>ACAB038B-D746-4D57-96FD-DFB8765686DD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/programmingthomas/cake-day.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ACAB038B-D746-4D57-96FD-DFB8765686DD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ACAB038B-D746-4D57-96FD-DFB8765686DD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cake-day</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>056D8B73-0969-4CF4-913D-608375E162FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FlatUIKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D0F32E2-C576-4A90-9DDF-16F00949BD4C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>fmdb</string>
+		</dict>
+	</array>
+</dict>
+</plist>

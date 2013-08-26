@@ -17,8 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationBar configureFlatNavigationBarWithColor:[UIColor wetAsphaltColor]];
     [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    [self.menuButton setTintColor:[UIColor whiteColor]];
     [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];

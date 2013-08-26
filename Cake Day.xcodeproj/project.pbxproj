@@ -488,6 +488,11 @@
 				CLASSPREFIX = CD;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Thomas Denney";
+				TargetAttributes = {
+					E91F396217CA7FA900CB59DB = {
+						DevelopmentTeam = XT4Q76JCC4;
+					};
+				};
 			};
 			buildConfigurationList = E91F395E17CA7FA900CB59DB /* Build configuration list for PBXProject "Cake Day" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -720,6 +725,7 @@
 		E91F399C17CA7FAA00CB59DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -735,7 +741,7 @@
 		E91F399D17CA7FAA00CB59DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

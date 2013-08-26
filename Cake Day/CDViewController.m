@@ -38,6 +38,10 @@
     {
         [self userSelected:self.userListViewController.users[0]];
     }
+    else
+    {
+        [self hideDetailView];
+    }
 }
 
 -(void)viewDidLayoutSubviews
