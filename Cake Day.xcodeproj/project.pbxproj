@@ -71,6 +71,7 @@
 		E91F3A4317CB4EF600CB59DB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F3A3C17CB4EF500CB59DB /* Icon.png */; };
 		E91F3A4417CB4EF600CB59DB /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F3A3D17CB4EF600CB59DB /* Icon@2x.png */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
+		E95F36EE17CB6292002A0CA7 /* Alien.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36ED17CB6292002A0CA7 /* Alien.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,8 @@
 		E91F3A3D17CB4EF600CB59DB /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
 		E95F36E917CB55FB002A0CA7 /* Candle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candle.m; sourceTree = "<group>"; };
+		E95F36EC17CB6292002A0CA7 /* Alien.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alien.h; sourceTree = "<group>"; };
+		E95F36ED17CB6292002A0CA7 /* Alien.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alien.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +423,8 @@
 		E95F36EB17CB6003002A0CA7 /* Opacity generated */ = {
 			isa = PBXGroup;
 			children = (
+				E95F36EC17CB6292002A0CA7 /* Alien.h */,
+				E95F36ED17CB6292002A0CA7 /* Alien.m */,
 				E95F36E817CB55FB002A0CA7 /* Candle.h */,
 				E95F36E917CB55FB002A0CA7 /* Candle.m */,
 				E91F3A3217CB48BB00CB59DB /* Cake.h */,
@@ -606,6 +611,7 @@
 				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 				E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */,
+				E95F36EE17CB6292002A0CA7 /* Alien.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

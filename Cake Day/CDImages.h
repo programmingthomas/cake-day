@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Add.h"
+#import "Alien.h"
 #import "Hamburger.h"
 #import "Rate.h"
 

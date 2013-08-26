@@ -27,6 +27,10 @@
     {
         RateDrawingFunction(context, bounds);
     }
+    else if ([name isEqualToString:@"alien"])
+    {
+        AlienDrawingFunction(context, bounds);
+    }
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
