@@ -25,6 +25,19 @@ static char S(int v)
     return [FMDatabase databaseWithPath:[[CDUtility documentsDirectory] stringByAppendingPathComponent:@"database.sqlite"]];
 }
 
++(float)systemVersion
+{
+    NSArray * versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    float total = 0;
+    int pot = 0;
+    for (NSNumber * number in versionCompatibility)
+    {
+        total += number.intValue * powf(10, pot);
+        pot--;
+    }
+    return total;
+}
+
 +(NSDictionary*)redditData:(NSString *)redditURL withError:(NSError *__autoreleasing *)errorPtr
 {
     NSString* userAgent = @"cakeday/1.0 by /u/ProgrammingThomas";
