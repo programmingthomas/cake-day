@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Cake.h"
+#import "Candle.h"
 
 @interface CDCakeView : UIView
 {
