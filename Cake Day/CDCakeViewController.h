@@ -11,6 +11,7 @@
 #import "FlatUIKit.h"
 #import "CDUser.h"
 #import "CDImages.h"
+#import "CDCakeView.h"
 
 @protocol DetailViewDelegate <NSObject>
 
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+@property (weak, nonatomic) IBOutlet CDCakeView *cakeView;
 
 - (IBAction)menuTapped:(id)sender;
 

@@ -16,6 +16,7 @@
 
 -(NSDate*)nextCakeDay;
 -(NSTimeInterval)timeToCakeDay;
+-(int)yearsOld;
 
 -(void)createLocalNotification;
 -(void)deleteLocalNotification;

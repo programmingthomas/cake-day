@@ -10,6 +10,7 @@
 
 #import "Add.h"
 #import "Hamburger.h"
+#import "Rate.h"
 
 @interface CDImages : NSObject
 

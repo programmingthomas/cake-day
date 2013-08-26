@@ -78,6 +78,7 @@
     else if (indexPath.section == 2)
     {
         cell.textLabel.text = @"Rate Cake Day";
+        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"rate"];
     }
     else
     {

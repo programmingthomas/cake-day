@@ -46,6 +46,15 @@
     return [nextCakeDay timeIntervalSinceDate:today];
 }
 
+-(int)yearsOld
+{
+    NSDate * birthCakeDay = self.cakeDay;
+    NSDate * today = [NSDate date];
+    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents * components = [gregorian components:NSYearCalendarUnit fromDate:birthCakeDay toDate:today options:0];
+    return [components year];
+}
+
 -(void)createLocalNotification
 {
     UILocalNotification * notification = [self localNotification];

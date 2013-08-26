@@ -59,6 +59,9 @@
 		E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2417CB2A3C00CB59DB /* Hamburger.m */; };
 		E91F3A2817CB39D800CB59DB /* Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2717CB39D800CB59DB /* Add.m */; };
 		E91F3A2B17CB39F900CB59DB /* CDImages.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2A17CB39F900CB59DB /* CDImages.m */; };
+		E91F3A2E17CB403600CB59DB /* Rate.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A2D17CB403600CB59DB /* Rate.m */; };
+		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
+		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +164,12 @@
 		E91F3A2717CB39D800CB59DB /* Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add.m; sourceTree = "<group>"; };
 		E91F3A2917CB39F900CB59DB /* CDImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDImages.h; sourceTree = "<group>"; };
 		E91F3A2A17CB39F900CB59DB /* CDImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImages.m; sourceTree = "<group>"; };
+		E91F3A2C17CB403600CB59DB /* Rate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rate.h; sourceTree = "<group>"; };
+		E91F3A2D17CB403600CB59DB /* Rate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rate.m; sourceTree = "<group>"; };
+		E91F3A2F17CB410C00CB59DB /* CDCakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeView.h; sourceTree = "<group>"; };
+		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
+		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
+		E91F3A3317CB48BB00CB59DB /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +380,10 @@
 		E91F3A2217CB292F00CB59DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E91F3A3217CB48BB00CB59DB /* Cake.h */,
+				E91F3A3317CB48BB00CB59DB /* Cake.m */,
+				E91F3A2C17CB403600CB59DB /* Rate.h */,
+				E91F3A2D17CB403600CB59DB /* Rate.m */,
 				E91F3A2617CB39D800CB59DB /* Add.h */,
 				E91F3A2717CB39D800CB59DB /* Add.m */,
 				E91F3A2317CB2A3C00CB59DB /* Hamburger.h */,
@@ -378,6 +391,8 @@
 				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
 				E91F3A2917CB39F900CB59DB /* CDImages.h */,
 				E91F3A2A17CB39F900CB59DB /* CDImages.m */,
+				E91F3A2F17CB410C00CB59DB /* CDCakeView.h */,
+				E91F3A3017CB410C00CB59DB /* CDCakeView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -542,6 +557,9 @@
 				E91F3A2517CB2A3C00CB59DB /* Hamburger.m in Sources */,
 				E91F3A2817CB39D800CB59DB /* Add.m in Sources */,
 				E91F3A2B17CB39F900CB59DB /* CDImages.m in Sources */,
+				E91F3A2E17CB403600CB59DB /* Rate.m in Sources */,
+				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
+				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
