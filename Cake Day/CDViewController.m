@@ -17,14 +17,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.userListViewController = self.childViewControllers[0];
-    self.cakeViewController = self.childViewControllers[1];
-    self.userListViewController.database = self.database;
-    self.userListViewController.masterViewDelegate = self;
-    self.cakeViewController.detailViewDelegate = self;
+    
     self.menuVisible = YES;
+    
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCakeViewController:)];
     [self.cakeViewContainer addGestureRecognizer:tapGesture];
+    
+    self.userListViewController = self.childViewControllers[0];
+    self.cakeViewController = self.childViewControllers[1];
+    
+    self.userListViewController.masterViewDelegate = self;
+    self.userListViewController.database = self.database;
+    
+    self.cakeViewController.detailViewDelegate = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (self.userListViewController.users.count > 0 && self.menuVisible)
+    {
+        [self userSelected:self.userListViewController.users[0]];
+    }
 }
 
 - (void)didReceiveMemoryWarning

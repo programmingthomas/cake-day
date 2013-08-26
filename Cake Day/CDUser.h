@@ -17,6 +17,9 @@
 -(NSDate*)nextCakeDay;
 -(NSTimeInterval)timeToCakeDay;
 
+-(void)createLocalNotification;
+-(void)deleteLocalNotification;
+
 -(id)initWithUsername:(NSString*)username andCakeDay:(NSNumber*)cakeDay andDatabaseID:(NSNumber*)databaseId;
 
 

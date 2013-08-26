@@ -41,6 +41,7 @@
             NSNumber * cakeday = [NSNumber numberWithInt:[results intForColumn:@"cakeday"]];
             NSNumber * databaseId = [NSNumber numberWithInt:[results intForColumn:@"id"]];
             CDUser * user = [[CDUser alloc] initWithUsername:username andCakeDay:cakeday andDatabaseID:databaseId];
+            [user createLocalNotification];
             [users addObject:user];
         }
     }
@@ -109,6 +110,7 @@
             }
             [self.database close];
         }
+        [user deleteLocalNotification];
         [self.users removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

@@ -65,7 +65,7 @@
     if (self.user != nil)
     {
         NSTimeInterval timeToNextCakeDay = [self.user timeToCakeDay];
-        self.countdownLabel.text = [NSString stringWithFormat:@"%@ to next cake day!\nRedditor since %@", [CDUtility durationString:timeToNextCakeDay], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nRedditor since %@", self.user.username, [CDUtility durationString:timeToNextCakeDay], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
     }
 }
 

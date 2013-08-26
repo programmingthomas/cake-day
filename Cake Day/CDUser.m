@@ -46,4 +46,43 @@
     return [nextCakeDay timeIntervalSinceDate:today];
 }
 
+-(void)createLocalNotification
+{
+    UILocalNotification * notification = [self localNotification];
+    notification.fireDate = self.nextCakeDay;
+    notification.repeatInterval = NSYearCalendarUnit;
+    notification.alertBody = [NSString stringWithFormat:@"It's %@'%c cake day!", self.username, [self.username hasSuffix:@"s"] ? 0 : 's'];
+    //I'm not sure if this is going to fuck up notifications for foreigners - it shouldn't (I am testing in BST)
+    notification.timeZone = [NSTimeZone systemTimeZone];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.userInfo = @{@"uid": [self localNotificationUID]};
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    NSLog(@"Configured local notification to repeat regularly");
+}
+
+-(UILocalNotification*)localNotification
+{
+    NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification * localNotification in localNotifications)
+    {
+        NSString * uid = localNotification.userInfo[@"uid"];
+        if ([uid isEqualToString:[self localNotificationUID]])
+        {
+            return localNotification;
+        }
+    }
+    return [[UILocalNotification alloc] init];
+}
+
+-(NSString*)localNotificationUID
+{
+    return [NSString stringWithFormat:@"cakeday-%d", self.databaseId.intValue];
+}
+
+-(void)deleteLocalNotification
+{
+    [[UIApplication sharedApplication] cancelLocalNotification:[self localNotification]];
+    NSLog(@"Removed notification");
+}
+
 @end

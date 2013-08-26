@@ -75,7 +75,6 @@ static char S(int v)
 +(NSString*)durationString:(NSTimeInterval)dur
 {
     int duration = (int)round((double)dur);
-    NSLog(@"%d", duration);
     int seconds = duration % 60;
     int minutes = (duration / 60) % 60;
     int hours = (duration / 3600) % 24;

@@ -53,6 +53,15 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    if ([application applicationState] == UIApplicationStateActive)
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cake day!" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [self.database close];
