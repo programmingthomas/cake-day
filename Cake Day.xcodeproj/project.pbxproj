@@ -407,6 +407,19 @@
 		E91F3A2217CB292F00CB59DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E95F36EB17CB6003002A0CA7 /* Opacity generated */,
+				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
+				E91F3A2917CB39F900CB59DB /* CDImages.h */,
+				E91F3A2A17CB39F900CB59DB /* CDImages.m */,
+				E91F3A2F17CB410C00CB59DB /* CDCakeView.h */,
+				E91F3A3017CB410C00CB59DB /* CDCakeView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E95F36EB17CB6003002A0CA7 /* Opacity generated */ = {
+			isa = PBXGroup;
+			children = (
 				E95F36E817CB55FB002A0CA7 /* Candle.h */,
 				E95F36E917CB55FB002A0CA7 /* Candle.m */,
 				E91F3A3217CB48BB00CB59DB /* Cake.h */,
@@ -417,13 +430,8 @@
 				E91F3A2717CB39D800CB59DB /* Add.m */,
 				E91F3A2317CB2A3C00CB59DB /* Hamburger.h */,
 				E91F3A2417CB2A3C00CB59DB /* Hamburger.m */,
-				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
-				E91F3A2917CB39F900CB59DB /* CDImages.h */,
-				E91F3A2A17CB39F900CB59DB /* CDImages.m */,
-				E91F3A2F17CB410C00CB59DB /* CDCakeView.h */,
-				E91F3A3017CB410C00CB59DB /* CDCakeView.m */,
 			);
-			name = View;
+			name = "Opacity generated";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

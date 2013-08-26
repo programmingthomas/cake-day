@@ -32,7 +32,7 @@ void CakeDrawingFunction(CGContextRef context, CGRect bounds)
     CGRect pathBounds;
     CGPoint controlPoint1;
     CGPoint controlPoint2;
-    CGFloat stroke;
+//    CGFloat stroke; Unused variable
     CGFloat components[4];
     CGFloat locations[2];
     
