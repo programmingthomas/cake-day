@@ -203,7 +203,7 @@
 
 -(void)rate
 {
-    NSURL * url = [NSURL URLWithString:@"some app store URL"];
+    NSURL * url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
