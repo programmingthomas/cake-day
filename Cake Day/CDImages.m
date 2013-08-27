@@ -31,6 +31,10 @@
     {
         AlienDrawingFunction(context, bounds);
     }
+    else if ([name isEqualToString:@"face"])
+    {
+        FaceDrawingFunction(context, bounds);
+    }
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

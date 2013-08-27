@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4488.1" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,14 +14,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-bf-bbJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="OQe-X5-jPx" kind="embed" id="IYu-aL-jab"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AH-5e-Til">
-                                <rect key="frame" x="320" y="0.0" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Rgv-7q-qku" kind="embed" id="aHP-GH-2UD"/>
@@ -41,8 +38,7 @@
                             <constraint firstItem="8AH-5e-Til" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="320" type="default" id="rzo-Lp-b2H"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cakeViewContainer" destination="8AH-5e-Til" id="HTV-Ig-4vg"/>
                         <outlet property="listViewContainer" destination="CK4-bf-bbJ" id="wik-1I-WLQ"/>
@@ -84,8 +80,7 @@
                             <outlet property="delegate" destination="OQe-X5-jPx" id="b7E-GM-IlO"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-yi-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +95,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efA-j6-qcC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="S0I-AC-TFc">
                                         <barButtonItem key="leftBarButtonItem" id="gGx-2u-OiB">
@@ -118,7 +112,6 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-ca-c4x" customClass="CDCakeView">
-                                <rect key="frame" x="20" y="64" width="280" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" scoringType="23.5" id="WGP-Yy-JNf"/>
@@ -126,7 +119,6 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Countdown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="YEC-58-3te">
-                                <rect key="frame" x="20" y="352" width="280" height="156"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" type="user" id="B1j-2V-LsC"/>
                                 </constraints>
@@ -148,9 +140,8 @@
                             <constraint firstItem="YEC-58-3te" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" constant="20" type="user" id="vfr-xx-gId"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cakeView" destination="5YA-ca-c4x" id="6Yn-y3-8e4"/>
                         <outlet property="countdownLabel" destination="YEC-58-3te" id="AAd-ax-V0b"/>
@@ -165,6 +156,37 @@
             <point key="canvasLocation" x="517" y="531"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CDCakeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDCakeView.h"/>
+        </class>
+        <class className="CDCakeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDCakeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuTapped:"/>
+                <relationship kind="action" name="shareTapped:"/>
+                <relationship kind="outlet" name="cakeView" candidateClass="CDCakeView"/>
+                <relationship kind="outlet" name="countdownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="CDUserListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDUserListViewController.h"/>
+        </class>
+        <class className="CDViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cakeViewContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="listViewContainer" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

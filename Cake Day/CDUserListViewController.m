@@ -85,7 +85,7 @@
     {
         CDUser * user = self.users[indexPath.row];
         cell.textLabel.text = user.username;
-        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"alien"];
+        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"face"];
     }
     cell.textLabel.font = [UIFont flatFontOfSize:20];
     cell.textLabel.textColor = [UIColor cloudsColor];
