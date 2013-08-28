@@ -27,15 +27,10 @@
     }
     else
     {
-        [self.rateButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
-        [self.addButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+        [CDUtility configureBarButtonItem:self.rateButton];
+        [CDUtility configureBarButtonItem:self.addButton];
     }
-    [self.navigationController.navigationBar setTitleTextAttributes:@{
-                                                                      UITextAttributeFont: [UIFont boldFlatFontOfSize:0],
-                                                                      UITextAttributeTextColor: [UIColor whiteColor],
-                                                                      UITextAttributeTextShadowColor: [UIColor clearColor],
-                                                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
-                                                                      }];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldFlatFontOfSize:0],UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowColor: [UIColor clearColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
     self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
 }
 
@@ -52,22 +47,18 @@
 
 -(void)update
 {
-    NSMutableArray * users = [NSMutableArray new];
+    self.users = [NSMutableArray new];
     if ([self.database open])
     {
         FMResultSet * results = [self.database executeQuery:@"select * from users"];
         while ([results next])
         {
-            NSString * username = [results stringForColumn:@"username"];
-            NSNumber * cakeday = [NSNumber numberWithInt:[results intForColumn:@"cakeday"]];
-            NSNumber * databaseId = [NSNumber numberWithInt:[results intForColumn:@"id"]];
-            CDUser * user = [[CDUser alloc] initWithUsername:username andCakeDay:cakeday andDatabaseID:databaseId];
+            CDUser * user = [[CDUser alloc] initWithUsername:[results stringForColumn:@"username"] andCakeDay:[results intForColumn:@"cakeday"] andDatabaseID:[NSNumber numberWithInt:[results intForColumn:@"id"]]];
             [user createLocalNotification];
-            [users addObject:user];
+            [self.users addObject:user];
         }
     }
     [self.database close];
-    self.users = users;
     [self.tableView reloadData];
 }
 
@@ -131,8 +122,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CDUser * user = self.users[indexPath.row];
-    [self.masterViewDelegate userSelected:user];
+    [self.masterViewDelegate userSelected:self.users[indexPath.row]];
 }
 
 #pragma mark - Alert view delegate
@@ -205,8 +195,7 @@
 
 -(void)usernameError:(NSString*)username
 {
-    UIAlertView * failedAlert = [[UIAlertView alloc] initWithTitle:@"Failed to find user" message:[NSString stringWithFormat:@"Sorry, the user %@ could not be found", username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [failedAlert show];
+    [[[UIAlertView alloc] initWithTitle:@"Failed to find user" message:[NSString stringWithFormat:@"Sorry, the user %@ could not be found", username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 #pragma mark - Bar button actions

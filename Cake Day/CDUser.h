@@ -22,7 +22,7 @@
 -(void)createLocalNotification;
 -(void)deleteLocalNotification;
 
--(id)initWithUsername:(NSString*)username andCakeDay:(NSNumber*)cakeDay andDatabaseID:(NSNumber*)databaseId;
+-(id)initWithUsername:(NSString*)username andCakeDay:(int)cakeDay andDatabaseID:(NSNumber*)databaseId;
 
 
 @end

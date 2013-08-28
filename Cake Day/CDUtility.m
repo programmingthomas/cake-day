@@ -25,6 +25,14 @@ static char S(int v)
     return [FMDatabase databaseWithPath:[[CDUtility documentsDirectory] stringByAppendingPathComponent:@"database.sqlite"]];
 }
 
++(void)configureBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    if ([CDUtility systemVersion] < 7)
+    {
+        [barButtonItem configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    }
+}
+
 +(float)systemVersion
 {
     NSArray * versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];

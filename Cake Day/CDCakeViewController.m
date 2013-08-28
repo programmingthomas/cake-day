@@ -19,35 +19,20 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:[UIColor belizeHoleColor]];
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor cloudsColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{
-                                                                      UITextAttributeFont: [UIFont boldFlatFontOfSize:0],
-                                                                      UITextAttributeTextColor: [UIColor belizeHoleColor],
-                                                                      UITextAttributeTextShadowColor: [UIColor clearColor],
-                                                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
-                                                                      }];
-    if ([CDUtility systemVersion] < 7)
-    {
-        
-        [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
-        [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
-    }
+    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldFlatFontOfSize:0],UITextAttributeTextColor: [UIColor belizeHoleColor],UITextAttributeTextShadowColor: [UIColor clearColor],UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
+    [CDUtility configureBarButtonItem:self.menuButton];
+    [CDUtility configureBarButtonItem:self.shareButton];
+    
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];
 
     self.menuButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"hamburger"];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)shareTapped:(id)sender
 {
     self.shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share text", @"Share cake", nil];
     [self.shareActionSheet showFromBarButtonItem:self.shareButton animated:YES];
-    [self.detailViewDelegate showDetailView];
 }
 
 - (IBAction)menuTapped:(id)sender
@@ -79,8 +64,7 @@
     {
         //This wins the award for the most readable line of code ever written!
         self.cakeView.candles = self.user.yearsOld;
-        NSTimeInterval timeToNextCakeDay = [self.user timeToCakeDay];
-        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:timeToNextCakeDay], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:[self.user timeToCakeDay]], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
     }
 }
 

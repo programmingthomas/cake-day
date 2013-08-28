@@ -10,13 +10,13 @@
 
 @implementation CDUser
 
--(id)initWithUsername:(NSString *)username andCakeDay:(NSNumber *)cakeDay andDatabaseID:(NSNumber *)databaseId
+-(id)initWithUsername:(NSString *)username andCakeDay:(int)cakeDay andDatabaseID:(NSNumber *)databaseId
 {
     self = [super init];
     if (self)
     {
         self.username = username;
-        self.cakeDay = [NSDate dateWithTimeIntervalSince1970:cakeDay.integerValue];
+        self.cakeDay = [NSDate dateWithTimeIntervalSince1970:cakeDay];
         self.databaseId = databaseId;
     }
     return self;

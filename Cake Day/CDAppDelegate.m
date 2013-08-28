@@ -22,10 +22,6 @@
         }
         [self.database close];
     }
-    if ([[UINavigationBar appearance] respondsToSelector:@selector(setTitleTextAttributes:)])
-    {
-        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [UIFont flatFontOfSize:0], UITextAttributeTextColor:[UIColor cloudsColor], UITextAttributeTextShadowColor:[UIColor clearColor], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero], NSForegroundColorAttributeName: [UIColor cloudsColor]}];
-    }
     CDViewController * viewController = (CDViewController*)self.window.rootViewController;
     viewController.database = self.database;
     return YES;
