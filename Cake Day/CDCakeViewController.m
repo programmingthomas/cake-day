@@ -25,9 +25,12 @@
                                                                       UITextAttributeTextShadowColor: [UIColor clearColor],
                                                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
                                                                       }];
-//    [self.menuButton configureFlatButtonWithColor:[UIColor clearColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
-//    [self.menuButton setTintColor:[UIColor whiteColor]];
-//    [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    if ([CDUtility systemVersion] < 7)
+    {
+        
+        [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+        [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    }
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];
 

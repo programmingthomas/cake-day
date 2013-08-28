@@ -44,8 +44,8 @@
     
     //Shadow performance boosts!
     self.cakeViewContainer.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.cakeViewContainer.bounds].CGPath;
-//    self.cakeViewContainer.layer.shouldRasterize = YES;
-//    self.cakeViewContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.cakeViewContainer.layer.shouldRasterize = YES;
+    self.cakeViewContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -71,12 +71,6 @@
         self.cakeViewContainer.frame = self.view.bounds;
         self.menuVisible = NO;
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Model update methods
@@ -166,6 +160,10 @@
                 }
             } completion:nil];
         }
+    }
+    else if (panGesture.state == UIGestureRecognizerStateEnded)
+    {
+        [self showDetailView];
     }
 }
 

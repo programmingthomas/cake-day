@@ -30,5 +30,6 @@
 - (IBAction)addTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rateButton;
 - (IBAction)rateAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end

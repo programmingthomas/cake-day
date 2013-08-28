@@ -114,6 +114,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="Li4-U3-vVl" id="S7j-Ik-VWe"/>
                         <outlet property="rateButton" destination="fOj-Cm-geR" id="bQ3-Ot-hg6"/>
                     </connections>
                 </tableViewController>

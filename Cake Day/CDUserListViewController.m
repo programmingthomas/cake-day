@@ -25,6 +25,11 @@
     {
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     }
+    else
+    {
+        [self.rateButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+        [self.addButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    }
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       UITextAttributeFont: [UIFont boldFlatFontOfSize:0],
                                                                       UITextAttributeTextColor: [UIColor whiteColor],
