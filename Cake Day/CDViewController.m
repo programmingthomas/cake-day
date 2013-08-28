@@ -33,6 +33,16 @@
     self.userListViewController.database = self.database;
     
     self.cakeViewController.detailViewDelegate = self;
+    
+    self.cakeViewContainer.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.cakeViewContainer.layer.shadowOffset = CGSizeMake(-2.5, 0);
+    self.cakeViewContainer.layer.shadowOpacity = 0.5;
+    self.cakeViewContainer.layer.shadowRadius = 5;
+    
+    //Shadow performance boosts!
+    self.cakeViewContainer.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.cakeViewContainer.bounds].CGPath;
+    self.cakeViewContainer.layer.shouldRasterize = YES;
+    self.cakeViewContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 -(void)viewDidAppear:(BOOL)animated
