@@ -72,6 +72,7 @@
 		E91F3A4417CB4EF600CB59DB /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F3A3D17CB4EF600CB59DB /* Icon@2x.png */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
 		E95F36EE17CB6292002A0CA7 /* Alien.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36ED17CB6292002A0CA7 /* Alien.m */; };
+		E9BA262217CE59250058CFB4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA262117CE59250058CFB4 /* CoreImage.framework */; };
 		E9E1D26E17CBB5D4000AB406 /* Face.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E1D26D17CBB5D4000AB406 /* Face.m */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +194,7 @@
 		E95F36E917CB55FB002A0CA7 /* Candle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candle.m; sourceTree = "<group>"; };
 		E95F36EC17CB6292002A0CA7 /* Alien.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alien.h; sourceTree = "<group>"; };
 		E95F36ED17CB6292002A0CA7 /* Alien.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alien.m; sourceTree = "<group>"; };
+		E9BA262117CE59250058CFB4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		E9E1D26C17CBB5D4000AB406 /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
 		E9E1D26D17CBB5D4000AB406 /* Face.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BA262217CE59250058CFB4 /* CoreImage.framework in Frameworks */,
 				E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */,
 				E91F39A317CA813000CB59DB /* libsqlite3.0.dylib in Frameworks */,
 				E91F39A417CA813000CB59DB /* QuartzCore.framework in Frameworks */,
@@ -247,6 +250,7 @@
 		E91F396517CA7FA900CB59DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9BA262117CE59250058CFB4 /* CoreImage.framework */,
 				E91F39F317CA821800CB59DB /* Crashlytics.framework */,
 				E91F39F117CA81FE00CB59DB /* CoreText.framework */,
 				E91F39A117CA813000CB59DB /* libsqlite3.0.dylib */,
