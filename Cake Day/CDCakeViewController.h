@@ -25,8 +25,6 @@
 
 @property (nonatomic) CDUser * user;
 
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet CDCakeView *cakeView;

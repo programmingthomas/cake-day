@@ -17,11 +17,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
-    [self.menuButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
-    [self.menuButton setTintColor:[UIColor whiteColor]];
-    [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+    [self.navigationController.navigationBar setTintColor:[UIColor belizeHoleColor]];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor cloudsColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      UITextAttributeFont: [UIFont boldFlatFontOfSize:0],
+                                                                      UITextAttributeTextColor: [UIColor belizeHoleColor],
+                                                                      UITextAttributeTextShadowColor: [UIColor clearColor],
+                                                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
+                                                                      }];
+//    [self.menuButton configureFlatButtonWithColor:[UIColor clearColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
+//    [self.menuButton setTintColor:[UIColor whiteColor]];
+//    [self.shareButton configureFlatButtonWithColor:[UIColor belizeHoleColor] highlightedColor:[UIColor peterRiverColor] cornerRadius:5];
     self.countdownLabel.font = [UIFont flatFontOfSize:16];
     self.countdownLabel.textColor = [UIColor midnightBlueColor];
 
@@ -55,7 +61,7 @@
         {
             [self.detailViewDelegate hideDetailView];
         }
-        self.title = self.navItem.title = user.username;
+        self.title = self.navigationItem.title = user.username;
         [self updateTime];
         if (self.timer == nil)
         {

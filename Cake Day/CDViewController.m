@@ -23,8 +23,11 @@
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCakeViewController:)];
     [self.cakeViewContainer addGestureRecognizer:tapGesture];
     
-    self.userListViewController = self.childViewControllers[0];
-    self.cakeViewController = self.childViewControllers[1];
+    UINavigationController * firstChildNavigationController = (UINavigationController*)self.childViewControllers[0];
+    UINavigationController * secondChildNavigationController = (UINavigationController*)self.childViewControllers[1];
+    
+    self.userListViewController = firstChildNavigationController.childViewControllers[0];
+    self.cakeViewController = secondChildNavigationController.childViewControllers[0];
     
     self.userListViewController.masterViewDelegate = self;
     self.userListViewController.database = self.database;
@@ -52,7 +55,7 @@
     }
     else
     {
-        self.cakeViewContainer.frame = CGRectMake(0, [self iOS7HackSize], CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
+        self.cakeViewContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.menuVisible = NO;
     }
 }
@@ -85,7 +88,7 @@
 -(void)showDetailView
 {
     [UIView animateWithDuration:0.25f animations:^{
-        self.cakeViewContainer.frame = CGRectMake(0, [self iOS7HackSize], CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
+        self.cakeViewContainer.frame = self.view.bounds;
         self.menuVisible = NO;
     }];
 }
@@ -94,8 +97,8 @@
 -(void)hideDetailView
 {
     [UIView animateWithDuration:0.25f animations:^{
-        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds), [self iOS7HackSize], CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
-        self.listViewContainer.frame = CGRectMake(0, [self iOS7HackSize], CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
+        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.listViewContainer.frame = self.view.bounds;
         self.menuVisible = YES;
     }];
 }
@@ -104,8 +107,8 @@
 -(void)showMenu
 {
     [UIView animateWithDuration:0.25f animations:^{
-        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, [self iOS7HackSize], CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
-        self.listViewContainer.frame  = CGRectMake(0, [self iOS7HackSize], CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds) - [self iOS7HackSize]);
+        self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.menuVisible = YES;
     }];
 }
@@ -117,11 +120,6 @@
     {
         [self showDetailView];
     }
-}
-
--(float)iOS7HackSize
-{
-    return [CDUtility systemVersion] < 7 ? 0 : 20;
 }
 
 @end

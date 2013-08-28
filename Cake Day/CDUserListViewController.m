@@ -14,10 +14,24 @@
 
 @implementation CDUserListViewController
 
+#pragma mark - Initialization
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor midnightBlueColor];
+    self.tableView.backgroundColor = [UIColor wetAsphaltColor];
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+    if ([CDUtility systemVersion] >= 7)
+    {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    }
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      UITextAttributeFont: [UIFont boldFlatFontOfSize:0],
+                                                                      UITextAttributeTextColor: [UIColor whiteColor],
+                                                                      UITextAttributeTextShadowColor: [UIColor clearColor],
+                                                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
+                                                                      }];
+    self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
 }
 
 -(void)setDatabase:(FMDatabase *)database
@@ -28,6 +42,8 @@
         [self update];
     }
 }
+
+#pragma mark - Model
 
 -(void)update
 {
@@ -50,43 +66,25 @@
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return section == 1 ? self.users.count : 1;
+    return self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = self.tableView.backgroundColor;
-    if (indexPath.section == 0)
-    {
-        cell.textLabel.text = @"Add user";
-        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"add"];
-    }
-    else if (indexPath.section == 2)
-    {
-        cell.textLabel.text = @"Rate Cake Day";
-        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"rate"];
-    }
-    else
-    {
-        CDUser * user = self.users[indexPath.row];
-        cell.textLabel.text = user.username;
-        cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"face"];
-    }
+    CDUser * user = self.users[indexPath.row];
+    cell.textLabel.text = user.username;
+    cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"face"];
     cell.textLabel.font = [UIFont flatFontOfSize:20];
     cell.textLabel.textColor = [UIColor cloudsColor];
     return cell;
@@ -97,14 +95,17 @@
     return 0.01f;
 }
 
+#pragma mark - Table view delegate
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section == 1;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         CDUser * user = self.users[indexPath.row];
         if ([self.database open])
         {
@@ -123,12 +124,13 @@
     }
 }
 
--(void)addUser
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
-    self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [self.addUserAlert show];
+    CDUser * user = self.users[indexPath.row];
+    [self.masterViewDelegate userSelected:user];
 }
+
+#pragma mark - Alert view delegate
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -202,29 +204,18 @@
     [failedAlert show];
 }
 
--(void)rate
+#pragma mark - Bar button actions
+
+- (IBAction)addTapped:(id)sender
+{
+    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.addUserAlert show];
+}
+- (IBAction)rateAction:(id)sender
 {
     NSURL * url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0)
-    {
-        [self addUser];
-    }
-    else if (indexPath.section == 2)
-    {
-        [self rate];
-    }
-    else
-    {
-        CDUser * user = self.users[indexPath.row];
-        [self.masterViewDelegate userSelected:user];
-    }
 }
 
 @end

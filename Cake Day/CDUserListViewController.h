@@ -27,5 +27,8 @@
 @property UIAlertView * addUserAlert;
 
 @property id<MasterViewDelegate> masterViewDelegate;
+- (IBAction)addTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rateButton;
+- (IBAction)rateAction:(id)sender;
 
 @end
