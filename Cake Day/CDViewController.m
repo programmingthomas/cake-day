@@ -147,7 +147,11 @@
         {
             //Time = DISTANCE / SPEED
             //Animation curve?
-            [UIView animateWithDuration:10 / [panGesture velocityInView:self.cakeViewContainer].x animations:^{
+            float distance = [panGesture velocityInView:self.cakeViewContainer].x <= 0 ? progress * (CGRectGetWidth(self.view.bounds) - 40) : (1 - progress) * (CGRectGetWidth(self.view.bounds) - 40);
+            float positiveSpeed = ABS([panGesture velocityInView:self.cakeViewContainer].x);
+            float time = distance / positiveSpeed;
+            time = MIN(1, time);
+            [UIView animateWithDuration:time delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 if ([panGesture velocityInView:self.cakeViewContainer].x <= 0)
                 {
                     self.listViewContainer.frame = CGRectMake(-80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
@@ -160,8 +164,7 @@
                     self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
                     self.menuVisible = YES;
                 }
-                
-            }];
+            } completion:nil];
         }
     }
 }
