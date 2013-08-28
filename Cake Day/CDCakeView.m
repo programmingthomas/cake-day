@@ -21,30 +21,14 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CakeDrawingFunction(context, rect);
-    
-//    float distanceBetweenCandles = 190.0f / (float)_candles;
-//    float leftMostCandle = -distanceBetweenCandles * (float)_candles / 2.0f;
-//    
-//    for (int n = 0; n < _candles; n++)
-//    {
-//        float offset = 0, yOffset = 0;
-//        if (_candles > 1)
-//        {
-//            offset = ((float)n ) / ((float)(_candles-1) / 2.0f) * M_PI / 2.0f;
-//            yOffset = sinf(offset);
-//        }
-//        CGRect offsetRect = CGRectOffset(rect, leftMostCandle + ((float)n + 0.5f) * distanceBetweenCandles, yOffset * 10);
-//        CandleDrawingFunction(context, offsetRect);
-//    }
-    
+
     for (int n = 0; n < _candles; n++)
     {
         float radius = 1;
+        float angle = (float)n / (float)_candles * 2.0f * M_PI;
         if (_candles == 1)
         {
             radius = 0;
@@ -53,7 +37,10 @@
         {
             radius = 0.5;
         }
-        float angle = (float)n / (float)_candles * 2.0f * M_PI;
+        else if (_candles % 2 == 1 && _candles < 8)
+        {
+            angle += M_PI / 2;
+        }
         float circleX = cosf(angle) * radius;
         float circleY = -sinf(angle) / 3 * radius;
         float x = circleX * 0.6 * CGRectGetMidX(rect);
