@@ -26,11 +26,8 @@
     UIPanGestureRecognizer * panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.cakeViewContainer addGestureRecognizer:panGesture];
     
-    UINavigationController * firstChildNavigationController = (UINavigationController*)self.childViewControllers[0];
-    UINavigationController * secondChildNavigationController = (UINavigationController*)self.childViewControllers[1];
-    
-    self.userListViewController = firstChildNavigationController.childViewControllers[0];
-    self.cakeViewController = secondChildNavigationController.childViewControllers[0];
+    self.userListViewController = [(UINavigationController*)self.childViewControllers[0] childViewControllers][0];
+    self.cakeViewController = [(UINavigationController*)self.childViewControllers[1] childViewControllers][0];
     
     self.userListViewController.masterViewDelegate = self;
     self.userListViewController.database = self.database;
@@ -94,31 +91,46 @@
 //This will completely show the detail view (i.e. only thing visible)
 -(void)showDetailView
 {
-    [UIView animateWithDuration:0.25f animations:^{
+    [self showDetailViewWithDuration:0.25f animationOption:UIViewAnimationOptionCurveEaseInOut];
+}
+
+-(void)showDetailViewWithDuration:(float)duration animationOption:(UIViewAnimationOptions)option
+{
+    [UIView animateWithDuration:duration delay:0 options:option animations:^{
         self.listViewContainer.frame = CGRectMake(-80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.cakeViewContainer.frame = self.view.bounds;
         self.menuVisible = NO;
-    }];
+    } completion:nil];
 }
 
 //This will completely hide the detail view (i.e. menu is only thing visible)
 -(void)hideDetailView
 {
-    [UIView animateWithDuration:0.25f animations:^{
+    [self hideDetailViewWithDuration:0.25f animationOption:UIViewAnimationOptionCurveEaseInOut];
+}
+
+-(void)hideDetailViewWithDuration:(float)duration animationOption:(UIViewAnimationOptions)option
+{
+    [UIView animateWithDuration:duration delay:0 options:option animations:^{
         self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.listViewContainer.frame = self.view.bounds;
         self.menuVisible = YES;
-    }];
+    } completion:nil];
 }
 
 //This will show the menu, however a small section of the detail view will still be visible
 -(void)showMenu
 {
-    [UIView animateWithDuration:0.25f animations:^{
+    [self showMenuWithDuration:0.25f animationOption:UIViewAnimationOptionCurveEaseInOut];
+}
+
+-(void)showMenuWithDuration:(float)duration animationOption:(UIViewAnimationOptions)option
+{
+    [UIView animateWithDuration:duration delay:0 options:option animations:^{
         self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.menuVisible = YES;
-    }];
+    } completion:nil];
 }
 
 //If the menu is visible show the detail view
@@ -132,38 +144,27 @@
 
 -(void)pan:(UIPanGestureRecognizer*)panGesture
 {
-    if (!self.menuVisible)
+    float progress = MIN(1, [panGesture translationInView:self.view].x / (CGRectGetWidth(self.view.bounds) - 40));
+    if (!self.menuVisible && progress >= 0)
     {
-        float progress = MIN(1, MAX(0, [panGesture translationInView:self.cakeViewContainer].x / (CGRectGetWidth(self.view.bounds) - 40)));
         self.cakeViewContainer.frame = CGRectMake(progress * (CGRectGetWidth(self.view.bounds) - 40), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.listViewContainer.frame = CGRectMake(-80 + progress * 80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
-        if (panGesture.state == UIGestureRecognizerStateEnded)
-        {
-            //Time = DISTANCE / SPEED
-            //Animation curve?
-            float distance = [panGesture velocityInView:self.cakeViewContainer].x <= 0 ? progress * (CGRectGetWidth(self.view.bounds) - 40) : (1 - progress) * (CGRectGetWidth(self.view.bounds) - 40);
-            float positiveSpeed = ABS([panGesture velocityInView:self.cakeViewContainer].x);
-            float time = distance / positiveSpeed;
-            time = MIN(1, time);
-            [UIView animateWithDuration:time delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                if ([panGesture velocityInView:self.cakeViewContainer].x <= 0)
-                {
-                    self.listViewContainer.frame = CGRectMake(-80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
-                    self.cakeViewContainer.frame = self.view.bounds;
-                    self.menuVisible = NO;
-                }
-                else
-                {
-                    self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
-                    self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
-                    self.menuVisible = YES;
-                }
-            } completion:nil];
-        }
     }
-    else if (panGesture.state == UIGestureRecognizerStateEnded)
+    if (panGesture.state == UIGestureRecognizerStateEnded)
     {
-        [self showDetailView];
+        //Time = DISTANCE / SPEED
+        float distance = [panGesture velocityInView:self.view].x <= 0 ? progress * (CGRectGetWidth(self.view.bounds) - 40) : (1 - progress) * (CGRectGetWidth(self.view.bounds) - 40);
+        float positiveSpeed = ABS([panGesture velocityInView:self.cakeViewContainer].x);
+        float time = distance / positiveSpeed;
+        time = MIN(1, time);
+        if ([panGesture velocityInView:self.cakeViewContainer].x <= 0)
+        {
+            [self showDetailViewWithDuration:time animationOption:UIViewAnimationOptionCurveEaseOut];
+        }
+        else
+        {
+            [self showMenuWithDuration:time animationOption:UIViewAnimationOptionCurveEaseOut];
+        }
     }
 }
 
