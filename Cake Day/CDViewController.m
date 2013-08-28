@@ -23,6 +23,9 @@
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCakeViewController:)];
     [self.cakeViewContainer addGestureRecognizer:tapGesture];
     
+    UIPanGestureRecognizer * panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.cakeViewContainer addGestureRecognizer:panGesture];
+    
     UINavigationController * firstChildNavigationController = (UINavigationController*)self.childViewControllers[0];
     UINavigationController * secondChildNavigationController = (UINavigationController*)self.childViewControllers[1];
     
@@ -41,8 +44,8 @@
     
     //Shadow performance boosts!
     self.cakeViewContainer.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.cakeViewContainer.bounds].CGPath;
-    self.cakeViewContainer.layer.shouldRasterize = YES;
-    self.cakeViewContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//    self.cakeViewContainer.layer.shouldRasterize = YES;
+//    self.cakeViewContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -118,7 +121,6 @@
 -(void)showMenu
 {
     [UIView animateWithDuration:0.25f animations:^{
-        self.listViewContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.menuVisible = YES;
@@ -131,6 +133,36 @@
     if (self.menuVisible)
     {
         [self showDetailView];
+    }
+}
+
+-(void)pan:(UIPanGestureRecognizer*)panGesture
+{
+    if (!self.menuVisible)
+    {
+        float progress = MIN(1, MAX(0, [panGesture translationInView:self.cakeViewContainer].x / (CGRectGetWidth(self.view.bounds) - 40)));
+        self.cakeViewContainer.frame = CGRectMake(progress * (CGRectGetWidth(self.view.bounds) - 40), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.listViewContainer.frame = CGRectMake(-80 + progress * 80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
+        if (panGesture.state == UIGestureRecognizerStateEnded)
+        {
+            //Time = DISTANCE / SPEED
+            //Animation curve?
+            [UIView animateWithDuration:10 / [panGesture velocityInView:self.cakeViewContainer].x animations:^{
+                if ([panGesture velocityInView:self.cakeViewContainer].x <= 0)
+                {
+                    self.listViewContainer.frame = CGRectMake(-80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
+                    self.cakeViewContainer.frame = self.view.bounds;
+                    self.menuVisible = NO;
+                }
+                else
+                {
+                    self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+                    self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
+                    self.menuVisible = YES;
+                }
+                
+            }];
+        }
     }
 }
 
