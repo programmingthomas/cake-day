@@ -65,7 +65,7 @@
     }
     else
     {
-        self.cakeViewContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.cakeViewContainer.frame = self.view.bounds;
         self.menuVisible = NO;
     }
 }
@@ -98,6 +98,7 @@
 -(void)showDetailView
 {
     [UIView animateWithDuration:0.25f animations:^{
+        self.listViewContainer.frame = CGRectMake(-80, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.cakeViewContainer.frame = self.view.bounds;
         self.menuVisible = NO;
     }];
@@ -117,6 +118,7 @@
 -(void)showMenu
 {
     [UIView animateWithDuration:0.25f animations:^{
+        self.listViewContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.cakeViewContainer.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - 40, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.listViewContainer.frame  = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 40, CGRectGetHeight(self.view.bounds));
         self.menuVisible = YES;
