@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E91F398817CA7FAA00CB59DB"
-               BuildableName = "Cake DayTests.octest"
+               BuildableName = "Cake DayTests.xctest"
                BlueprintName = "Cake DayTests"
                ReferencedContainer = "container:Cake Day.xcodeproj">
             </BuildableReference>
