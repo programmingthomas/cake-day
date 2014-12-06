@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:FlatBlueDark];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldSystemFontOfSize:0],UITextAttributeTextColor: FlatBlueDark,UITextAttributeTextShadowColor: [UIColor clearColor],UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
     
     self.countdownLabel.font = [UIFont systemFontOfSize:16];
     self.countdownLabel.textColor = FlatBlueDark;
