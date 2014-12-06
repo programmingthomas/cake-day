@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CDUtility.h"
 #import "CDUser.h"
-#import "CDImages.h"
 #import "CDCakeView.h"
 
 @protocol DetailViewDelegate <NSObject>

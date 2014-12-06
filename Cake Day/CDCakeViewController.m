@@ -21,8 +21,6 @@
     
     self.countdownLabel.font = [UIFont systemFontOfSize:16];
     self.countdownLabel.textColor = FlatBlueDark;
-
-    self.menuButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"hamburger"];
 }
 
 - (IBAction)shareTapped:(id)sender
