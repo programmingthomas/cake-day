@@ -23,10 +23,6 @@
     {
         HamburgerDrawingFunction(context, bounds);
     }
-    else if ([name isEqualToString:@"rate"])
-    {
-        RateDrawingFunction(context, bounds);
-    }
     else if ([name isEqualToString:@"alien"])
     {
         AlienDrawingFunction(context, bounds);

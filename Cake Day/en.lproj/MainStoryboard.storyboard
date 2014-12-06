@@ -38,7 +38,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cake Day" id="whC-fS-Npo">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="fOj-Cm-geR">
+                        <barButtonItem key="leftBarButtonItem" image="rate" id="fOj-Cm-geR">
                             <connections>
                                 <action selector="rateAction:" destination="OQe-X5-jPx" id="ggp-59-zZl"/>
                             </connections>
@@ -164,6 +164,9 @@
             <point key="canvasLocation" x="-107" y="1779"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rate" width="20" height="20"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

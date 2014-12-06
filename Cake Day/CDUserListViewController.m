@@ -24,7 +24,6 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:FlatWhite];
     [self.navigationController.navigationBar setBarTintColor:FlatBlueDark];
-    self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
     
     [self update];
 }

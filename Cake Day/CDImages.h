@@ -11,7 +11,6 @@
 #import "Add.h"
 #import "Alien.h"
 #import "Hamburger.h"
-#import "Rate.h"
 #import "Face.h"
 
 @interface CDImages : NSObject

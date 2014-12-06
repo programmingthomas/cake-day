@@ -34,6 +34,8 @@
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     UINavigationController * primaryNavController = [splitViewController.viewControllers firstObject];
     
     CDUserListViewController * viewController = (CDUserListViewController*)[primaryNavController.childViewControllers firstObject];
