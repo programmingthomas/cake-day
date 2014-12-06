@@ -21,6 +21,4 @@
 
 + (NSString*)durationString:(NSTimeInterval)dur;
 
-+ (UIColor*)themeColor;
-
 @end
