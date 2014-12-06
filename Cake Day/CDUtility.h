@@ -19,7 +19,6 @@
 + (NSString*)documentsDirectory;
 + (NSDictionary*)redditData:(NSString*)redditURL withError:(NSError**)errorPtr;
 
-+ (float)systemVersion;
 + (NSString*)durationString:(NSTimeInterval)dur;
 
 + (UIColor*)themeColor;

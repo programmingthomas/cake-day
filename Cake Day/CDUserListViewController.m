@@ -21,10 +21,7 @@
 {
     [super viewDidLoad];
     self.tableView.backgroundColor = FlatBlueDark;
-    if ([CDUtility systemVersion] >= 7)
-    {
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    }
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldSystemFontOfSize:0],UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowColor: [UIColor clearColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
     self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
 }
