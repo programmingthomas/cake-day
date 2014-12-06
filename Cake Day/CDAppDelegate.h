@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CDUtility.h"
-#import "CDViewController.h"
 
 @interface CDAppDelegate : UIResponder <UIApplicationDelegate>
 

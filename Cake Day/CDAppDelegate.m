@@ -7,6 +7,12 @@
 //
 
 #import "CDAppDelegate.h"
+#import "CDUserListViewController.h"
+#import "CDCakeViewController.h"
+
+@interface CDAppDelegate () <UISplitViewControllerDelegate>
+
+@end
 
 @implementation CDAppDelegate
 
@@ -21,7 +27,16 @@
         }
         [self.database close];
     }
-    CDViewController * viewController = (CDViewController*)self.window.rootViewController;
+    
+    //Configuration of split view controller
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+    splitViewController.delegate = self;
+    
+    UINavigationController * primaryNavController = [splitViewController.viewControllers firstObject];
+    
+    CDUserListViewController * viewController = (CDUserListViewController*)[primaryNavController.childViewControllers firstObject];
     viewController.database = self.database;
     return YES;
 }
@@ -60,6 +75,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [self.database close];
+}
+
+#pragma mark - Split view
+
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[CDCakeViewController class]] && ([(CDCakeViewController *)[(UINavigationController *)secondaryViewController topViewController] user] == nil)) {
+        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 @end

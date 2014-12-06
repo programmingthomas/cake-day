@@ -17,7 +17,6 @@
 		E91F397B17CA7FAA00CB59DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F397A17CA7FAA00CB59DB /* Default@2x.png */; };
 		E91F397D17CA7FAA00CB59DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E91F397C17CA7FAA00CB59DB /* Default-568h@2x.png */; };
 		E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */; };
-		E91F398317CA7FAA00CB59DB /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F398217CA7FAA00CB59DB /* CDViewController.m */; };
 		E91F398C17CA7FAA00CB59DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396617CA7FA900CB59DB /* UIKit.framework */; };
 		E91F398D17CA7FAA00CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
 		E91F399517CA7FAA00CB59DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E91F399317CA7FAA00CB59DB /* InfoPlist.strings */; };
@@ -79,8 +78,6 @@
 		E91F397A17CA7FAA00CB59DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E91F397C17CA7FAA00CB59DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E91F397F17CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		E91F398117CA7FAA00CB59DB /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
-		E91F398217CA7FAA00CB59DB /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
 		E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake DayTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake DayTests-Info.plist"; sourceTree = "<group>"; };
 		E91F399417CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -258,8 +255,6 @@
 			children = (
 				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
 				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
-				E91F398117CA7FAA00CB59DB /* CDViewController.h */,
-				E91F398217CA7FAA00CB59DB /* CDViewController.m */,
 				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
 				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
 				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
@@ -480,7 +475,6 @@
 			files = (
 				E91F397317CA7FAA00CB59DB /* main.m in Sources */,
 				E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */,
-				E91F398317CA7FAA00CB59DB /* CDViewController.m in Sources */,
 				E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */,
 				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
 				E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */,

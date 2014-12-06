@@ -7,6 +7,7 @@
 //
 
 #import "CDUserListViewController.h"
+#import "CDCakeViewController.h"
 
 @interface CDUserListViewController ()
 
@@ -110,13 +111,8 @@
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [self.masterViewDelegate userDeleted:user];
+//        [self.masterViewDelegate userDeleted:user];
     }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.masterViewDelegate userSelected:self.users[indexPath.row]];
 }
 
 #pragma mark - Alert view delegate
@@ -174,13 +170,11 @@
     }
 }
 
--(BOOL)showUserWithName:(NSString*)username
-{
-    for (CDUser * user in self.users)
-    {
-        if ([user.username isEqualToString:username])
-        {
-            [self.masterViewDelegate userSelected:user];
+- (BOOL)showUserWithName:(NSString*)username {
+    for (CDUser * user in self.users) {
+        if ([user.username isEqualToString:username]) {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.users indexOfObject:user] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+            [self performSegueWithIdentifier:@"userSegue" sender:self];
             return YES;
         }
     }
@@ -200,10 +194,21 @@
     self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [self.addUserAlert show];
 }
+
 - (IBAction)rateAction:(id)sender
 {
     NSURL * url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"userSegue"]) {
+        UINavigationController * nav = (UINavigationController*)segue.destinationViewController;
+        CDCakeViewController * detailVC = (CDCakeViewController*)[nav.childViewControllers firstObject];
+        detailVC.user = self.users[self.tableView.indexPathForSelectedRow.row];
+    }
 }
 
 @end

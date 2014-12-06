@@ -11,12 +11,6 @@
 #import "CDUser.h"
 #import "CDImages.h"
 
-@protocol MasterViewDelegate <NSObject>
-
--(void)userDeleted:(CDUser*)user;
--(void)userSelected:(CDUser*)user;
-
-@end
 
 @interface CDUserListViewController : UITableViewController<UIAlertViewDelegate>
 
@@ -25,7 +19,6 @@
 
 @property UIAlertView * addUserAlert;
 
-@property id<MasterViewDelegate> masterViewDelegate;
 - (IBAction)addTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rateButton;
 - (IBAction)rateAction:(id)sender;
