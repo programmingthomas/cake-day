@@ -58,7 +58,7 @@
     {
         //This wins the award for the most readable line of code ever written!
         self.cakeView.candles = self.user.yearsOld;
-        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:[self.user timeToCakeDay]], [NSDateFormatter localizedStringFromDate:self.user.cakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:[self.user timeToCakeDay]], [NSDateFormatter localizedStringFromDate:self.user.originalCakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
     }
 }
 

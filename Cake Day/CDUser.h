@@ -7,22 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FMDatabase.h>
 
 @interface CDUser : NSObject
 
-@property NSNumber * databaseId;
-@property NSString * username;
-@property NSDate * cakeDay;
+- (instancetype)initWithUsername:(NSString*)username cakeDay:(double)cakeDay databaseID:(NSUInteger)databaseID;
+
+@property (nonatomic, readonly) NSUInteger databaseID;
+@property (nonatomic, readonly) NSString * username;
+@property (nonatomic, readonly) NSDate * originalCakeDay;
 
 -(NSDate*)nextCakeDay;
 -(NSTimeInterval)timeToCakeDay;
--(int)yearsOld;
+- (NSUInteger)yearsOld;
 -(NSString*)usernameWithApostrophe;
 
 -(void)createLocalNotification;
 -(void)deleteLocalNotification;
-
--(id)initWithUsername:(NSString*)username andCakeDay:(int)cakeDay andDatabaseID:(NSNumber*)databaseId;
 
 
 @end

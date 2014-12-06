@@ -11,10 +11,7 @@
 #import "Candle.h"
 
 @interface CDCakeView : UIView
-{
-    int _candles;
-}
 
-@property (nonatomic) int candles;
+@property (nonatomic) NSUInteger candles;
 
 @end

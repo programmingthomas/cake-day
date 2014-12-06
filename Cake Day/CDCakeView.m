@@ -10,35 +10,28 @@
 
 @implementation CDCakeView
 
--(void)setCandles:(int)candles
-{
-    if (_candles != candles)
-    {
+- (void)setCandles:(NSUInteger)candles {
+    if (_candles != candles) {
         _candles = candles;
         [self setNeedsDisplay];
     }
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CakeDrawingFunction(context, rect);
 
-    for (int n = 0; n < _candles; n++)
-    {
+    for (NSUInteger n = 0; n < _candles; n++) {
         float radius = 1;
         float angle = (float)n / (float)_candles * 2.0f * M_PI;
-        if (_candles == 1)
-        {
+        if (_candles == 1) {
             radius = 0;
         }
-        else if (_candles == 2)
-        {
+        else if (_candles == 2) {
             radius = 0.5;
         }
-        else if (_candles % 2 == 1 && _candles < 8)
-        {
+        else if (_candles % 2 == 1 && _candles < 8) {
             angle += M_PI / 2;
         }
         float circleX = cosf(angle) * radius;

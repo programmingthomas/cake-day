@@ -10,14 +10,12 @@
 
 @implementation CDUser
 
--(id)initWithUsername:(NSString *)username andCakeDay:(int)cakeDay andDatabaseID:(NSNumber *)databaseId
-{
+- (instancetype)initWithUsername:(NSString *)username cakeDay:(double)cakeDay databaseID:(NSUInteger)databaseID {
     self = [super init];
-    if (self)
-    {
-        self.username = username;
-        self.cakeDay = [NSDate dateWithTimeIntervalSince1970:cakeDay];
-        self.databaseId = databaseId;
+    if (self) {
+        _username = username;
+        _originalCakeDay = [NSDate dateWithTimeIntervalSince1970:cakeDay];
+        _databaseID = databaseID;
     }
     return self;
 }
@@ -25,7 +23,7 @@
 -(NSDate*)nextCakeDay
 {
     //This is inefficient as fuck, but it works
-    NSDate * cakeday = self.cakeDay;
+    NSDate * cakeday = self.originalCakeDay;
     while (YES) {
         //Cakeday is after today
         if ([cakeday compare:[NSDate date]] == NSOrderedDescending)
@@ -46,9 +44,8 @@
     return [nextCakeDay timeIntervalSinceDate:today];
 }
 
--(int)yearsOld
-{
-    NSDate * birthCakeDay = self.cakeDay;
+- (NSUInteger)yearsOld {
+    NSDate * birthCakeDay = self.originalCakeDay;
     NSDate * today = [NSDate date];
     NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents * components = [gregorian components:NSYearCalendarUnit fromDate:birthCakeDay toDate:today options:0];
@@ -97,16 +94,13 @@
     return foundNotification ? notification : [UILocalNotification new];
 }
 
--(NSString*)localNotificationUID
-{
-    return [NSString stringWithFormat:@"cakeday-%d", self.databaseId.intValue];
+- (NSString*)localNotificationUID {
+    return [NSString stringWithFormat:@"cakeday-%ud", (uint32_t)self.databaseID];
 }
 
--(void)deleteLocalNotification
-{
+- (void)deleteLocalNotification {
     NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-    for (UILocalNotification * notification in localNotifications)
-    {
+    for (UILocalNotification * notification in localNotifications) {
         NSString * uid = notification.userInfo[@"uid"];
         if ([uid isEqualToString:[self localNotificationUID]])
         {
