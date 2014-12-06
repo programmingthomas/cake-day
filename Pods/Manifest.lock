@@ -1,0 +1,17 @@
+PODS:
+  - ChameleonFramework (1.1.1)
+  - FMDB (2.4):
+    - FMDB/standard
+  - FMDB/common (2.4)
+  - FMDB/standard (2.4):
+    - FMDB/common
+
+DEPENDENCIES:
+  - ChameleonFramework
+  - FMDB
+
+SPEC CHECKSUMS:
+  ChameleonFramework: c60096686e3771f5d78f26cfbfd08955a8a88cbd
+  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
+
+COCOAPODS: 0.34.2

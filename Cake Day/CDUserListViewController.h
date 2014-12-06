@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlatUIKit.h"
 #import "CDUtility.h"
 #import "CDUser.h"
 #import "CDImages.h"

@@ -17,14 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setTintColor:[UIColor belizeHoleColor]];
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor cloudsColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldFlatFontOfSize:0],UITextAttributeTextColor: [UIColor belizeHoleColor],UITextAttributeTextShadowColor: [UIColor clearColor],UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
-    [CDUtility configureBarButtonItem:self.menuButton];
-    [CDUtility configureBarButtonItem:self.shareButton];
+    [self.navigationController.navigationBar setTintColor:FlatBlueDark];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldSystemFontOfSize:0],UITextAttributeTextColor: FlatBlueDark,UITextAttributeTextShadowColor: [UIColor clearColor],UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
     
-    self.countdownLabel.font = [UIFont flatFontOfSize:16];
-    self.countdownLabel.textColor = [UIColor midnightBlueColor];
+    self.countdownLabel.font = [UIFont systemFontOfSize:16];
+    self.countdownLabel.textColor = FlatBlueDark;
 
     self.menuButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"hamburger"];
 }

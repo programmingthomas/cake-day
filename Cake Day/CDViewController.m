@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     self.menuVisible = YES;
-    self.view.backgroundColor = [UIColor midnightBlueColor];
+    self.view.backgroundColor = FlatBlueDark;
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCakeViewController:)];
     [self.cakeViewContainer addGestureRecognizer:tapGesture];
     

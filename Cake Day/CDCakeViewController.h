@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CDUtility.h"
-#import "FlatUIKit.h"
 #import "CDUser.h"
 #import "CDImages.h"
 #import "CDCakeView.h"

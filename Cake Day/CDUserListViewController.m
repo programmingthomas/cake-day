@@ -19,18 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor wetAsphaltColor];
-    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
+    self.tableView.backgroundColor = FlatBlueDark;
     if ([CDUtility systemVersion] >= 7)
     {
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     }
-    else
-    {
-        [CDUtility configureBarButtonItem:self.rateButton];
-        [CDUtility configureBarButtonItem:self.addButton];
-    }
-    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldFlatFontOfSize:0],UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowColor: [UIColor clearColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldSystemFontOfSize:0],UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowColor: [UIColor clearColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
     self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
 }
 
@@ -81,8 +75,8 @@
     CDUser * user = self.users[indexPath.row];
     cell.textLabel.text = user.username;
     cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"face"];
-    cell.textLabel.font = [UIFont flatFontOfSize:20];
-    cell.textLabel.textColor = [UIColor cloudsColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:20];
+    cell.textLabel.textColor = FlatWhite;
     return cell;
 }
 
