@@ -11,19 +11,10 @@
 #import "CDUser.h"
 #import "CDCakeView.h"
 
-@protocol DetailViewDelegate <NSObject>
-
--(void)showMenu;
--(void)showDetailView;
--(void)hideDetailView;
-
-@end
-
 @interface CDCakeViewController : UIViewController<UIActionSheetDelegate>
 
 @property (nonatomic) CDUser * user;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet CDCakeView *cakeView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
@@ -31,10 +22,8 @@
 @property UIActionSheet * shareActionSheet;
 
 - (IBAction)shareTapped:(id)sender;
-- (IBAction)menuTapped:(id)sender;
 
 @property NSTimer * timer;
-@property id<DetailViewDelegate> detailViewDelegate;
 
 
 

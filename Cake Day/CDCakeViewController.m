@@ -21,6 +21,8 @@
     
     self.countdownLabel.font = [UIFont systemFontOfSize:16];
     self.countdownLabel.textColor = FlatBlueDark;
+    
+    [self updateTime];
 }
 
 - (IBAction)shareTapped:(id)sender
@@ -29,33 +31,19 @@
     [self.shareActionSheet showFromBarButtonItem:self.shareButton animated:YES];
 }
 
-- (IBAction)menuTapped:(id)sender
-{
-    [self.detailViewDelegate showMenu];
-}
-
--(void)setUser:(CDUser *)user
-{
-    if (_user != user)
-    {
+- (void)setUser:(CDUser *)user {
+    if (_user != user) {
         _user = user;
-        if (_user == nil)
-        {
-            [self.detailViewDelegate hideDetailView];
-        }
         self.title = self.navigationItem.title = user.username;
         [self updateTime];
-        if (self.timer == nil)
-        {
+        if (!self.timer) {
             self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
         }
     }
 }
 
--(void)updateTime
-{
-    if (self.user != nil)
-    {
+- (void)updateTime {
+    if (self.user) {
         //This wins the award for the most readable line of code ever written!
         self.cakeView.candles = self.user.yearsOld;
         self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:[self.user timeToCakeDay]], [NSDateFormatter localizedStringFromDate:self.user.originalCakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
