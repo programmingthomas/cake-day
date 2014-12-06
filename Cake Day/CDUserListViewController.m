@@ -23,6 +23,7 @@
 {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:FlatWhite];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationController.navigationBar setBarTintColor:FlatBlueDark];
     
     [self update];
