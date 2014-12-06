@@ -11,6 +11,8 @@
 
 @interface CDUserListViewController ()
 
+@property CDUserListDataSource * userDataSource;
+
 @end
 
 @implementation CDUserListViewController
@@ -20,10 +22,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundColor = FlatBlueDark;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeFont: [UIFont boldSystemFontOfSize:0],UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowColor: [UIColor clearColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]}];
+    [self.navigationController.navigationBar setTintColor:FlatWhite];
+    [self.navigationController.navigationBar setBarTintColor:FlatBlueDark];
     self.rateButton.image = [CDImages imageForSize:CGSizeMake(20, 20) andName:@"rate"];
+    
+    [self update];
 }
 
 -(void)setDatabase:(FMDatabase *)database
@@ -37,9 +40,8 @@
 
 #pragma mark - Model
 
--(void)update
-{
-    self.users = [NSMutableArray new];
+- (void)update {
+    NSMutableArray * users = [NSMutableArray new];
     if ([self.database open])
     {
         FMResultSet * results = [self.database executeQuery:@"select * from users"];
@@ -47,40 +49,19 @@
         {
             CDUser * user = [[CDUser alloc] initWithUsername:[results stringForColumn:@"username"] andCakeDay:[results intForColumn:@"cakeday"] andDatabaseID:[NSNumber numberWithInt:[results intForColumn:@"id"]]];
             [user createLocalNotification];
-            [self.users addObject:user];
+            [users addObject:user];
         }
     }
     [self.database close];
+    
+    self.users = users;
+    
+    self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:users];
+    self.tableView.dataSource = self.userDataSource;
+    
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.users.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = self.tableView.backgroundColor;
-    CDUser * user = self.users[indexPath.row];
-    cell.textLabel.text = user.username;
-    cell.imageView.image = [CDImages imageForSize:CGSizeMake(30, 30) andName:@"face"];
-    cell.textLabel.font = [UIFont systemFontOfSize:20];
-    cell.textLabel.textColor = FlatWhite;
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.01f;
-}
 
 #pragma mark - Table view delegate
 
@@ -103,11 +84,10 @@
             [self.database close];
         }
         [user deleteLocalNotification];
-        [self.users removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-//        [self.masterViewDelegate userDeleted:user];
+        [self update];
     }
 }
 

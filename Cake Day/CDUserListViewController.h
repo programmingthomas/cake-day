@@ -11,11 +11,12 @@
 #import "CDUser.h"
 #import "CDImages.h"
 
+#import "CDUserListDataSource.h"
 
 @interface CDUserListViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic) FMDatabase * database;
-@property NSMutableArray * users;
+@property NSArray * users;
 
 @property UIAlertView * addUserAlert;
 
