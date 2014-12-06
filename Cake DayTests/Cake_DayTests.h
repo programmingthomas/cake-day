@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Thomas Denney. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface Cake_DayTests : SenTestCase
+@interface Cake_DayTests : XCTestCase
 
 @end
