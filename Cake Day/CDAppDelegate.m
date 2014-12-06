@@ -12,7 +12,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crashlytics startWithAPIKey:@"854df6f7c8e401bda950765a0bb1d68b0ab9d717"];
     self.database = [CDUtility database];
     if ([self.database open])
     {

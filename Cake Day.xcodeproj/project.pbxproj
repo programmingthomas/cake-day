@@ -50,7 +50,6 @@
 		E91F39EC17CA817400CB59DB /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39DA17CA817400CB59DB /* UIToolbar+FlatUI.m */; };
 		E91F39EF17CA819300CB59DB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E91F39EE17CA819300CB59DB /* Lato-Regular.ttf */; };
 		E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39F117CA81FE00CB59DB /* CoreText.framework */; };
-		E91F39F417CA821800CB59DB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39F317CA821800CB59DB /* Crashlytics.framework */; };
 		E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F617CA824F00CB59DB /* CDUtility.m */; };
 		E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F917CA83E500CB59DB /* CDUserListViewController.m */; };
 		E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FC17CA85D500CB59DB /* CDUser.m */; };
@@ -161,7 +160,6 @@
 		E91F39DA17CA817400CB59DB /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIToolbar+FlatUI.m"; path = "../../FlatUIKit/Classes/ios/UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
 		E91F39EE17CA819300CB59DB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../FlatUIKit/Resources/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		E91F39F117CA81FE00CB59DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		E91F39F317CA821800CB59DB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		E91F39F517CA824F00CB59DB /* CDUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUtility.h; sourceTree = "<group>"; };
 		E91F39F617CA824F00CB59DB /* CDUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUtility.m; sourceTree = "<group>"; };
 		E91F39F817CA83E400CB59DB /* CDUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserListViewController.h; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				E91F396717CA7FA900CB59DB /* UIKit.framework in Frameworks */,
 				E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */,
 				E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */,
-				E91F39F417CA821800CB59DB /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				E9BA262117CE59250058CFB4 /* CoreImage.framework */,
-				E91F39F317CA821800CB59DB /* Crashlytics.framework */,
 				E91F39F117CA81FE00CB59DB /* CoreText.framework */,
 				E91F39A117CA813000CB59DB /* libsqlite3.0.dylib */,
 				E91F39A217CA813000CB59DB /* QuartzCore.framework */,
@@ -461,7 +457,6 @@
 				E91F395F17CA7FA900CB59DB /* Sources */,
 				E91F396017CA7FA900CB59DB /* Frameworks */,
 				E91F396117CA7FA900CB59DB /* Resources */,
-				E91F39F017CA81E100CB59DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,7 +484,7 @@
 			name = "Cake DayTests";
 			productName = "Cake DayTests";
 			productReference = E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -498,6 +493,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CD;
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Thomas Denney";
 				TargetAttributes = {
@@ -571,19 +567,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		E91F39F017CA81E100CB59DB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 854df6f7c8e401bda950765a0bb1d68b0ab9d717";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -705,7 +688,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -729,7 +712,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
