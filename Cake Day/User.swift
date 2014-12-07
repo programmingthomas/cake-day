@@ -177,9 +177,13 @@ class User: NSObject {
         }
     }
     
+    private func existingLocalNotification() -> UILocalNotification? {
+        return NotificationManager.manager()[notificationID]
+    }
+    
     var localNotification: UILocalNotification {
         get {
-            if let note = NotificationManager.manager()[notificationID] {
+            if let note = existingLocalNotification() {
                 return note
             } else {
                 return scheduleNewNotification()
@@ -190,11 +194,14 @@ class User: NSObject {
     private func scheduleNewNotification() -> UILocalNotification {
         let manager = NotificationManager.manager()
         
-        //Cancel any existing notifications
-        manager.cancelNotificationWithUID(notificationID)
-        
         //Create new notification obejct
-        let notification = UILocalNotification()
+        var notification = UILocalNotification()
+        
+        //Test to see if we can get an existing notification instead
+        if let n = existingLocalNotification() {
+            notification = n
+        }
+        
         notification.fireDate = nextCakeDay()
         notification.repeatInterval = .YearCalendarUnit
         
