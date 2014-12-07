@@ -11,7 +11,7 @@
 
 @interface CDUserListViewController ()
 
-@property CDUserListDataSource * userDataSource;
+@property UserListDataSource * userDataSource;
 
 @end
 
@@ -32,19 +32,13 @@
     [self update];
 }
 
-- (void)setUserManager:(UserManager *)userManager {
-    if (userManager != _userManager) {
-        _userManager = userManager;
-        [self update];
-    }
-}
 
 #pragma mark - Model
 
 - (void)update {
     self.users = [self sortUsersByCurrentDate:[self.userManager allUsers]];
     
-    self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:self.users];
+    self.userDataSource = [[UserListDataSource alloc] initWithUsers:self.users];
     self.tableView.dataSource = self.userDataSource;
     
     [self.tableView reloadData];

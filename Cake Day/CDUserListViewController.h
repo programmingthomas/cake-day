@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CDUtility.h"
 
-#import "CDUserListDataSource.h"
-
 #import "Cake_Day-Swift.h"
 
 @interface CDUserListViewController : UITableViewController<UIAlertViewDelegate>
