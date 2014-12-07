@@ -14,8 +14,7 @@
 
 @implementation CDCakeViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:FlatBlueDark];
     
@@ -25,8 +24,7 @@
     [self updateTime];
 }
 
-- (IBAction)shareTapped:(id)sender
-{
+- (IBAction)shareTapped:(id)sender {
     self.shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share text", @"Share cake", nil];
     [self.shareActionSheet showFromBarButtonItem:self.shareButton animated:YES];
 }
@@ -50,18 +48,14 @@
     }
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (actionSheet == self.shareActionSheet)
-    {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet == self.shareActionSheet) {
         NSString * shareString = [NSString stringWithFormat:@"It is %@ until %@ cake day!", [CDUtility durationString:self.user.timeToCakeDay], [self.user usernameWithApostrophe]];
-        if (buttonIndex == 0)
-        {
+        if (buttonIndex == 0) {
             UIActivityViewController * shareController = [[UIActivityViewController alloc] initWithActivityItems:@[shareString] applicationActivities:nil];
             [self presentViewController:shareController animated:YES completion:nil];
         }
-        else if (buttonIndex == 1)
-        {
+        else if (buttonIndex == 1) {
             [[NSOperationQueue new] addOperationWithBlock:^{
                 //Good size for Instagram
                 UIGraphicsBeginImageContextWithOptions(CGSizeMake(612, 612), NO, 0);
