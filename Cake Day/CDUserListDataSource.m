@@ -31,7 +31,16 @@
     
     CDUser * user = self.users[indexPath.row];
     
+    static NSDateFormatter * formatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSDateFormatter new];
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterNoStyle;
+    });
+    
     cell.textLabel.text = user.username;
+    cell.detailTextLabel.text = [formatter stringFromDate:user.originalCakeDay];
     
     return cell;
 }

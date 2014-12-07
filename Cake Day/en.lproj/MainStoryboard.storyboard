@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="8Fn-Iz-ibq" style="IBUITableViewCellStyleDefault" id="4yY-FM-8Q1">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="8Fn-Iz-ibq" detailTextLabel="FGM-Bf-cTA" style="IBUITableViewCellStyleSubtitle" id="4yY-FM-8Q1">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4yY-FM-8Q1" id="ksh-nS-D7d">
@@ -24,6 +24,12 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Fn-Iz-ibq">
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FGM-Bf-cTA">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -94,7 +100,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ZcB-HB-oh5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dt-MO-pFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="Ndp-BB-Yuh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="CG3-fk-Sgv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x2v-Bo-1e2">
@@ -104,6 +109,7 @@
                         <segue destination="Rgv-7q-qku" kind="relationship" relationship="rootViewController" id="ZGJ-2o-CAA"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dt-MO-pFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565" y="1779"/>
         </scene>
