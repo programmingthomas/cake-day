@@ -112,13 +112,13 @@
 }
 
 - (void)addUserForName:(NSString*)username {
-//    [CDUser createNewUser:username
-//                  success:^(CDUser * user) {
-//                      [self update];
-//                      [self showUserWithName:user.username];
-//                  } failure:^(NSError * error){
-//                      [self usernameError:username];
-//                  } database:self.database operationManager:[CDUtility operationManager]];
+    [self.userManager userFromReddit:username
+                             success:^(User * user) {
+                                 [self update];
+                                 [self showUserWithName:user.username];
+                             } failure:^{
+                                 [self usernameError:username];
+                             } manager:[CDUtility operationManager]];
 }
 
 - (BOOL)showUserWithName:(NSString*)username {

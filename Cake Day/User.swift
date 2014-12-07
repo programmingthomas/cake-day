@@ -53,14 +53,31 @@ class UserManager: NSObject {
         var users = [User]()
         
         for user in userTable {
-            let id = user[columnID]
-            let username = user[columnUsername]
-            let cakeDay = Double(user[columnCakeDay])
-            let userObject = User(databaseID: id, username: username, cakeDay: NSDate(timeIntervalSince1970: cakeDay))
-            users.append(userObject)
+            users.append(userFromRow(user))
         }
         
         return users
+    }
+    
+    func userWithUsername(username: String) -> User? {
+        let query = userQuery(username)
+        
+        if let firstRow = query.first {
+            return userFromRow(firstRow)
+        }
+        
+        return nil
+    }
+    
+    func userFromRow(user: Row) -> User {
+        let id = user[columnID]
+        let username = user[columnUsername]
+        let cakeDay = Double(user[columnCakeDay])
+        return User(databaseID: id, username: username, cakeDay: NSDate(timeIntervalSince1970: cakeDay))
+    }
+    
+    func userQuery(username: String) -> Query {
+        return userTable.filter(columnUsername == username)
     }
     
     func insert(user: User) {
@@ -72,7 +89,46 @@ class UserManager: NSObject {
     
     func deleteUser(user: User) {
         user.cancelLocalNotification()
-        userTable.filter(columnID == user.databaseID).delete()?
+        userQuery(user.username).delete()?
+    }
+    
+    func userFromReddit(username: String, success: User -> Void, failure: Void -> Void, manager: AFHTTPRequestOperationManager) {
+        //Firstly check to see if the user exists
+        if let user = userWithUsername(username) {
+            success(user)
+            return
+        }
+        
+        //Now just do the JSON request to reddit using AFNetworking
+        let userAgent = "cakeday/1.0 by /u/ProgrammingThomas"
+        let urlString = "http://reddit.com/user/\(username)/about.json"
+        let url = NSURL(string: urlString)!
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
+        
+        let operation = AFHTTPRequestOperation(request: request)
+        operation.responseSerializer = AFJSONResponseSerializer()
+        
+        operation.setCompletionBlockWithSuccess({ (operation, responseObject) -> Void in
+            let json = responseObject as NSDictionary
+            if json["error"] != nil {
+                failure()
+            } else {
+                let data = json["data"]! as NSDictionary
+                let username = data["name"]! as String
+                let createdUTC = data["created_utc"] as NSNumber
+                
+                var user = User(databaseID: 0, username: username, cakeDay: NSDate(timeIntervalSince1970: createdUTC.doubleValue))
+                self.insert(user)
+                
+                success(user)
+            }
+        }, failure: { (operation, error) -> Void in
+            failure()
+        })
+        
+        manager.operationQueue.addOperation(operation)
     }
 }
 
