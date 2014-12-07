@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserListViewController: UITableViewController, UIAlertViewDelegate {
+class UserListViewController: UITableViewController {
     
     var userManager: UserManager?
     var users: [User]?
@@ -20,8 +20,6 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
     @IBOutlet weak var rateButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         
         self.navigationItem.title = NSLocalizedString("app.name", comment:"")
         self.addButton.accessibilityLabel = NSLocalizedString("user.add", comment: "")
@@ -93,17 +91,25 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     @IBAction func addTapped(sender: AnyObject) {
-        let title = NSLocalizedString("user.add", comment: "");
-        let message = NSLocalizedString("user.add.message", comment: "");
-        let add = NSLocalizedString("add", comment: "");
-        let cancel = NSLocalizedString("cancel", comment: "");
+        let title = NSLocalizedString("user.add", comment: "")
+        let message = NSLocalizedString("user.add.message", comment: "")
+        let add = NSLocalizedString("add", comment: "")
+        let cancel = NSLocalizedString("cancel", comment: "")
         
-        let addUserAlert = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: cancel, otherButtonTitles: add)
-        addUserAlert.alertViewStyle = .PlainTextInput
+        let addUser = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        self.addUserAlert = addUserAlert
+        addUser.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = NSLocalizedString("username", comment: "")
+        }
         
-        addUserAlert.show()
+        addUser.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: { _ in }))
+        
+        addUser.addAction(UIAlertAction(title: add, style: .Default, handler: { _ in
+            let textfield = addUser.textFields![0] as UITextField
+            self.addUserForName(textfield.text)
+        }))
+        
+        presentViewController(addUser, animated: true, completion: nil)
     }
     
     @IBAction func rateTapped(sender: AnyObject) {
@@ -127,17 +133,8 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
     
     // MARK: - Add users
     
-    var addUserAlert: UIAlertView?
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if alertView == addUserAlert && buttonIndex == 1 {
-            var username = alertView.textFieldAtIndex(0)!.text
-            username = username.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            addUserForName(username)
-        }
-    }
-    
     func addUserForName(username: String) {
+        let username = username.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         userManager?.userFromReddit(username, success: { user in
             self.update()
             self.showUserForName(user.username)

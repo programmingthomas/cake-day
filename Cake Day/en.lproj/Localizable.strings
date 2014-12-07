@@ -9,6 +9,7 @@
 "ok" = "OK";
 "add" = "Add";
 "cancel" = "Cancel";
+"username" = "Username";
 
 "app.name" = "Cake Day";
 "app.rate" = "Rate app";
