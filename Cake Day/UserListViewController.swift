@@ -145,7 +145,7 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
             self.showUserForName(user.username)
         }, failure: {
             self.usernameError(username)
-        }, manager: CDUtility.operationManager())
+        }, manager: self.operationManager)
     }
     
     func showUserForName(username: String) -> Bool {

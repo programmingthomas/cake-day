@@ -48,7 +48,7 @@ class CakeViewController: UIViewController, UIActionSheetDelegate {
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         if actionSheet == shareActionSheet {
             let formatString = NSLocalizedString("share.string", comment: "");
-            let interval = CDUtility.durationString(user!.timeIntervalToNextCakeDay());
+            let interval = formatDurationString(user!.timeIntervalToNextCakeDay());
             let usernameWithApostrophe = user!.usernameWithApostrophe;
             
             let shareString = NSString(format:formatString, [interval, usernameWithApostrophe]);
@@ -80,7 +80,7 @@ class CakeViewController: UIViewController, UIActionSheetDelegate {
             cakeView.candles = UInt(user.yearsOld)
             
             let formatString = NSLocalizedString("cakeday.next", comment: "")
-            let toNext = String(format: formatString, arguments: [CDUtility.durationString(user.timeIntervalToNextCakeDay())])
+            let toNext = String(format: formatString, arguments: [formatDurationString(user.timeIntervalToNextCakeDay())])
             
             let formattedCakeDay = NSDateFormatter.localizedStringFromDate(user.originalCakeDay, dateStyle: .ShortStyle, timeStyle: .NoStyle)
             
@@ -91,5 +91,12 @@ class CakeViewController: UIViewController, UIActionSheetDelegate {
             
             countdownLabel.text = message
         }
+    }
+    
+    lazy var intervalFormatter = TTTTimeIntervalFormatter()
+    
+    func formatDurationString(duration: NSTimeInterval) -> String {
+        intervalFormatter.numberOfSignificantUnits = 0
+        return intervalFormatter.stringForTimeInterval(duration)
     }
 }
