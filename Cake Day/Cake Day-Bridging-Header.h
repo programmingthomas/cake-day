@@ -6,5 +6,4 @@
 #import "Candle.h"
 
 #import <AFNetworking.h>
-#import <Chameleon.h>
 #import <FormatterKit/TTTTimeIntervalFormatter.h>

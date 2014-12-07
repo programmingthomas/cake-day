@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         //Configure appearance
-        UINavigationBar.appearance().tintColor = UIColor.flatWhiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().barStyle = .Black
-        UINavigationBar.appearance().barTintColor = UIColor.flatBlueColorDark()
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 224.0 / 360.0, saturation: 0.56, brightness: 0.51, alpha: 1)
         
         return true
     }

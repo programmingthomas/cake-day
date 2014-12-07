@@ -1,5 +1,4 @@
 pod 'FMDB'
-pod 'ChameleonFramework'
 pod 'AFNetworking'
 pod 'FormatterKit'
 

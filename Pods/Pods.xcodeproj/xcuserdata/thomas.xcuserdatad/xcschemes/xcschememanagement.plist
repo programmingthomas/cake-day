@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-ChameleonFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>302B7720559072BC6026D3E3</key>
+		<key>8A3E7155B6558C8A952DC9BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>385EAB008252625630FBC3C2</key>
+		<key>A79108BC096E6B1A3F4C4D6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>581DC9FF17881912EF6955A0</key>
+		<key>D9C894A16B873A5EE2435339</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6DF8F7D9366A720B2FB57EBA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE879581A7E0306960E15818</key>
+		<key>E43F47470E202C0152407782</key>
 		<dict>
 			<key>primary</key>
 			<true/>
