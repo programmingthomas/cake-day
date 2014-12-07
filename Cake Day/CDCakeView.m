@@ -23,8 +23,8 @@
     CakeDrawingFunction(context, rect);
 
     for (NSUInteger n = 0; n < _candles; n++) {
-        float radius = 1;
-        float angle = (float)n / (float)_candles * 2.0f * M_PI;
+        CGFloat radius = 1;
+        CGFloat angle = (CGFloat)n / (CGFloat)_candles * 2.0f * M_PI;
         if (_candles == 1) {
             radius = 0;
         }
@@ -34,10 +34,10 @@
         else if (_candles % 2 == 1 && _candles < 8) {
             angle += M_PI / 2;
         }
-        float circleX = cosf(angle) * radius;
-        float circleY = -sinf(angle) / 3 * radius;
-        float x = circleX * 0.6 * CGRectGetMidX(rect);
-        float y = circleY * 0.6 * CGRectGetMidY(rect);
+        CGFloat circleX = cosf(angle) * radius;
+        CGFloat circleY = -sinf(angle) / 3 * radius;
+        CGFloat x = circleX * 0.6 * CGRectGetMidX(rect);
+        CGFloat y = circleY * 0.6 * CGRectGetMidY(rect);
         CGRect offsetRect = CGRectOffset(rect, x, y);
         CandleDrawingFunction(context, offsetRect);
     }
