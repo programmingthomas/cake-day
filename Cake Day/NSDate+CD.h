@@ -12,4 +12,6 @@
 
 - (NSDate*)cd_nextDate;
 
+- (NSComparisonResult)cd_compareOrderInYear:(NSDate*)date2;
+
 @end
