@@ -10,6 +10,8 @@
 
 @implementation CDUser
 
+#pragma mark - Initialisation
+
 - (instancetype)initWithUsername:(NSString *)username cakeDay:(double)cakeDay databaseID:(NSUInteger)databaseID {
     self = [super init];
     if (self) {
@@ -74,6 +76,17 @@
     }
 }
 
+#pragma mark - Removing from database
+
+- (void)deleteFromDatabase:(FMDatabase *)database {
+    if (![database executeUpdate:@"delete from users where id = ?", @(self.databaseID)]) {
+        NSLog(@"Error deleting = %@", database.lastErrorMessage);
+    }
+    [self deleteLocalNotification];
+}
+
+#pragma mark - Date handling
+
 - (NSDate*)nextCakeDay {
     return [self.originalCakeDay cd_nextDate];
 }
@@ -95,6 +108,8 @@
 - (NSString*)usernameWithApostrophe {
     return [NSString stringWithFormat:@"%@'%c", self.username, [self.username hasSuffix:@"s"] ? 0 : 's'];
 }
+
+#pragma mark - Notification scheduling
 
 - (void)createLocalNotification {
     UILocalNotification * notification = [self localNotification];

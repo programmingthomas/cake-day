@@ -67,10 +67,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         CDUser * user = self.users[indexPath.row];
-        if (![self.database executeUpdate:@"delete from users where id = ?", @(user.databaseID)]) {
-            NSLog(@"Error deleting = %@", self.database.lastErrorMessage);
-        }
-        [user deleteLocalNotification];
+        
+        [user deleteFromDatabase:self.database];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         

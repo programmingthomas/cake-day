@@ -19,6 +19,8 @@
 - (instancetype)initWithUsername:(NSString*)username cakeDay:(double)cakeDay databaseID:(NSUInteger)databaseID;
 - (instancetype)initWithDatabaseResult:(FMResultSet*)result;
 
+- (void)deleteFromDatabase:(FMDatabase*)database;
+
 @property (nonatomic, readonly) NSUInteger databaseID;
 @property (nonatomic, readonly) NSString * username;
 @property (nonatomic, readonly) NSDate * originalCakeDay;
@@ -30,7 +32,6 @@
 
 - (void)createLocalNotification;
 - (void)deleteLocalNotification;
-
 
 
 @end
