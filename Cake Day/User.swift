@@ -21,8 +21,6 @@ class UserManager: NSObject {
         let documents = directories[0] as String
         let path = documents.stringByAppendingPathComponent("database.sqlite")
         
-        println("Init at \(path)")
-        
         database = Database(path)
         
         userTable = database["users"]
