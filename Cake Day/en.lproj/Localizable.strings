@@ -17,3 +17,10 @@
 "user.add.message" = "Enter reddit username here:";
 "user.failed" = "Failed to find user";
 "user.failed.message" = "Sorry, the user %@ could not be found";
+
+"share" = "Share";
+"share.text" = "Share text";
+"share.cake" = "Share cake";
+
+"cakeday.next" = "%@ to next cakeday!";
+"user.age" = "redditor since %@";

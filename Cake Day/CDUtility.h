@@ -10,6 +10,7 @@
 #import <FMDatabase.h>
 #import <Chameleon.h>
 #import <AFNetworking.h>
+#import <FormatterKit/TTTTimeIntervalFormatter.h>
 
 /**
  This class needs refactoring
@@ -23,6 +24,6 @@
 + (NSString*)documentsDirectory;
 + (AFHTTPRequestOperationManager*)operationManager;
 
-+ (NSString*)durationString:(NSTimeInterval)dur;
++ (NSString*)durationString:(NSTimeInterval)duration;
 
 @end

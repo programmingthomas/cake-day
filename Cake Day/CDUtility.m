@@ -8,10 +8,6 @@
 
 #import "CDUtility.h"
 
-static char S(int v) {
-    return v == 1 ? 0 : 's';
-}
-
 @implementation CDUtility
 
 + (NSString*)documentsDirectory {
@@ -31,43 +27,15 @@ static char S(int v) {
     return operationManager;
 }
 
-+ (NSString*)durationString:(NSTimeInterval)dur {
-    int duration = (int)round((double)dur);
-    int seconds = duration % 60;
-    int minutes = (duration / 60) % 60;
-    int hours = (duration / 3600) % 24;
-    int days = duration / (3600 * 24);
++ (NSString*)durationString:(NSTimeInterval)duration {
+    static TTTTimeIntervalFormatter * intervalFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        intervalFormatter = [TTTTimeIntervalFormatter new];
+        intervalFormatter.numberOfSignificantUnits = 0;
+    });
     
-    NSMutableArray * components = [NSMutableArray new];
-    
-    if (days > 0) {
-        [components addObject:[NSString stringWithFormat:@"%d day%c", days, S(days)]];
-    }
-    if (hours > 0) {
-        [components addObject:[NSString stringWithFormat:@"%d hour%c", hours, S(hours)]];
-    }
-    if (minutes > 0) {
-        [components addObject:[NSString stringWithFormat:@"%d minute%c", minutes, S(minutes)]];
-    }
-    if (seconds > 0) {
-        [components addObject:[NSString stringWithFormat:@"%d second%c", seconds, S(seconds)]];
-    }
-    
-    NSMutableString * durationString = [NSMutableString new];
-    
-    for (int n = 0; n < components.count; n++) {
-        [durationString appendString:components[n]];
-        if (components.count > 1) {
-            if (n == components.count - 2) {
-                [durationString appendString:@" and "];
-            }
-            else if (n < components.count - 1) {
-                [durationString appendString:@", "];
-            }
-        }
-    }
-    
-    return durationString;
+    return [intervalFormatter stringForTimeInterval:duration];
 }
 
 @end

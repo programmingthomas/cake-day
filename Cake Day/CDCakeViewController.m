@@ -22,10 +22,17 @@
     self.countdownLabel.textColor = FlatBlueDark;
     
     [self updateTime];
+    
+    self.shareButton.accessibilityLabel = NSLocalizedString(@"share", nil);
 }
 
 - (IBAction)shareTapped:(id)sender {
-    self.shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share text", @"Share cake", nil];
+    NSString * title = NSLocalizedString(@"share", nil);
+    NSString * shareText = NSLocalizedString(@"share.text", nil);
+    NSString * shareCake = NSLocalizedString(@"share.cake", nil);
+    NSString * cancel = NSLocalizedString(@"cancel", nil);
+    
+    self.shareActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:nil otherButtonTitles:shareText, shareCake, nil];
     [self.shareActionSheet showFromBarButtonItem:self.shareButton animated:YES];
 }
 
@@ -44,7 +51,14 @@
     if (self.user) {
         //This wins the award for the most readable line of code ever written!
         self.cakeView.candles = self.user.yearsOld;
-        self.countdownLabel.text = [NSString stringWithFormat:@"%@\n%@ to next cake day!\nredditor since %@", self.user.username, [CDUtility durationString:[self.user timeToCakeDay]], [NSDateFormatter localizedStringFromDate:self.user.originalCakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+        
+        NSString * toNext = [NSString stringWithFormat:NSLocalizedString(@"cakeday.next", nil), [CDUtility durationString:self.user.timeToCakeDay]];
+        NSString * formattedCakeDay = [NSDateFormatter localizedStringFromDate:self.user.originalCakeDay dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+        NSString * since = [NSString stringWithFormat:NSLocalizedString(@"user.age", nil), formattedCakeDay];
+        
+        NSString * message = [NSString stringWithFormat:@"%@\n%@", toNext, since];
+        
+        self.countdownLabel.text = message;
     }
 }
 

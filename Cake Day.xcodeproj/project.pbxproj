@@ -61,7 +61,7 @@
 		E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
 		E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		E91F397F17CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Cake DayTests.octest"; path = "Cake DayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91F398917CA7FAA00CB59DB /* Cake DayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake DayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake DayTests-Info.plist"; sourceTree = "<group>"; };
 		E91F399417CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E91F399617CA7FAA00CB59DB /* Cake_DayTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cake_DayTests.h; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E91F396317CA7FA900CB59DB /* Cake Day.app */,
-				E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */,
+				E91F398917CA7FAA00CB59DB /* Cake DayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			);
 			name = "Cake DayTests";
 			productName = "Cake DayTests";
-			productReference = E91F398917CA7FAA00CB59DB /* Cake DayTests.octest */;
+			productReference = E91F398917CA7FAA00CB59DB /* Cake DayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
