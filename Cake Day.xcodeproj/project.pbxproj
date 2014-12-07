@@ -11,8 +11,6 @@
 		E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
 		E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */; };
 		E91F397117CA7FAA00CB59DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */; };
-		E91F397317CA7FAA00CB59DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397217CA7FAA00CB59DB /* main.m */; };
-		E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */; };
 		E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */; };
 		E91F398C17CA7FAA00CB59DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396617CA7FA900CB59DB /* UIKit.framework */; };
 		E91F398D17CA7FAA00CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
@@ -108,10 +106,7 @@
 		E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake Day-Info.plist"; sourceTree = "<group>"; };
 		E91F397017CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E91F397217CA7FAA00CB59DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Prefix.pch"; sourceTree = "<group>"; };
-		E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
-		E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		E91F397F17CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E91F398917CA7FAA00CB59DB /* Cake DayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake DayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake DayTests-Info.plist"; sourceTree = "<group>"; };
@@ -237,7 +232,6 @@
 			children = (
 				E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */,
 				E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */,
-				E91F397217CA7FAA00CB59DB /* main.m */,
 				E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -266,8 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				E93036BD1A344D120013EA56 /* AppDelegate.swift */,
-				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
-				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
 				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
 				E93036DB1A3476340013EA56 /* UserListViewController.swift */,
 			);
@@ -528,8 +520,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E91F397317CA7FAA00CB59DB /* main.m in Sources */,
-				E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */,
 				E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */,
 				E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */,
 				E93036DA1A346F460013EA56 /* UserListDataSource.swift in Sources */,
