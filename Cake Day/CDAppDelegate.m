@@ -7,7 +7,6 @@
 //
 
 #import "CDAppDelegate.h"
-#import "CDUserListViewController.h"
 #import "Cake_Day-Swift.h"
 
 @interface CDAppDelegate () <UISplitViewControllerDelegate>
@@ -31,7 +30,7 @@
 
     self.userManager = [UserManager sharedManager];
     
-    CDUserListViewController * viewController = (CDUserListViewController*)[primaryNavController.childViewControllers firstObject];
+    UserListViewController * viewController = (UserListViewController*)[primaryNavController.childViewControllers firstObject];
     viewController.userManager = self.userManager;
 
     //In iOS 8 and above you have to first get permission from the user to send notifications

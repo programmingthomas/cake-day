@@ -22,7 +22,6 @@
 		E91F39A417CA813000CB59DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39A217CA813000CB59DB /* QuartzCore.framework */; };
 		E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39F117CA81FE00CB59DB /* CoreText.framework */; };
 		E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F617CA824F00CB59DB /* CDUtility.m */; };
-		E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F917CA83E500CB59DB /* CDUserListViewController.m */; };
 		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
 		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
 		E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036BD1A344D120013EA56 /* AppDelegate.swift */; };
@@ -124,8 +123,6 @@
 		E91F39F117CA81FE00CB59DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		E91F39F517CA824F00CB59DB /* CDUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUtility.h; sourceTree = "<group>"; };
 		E91F39F617CA824F00CB59DB /* CDUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUtility.m; sourceTree = "<group>"; };
-		E91F39F817CA83E400CB59DB /* CDUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserListViewController.h; sourceTree = "<group>"; };
-		E91F39F917CA83E500CB59DB /* CDUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserListViewController.m; sourceTree = "<group>"; };
 		E91F3A2F17CB410C00CB59DB /* CDCakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeView.h; sourceTree = "<group>"; };
 		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
 		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
@@ -271,8 +268,6 @@
 				E93036BD1A344D120013EA56 /* AppDelegate.swift */,
 				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
 				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
-				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
-				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
 				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
 				E93036DB1A3476340013EA56 /* UserListViewController.swift */,
 			);
@@ -538,7 +533,6 @@
 				E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */,
 				E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */,
 				E93036DA1A346F460013EA56 /* UserListDataSource.swift in Sources */,
-				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
 				E93036D61A34513C0013EA56 /* User.swift in Sources */,
 				E93036DC1A3476340013EA56 /* UserListViewController.swift in Sources */,
 				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
