@@ -13,14 +13,16 @@
 
 @interface CDAppDelegate () <UISplitViewControllerDelegate>
 
+@property UserManager * userManager;
+
 @end
 
 @implementation CDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.database = [CDUtility database];
-    [self.database open];
-    [self.database executeUpdate:@"create table if not exists users (id integer primary key autoincrement, username string, cakeday int)"];
+//    self.database = [CDUtility database];
+//    [self.database open];
+//    [self.database executeUpdate:@"create table if not exists users (id integer primary key autoincrement, username string, cakeday int)"];
     
     //Configuration of split view controller
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -31,9 +33,13 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     UINavigationController * primaryNavController = [splitViewController.viewControllers firstObject];
+
+    self.userManager = [UserManager sharedManager];
     
     CDUserListViewController * viewController = (CDUserListViewController*)[primaryNavController.childViewControllers firstObject];
-    viewController.database = self.database;
+    viewController.userManager = self.userManager;
+
+
     
     //In iOS 8 and above you have to first get permission from the user to send notifications
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -72,7 +78,7 @@
 #pragma mark - Split view
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[CDCakeViewController class]] && ([(CDCakeViewController *)[(UINavigationController *)secondaryViewController topViewController] user] == nil)) {
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[CakeViewController class]] && ([(CakeViewController *)[(UINavigationController *)secondaryViewController topViewController] user] == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
     }

@@ -9,28 +9,35 @@
 import UIKit
 import SQLite
 
-class UserManager {
+class UserManager: NSObject {
     var database: Database
-    var users: Query
-    var ID: Expression<Int>
-    var username: Expression<String?>
-    var cakeDay: Expression<Double?>
+    var userTable: Query
+    var columnID: Expression<Int>
+    var columnUsername: Expression<String>
+    var columnCakeDay: Expression<Int>
     
-    init() {
+    override init() {
         let directories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documents = directories[0] as String
+        let path = documents.stringByAppendingPathComponent("database.sqlite")
         
-        database = Database(documents.stringByAppendingPathComponent("database.db"))
+        println("Init at \(path)")
         
-        users = database["users"]
-        ID = Expression<Int>("id")
-        username = Expression<String?>("username")
-        cakeDay = Expression<Double?>("cakeday")
+        database = Database(path)
         
-        database.create(table:users) { t in
-            t.column(self.ID, primaryKey: true)
-            t.column(self.username)
-            t.column(self.cakeDay)
+        userTable = database["users"]
+        columnID = Expression<Int>("id")
+        columnUsername = Expression<String>("username")
+        columnCakeDay = Expression<Int>("cakeday")
+        
+        super.init()
+        
+        database.trace(println)
+        
+        database.create(table:userTable, ifNotExists: true) { t in
+            t.column(self.columnID, primaryKey: true)
+            t.column(self.columnUsername)
+            t.column(self.columnCakeDay)
         }
     }
     
@@ -40,6 +47,32 @@ class UserManager {
         }
         
         return Static.manager
+    }
+    
+    func allUsers() -> [User] {
+        var users = [User]()
+        
+        for user in userTable {
+            let id = user[columnID]
+            let username = user[columnUsername]
+            let cakeDay = Double(user[columnCakeDay])
+            let userObject = User(databaseID: id, username: username, cakeDay: NSDate(timeIntervalSince1970: cakeDay))
+            users.append(userObject)
+        }
+        
+        return users
+    }
+    
+    func insert(user: User) {
+        let cakeday = Int(user.originalCakeDay.timeIntervalSince1970)
+        if let insertedID = userTable.insert(columnUsername <- user.username, columnCakeDay <- cakeday) {
+            user.databaseID = insertedID
+        }
+    }
+    
+    func deleteUser(user: User) {
+        user.cancelLocalNotification()
+        userTable.filter(columnID == user.databaseID).delete()?
     }
 }
 
@@ -74,6 +107,12 @@ class User: NSObject {
                 return self.username + "'s"
             }
         }
+    }
+    
+    var yearsOld: Int {
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let components = calendar.components(NSCalendarUnit.CalendarUnitYear, fromDate: originalCakeDay, toDate: NSDate(), options: NSCalendarOptions.allZeros)
+        return components.year
     }
     
     // MARK: - Notification management
@@ -114,5 +153,9 @@ class User: NSObject {
         manager[notificationID] = notification
         
         return notification
+    }
+    
+    func cancelLocalNotification() {
+        NotificationManager.manager().cancelNotificationWithUID(notificationID)
     }
 }

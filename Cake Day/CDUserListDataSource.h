@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CDUser.h"
 
 /**
  Immutable data source for the user list

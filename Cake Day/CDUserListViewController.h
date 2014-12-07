@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CDUtility.h"
-#import "CDUser.h"
 
 #import "CDUserListDataSource.h"
 
+#import "Cake_Day-Swift.h"
+
 @interface CDUserListViewController : UITableViewController<UIAlertViewDelegate>
 
-@property (nonatomic) FMDatabase * database;
+@property (nonatomic) UserManager * userManager;
 @property NSArray * users;
 
 @property UIAlertView * addUserAlert;

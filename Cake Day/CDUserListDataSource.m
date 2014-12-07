@@ -7,6 +7,7 @@
 //
 
 #import "CDUserListDataSource.h"
+#import "Cake_Day-Swift.h"
 
 @implementation CDUserListDataSource
 
@@ -29,7 +30,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    CDUser * user = self.users[indexPath.row];
+    User * user = self.users[indexPath.row];
     
     static NSDateFormatter * formatter;
     static dispatch_once_t onceToken;

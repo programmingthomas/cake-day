@@ -14,10 +14,13 @@ class CakeViewController: UIViewController {
     @IBOutlet weak var cakeView: CDCakeView!
     @IBOutlet weak var countdownLabel: UILabel!
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateTimer()
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+        title = user?.username
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,14 +30,23 @@ class CakeViewController: UIViewController {
 
     @IBAction func shareTapped(sender: AnyObject) {
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func updateTimer() {
+        if let user = self.user {
+            //This wins the award for the most readable line of code ever written!
+            cakeView.candles = UInt(user.yearsOld)
+            
+            let formatString = NSLocalizedString("cakeday.next", comment: "")
+            let toNext = String(format: formatString, arguments: [CDUtility.durationString(user.timeIntervalToNextCakeDay())])
+            
+            let formattedCakeDay = NSDateFormatter.localizedStringFromDate(user.originalCakeDay, dateStyle: .ShortStyle, timeStyle: .NoStyle)
+            
+            let sinceFormatString = NSLocalizedString("user.age", comment: "")
+            let since = String(format: sinceFormatString, arguments: [formattedCakeDay])
+            
+            let message = toNext + "\n" + since
+            
+            countdownLabel.text = message
+        }
     }
-    */
-
 }

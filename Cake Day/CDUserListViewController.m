@@ -33,9 +33,9 @@
     [self update];
 }
 
-- (void)setDatabase:(FMDatabase *)database {
-    if (database != _database) {
-        _database = database;
+- (void)setUserManager:(UserManager *)userManager {
+    if (userManager != _userManager) {
+        _userManager = userManager;
         [self update];
     }
 }
@@ -43,7 +43,7 @@
 #pragma mark - Model
 
 - (void)update {
-    self.users = [self sortUsersByCurrentDate:[CDUser allUsersInDatabase:self.database]];
+    self.users = [self sortUsersByCurrentDate:[self.userManager allUsers]];
     
     self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:self.users];
     self.tableView.dataSource = self.userDataSource;
@@ -65,6 +65,10 @@
  Does the binary search for the above function
  */
 - (NSInteger)positionOfFirstCakeDayAfterCurrent:(NSArray*)users {
+    if (users.count == 0) {
+        return 0;
+    }
+    
     NSUInteger low = 0;
     NSUInteger high = users.count - 1;
     NSDate * current = [NSDate date];
@@ -94,9 +98,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        CDUser * user = self.users[indexPath.row];
+        User * user = self.users[indexPath.row];
         
-        [user deleteFromDatabase:self.database];
+        [self.userManager deleteUser:user];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
@@ -115,13 +119,13 @@
 }
 
 - (void)addUserForName:(NSString*)username {
-    [CDUser createNewUser:username
-                  success:^(CDUser * user) {
-                      [self update];
-                      [self showUserWithName:user.username];
-                  } failure:^(NSError * error){
-                      [self usernameError:username];
-                  } database:self.database operationManager:[CDUtility operationManager]];
+//    [CDUser createNewUser:username
+//                  success:^(CDUser * user) {
+//                      [self update];
+//                      [self showUserWithName:user.username];
+//                  } failure:^(NSError * error){
+//                      [self usernameError:username];
+//                  } database:self.database operationManager:[CDUtility operationManager]];
 }
 
 - (BOOL)showUserWithName:(NSString*)username {
@@ -168,8 +172,8 @@
     if ([segue.identifier isEqualToString:@"userSegue"]) {
         UINavigationController * nav = (UINavigationController*)segue.destinationViewController;
         //Won't work in Swift yet
-//        CDCakeViewController * detailVC = (CDCakeViewController*)[nav.childViewControllers firstObject];
-//        detailVC.user = self.users[self.tableView.indexPathForSelectedRow.row];
+        CakeViewController * detailVC = (CakeViewController*)[nav.childViewControllers firstObject];
+        detailVC.user = self.users[self.tableView.indexPathForSelectedRow.row];
     }
 }
 
