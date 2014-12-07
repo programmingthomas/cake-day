@@ -18,12 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.database = [CDUtility database];
-    if ([self.database open]) {
-        if (![self.database executeUpdate:@"create table users (id integer primary key autoincrement, username string, cakeday int)"]) {
-            NSLog(@"Database create failed = %@", self.database.lastErrorMessage);
-        }
-        [self.database close];
-    }
+    [self.database open];
+    [self.database executeUpdate:@"create table if not exists users (id integer primary key autoincrement, username string, cakeday int)"];
     
     //Configuration of split view controller
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -71,10 +67,6 @@
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cake day!" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [self.database close];
 }
 
 #pragma mark - Split view

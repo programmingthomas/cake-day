@@ -28,8 +28,9 @@
 - (NSUInteger)yearsOld;
 - (NSString*)usernameWithApostrophe;
 
--(void)createLocalNotification;
--(void)deleteLocalNotification;
+- (void)createLocalNotification;
+- (void)deleteLocalNotification;
+
 
 
 @end

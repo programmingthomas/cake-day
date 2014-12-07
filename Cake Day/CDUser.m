@@ -28,12 +28,10 @@
 }
 
 + (void)createNewUser:(NSString *)username success:(void (^)(CDUser *))success failure:(void (^)(NSError*))failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager *)opManager {
-    [database open];
     //Firstly we need to check to see if the user already exists
     FMResultSet * existingUserQuery = [database executeQuery:@"select * from users where username = ?", username];
     if ([existingUserQuery next]) {
         CDUser * user = [[CDUser alloc] initWithDatabaseResult:existingUserQuery];
-        [database close];
         success(user);
     }
     else {
@@ -62,7 +60,6 @@
                 
                 if ([database executeUpdate:@"insert into users(username, cakeday) values (?,?)", username, createdUTC]) {
                     CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:createdUTC.doubleValue databaseID:(NSUInteger)database.lastInsertRowId];
-                    [database close];
                     success(user);
                 }
                 else {

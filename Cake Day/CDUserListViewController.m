@@ -39,18 +39,15 @@
 
 - (void)update {
     NSMutableArray * users = [NSMutableArray new];
-    if ([self.database open]) {
-        FMResultSet * results = [self.database executeQuery:@"select * from users"];
-        while ([results next]) {
-            NSString * username = [results stringForColumn:@"username"];
-            double cakeDay = [results doubleForColumn:@"cakeday"];
-            NSUInteger databaseID = [results unsignedLongLongIntForColumn:@"id"];
-            CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
-            [user createLocalNotification];
-            [users addObject:user];
-        }
+    FMResultSet * results = [self.database executeQuery:@"select * from users"];
+    while ([results next]) {
+        NSString * username = [results stringForColumn:@"username"];
+        double cakeDay = [results doubleForColumn:@"cakeday"];
+        NSUInteger databaseID = [results unsignedLongLongIntForColumn:@"id"];
+        CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
+        [user createLocalNotification];
+        [users addObject:user];
     }
-    [self.database close];
     
     self.users = users;
     
@@ -70,11 +67,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         CDUser * user = self.users[indexPath.row];
-        if ([self.database open]) {
-            if (![self.database executeUpdate:@"delete from users where id = ?", @(user.databaseID)]) {
-                NSLog(@"Error deleting = %@", self.database.lastErrorMessage);
-            }
-            [self.database close];
+        if (![self.database executeUpdate:@"delete from users where id = ?", @(user.databaseID)]) {
+            NSLog(@"Error deleting = %@", self.database.lastErrorMessage);
         }
         [user deleteLocalNotification];
         
