@@ -9,7 +9,7 @@
         <!--Cake Day-->
         <scene sceneID="PDk-dl-osi">
             <objects>
-                <tableViewController id="OQe-X5-jPx" customClass="CDUserListViewController" sceneMemberID="viewController">
+                <tableViewController id="OQe-X5-jPx" customClass="UserListViewController" customModule="Cake_Day" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OCQ-D4-5da">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,19 +50,19 @@
                     <navigationItem key="navigationItem" title="Cake Day" id="whC-fS-Npo">
                         <barButtonItem key="leftBarButtonItem" image="rate" id="fOj-Cm-geR">
                             <connections>
-                                <action selector="rateAction:" destination="OQe-X5-jPx" id="ggp-59-zZl"/>
+                                <action selector="rateTapped:" destination="OQe-X5-jPx" id="Iay-hH-OJT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Li4-U3-vVl">
                             <connections>
-                                <action selector="addTapped:" destination="OQe-X5-jPx" id="kjj-Ng-1NI"/>
+                                <action selector="addTapped:" destination="OQe-X5-jPx" id="hRU-QX-H2t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="Li4-U3-vVl" id="S7j-Ik-VWe"/>
-                        <outlet property="rateButton" destination="fOj-Cm-geR" id="bQ3-Ot-hg6"/>
+                        <outlet property="addButton" destination="Li4-U3-vVl" id="LkT-Aw-8JH"/>
+                        <outlet property="rateButton" destination="fOj-Cm-geR" id="KfI-bH-Lfs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-yi-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>

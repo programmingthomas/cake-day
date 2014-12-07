@@ -124,7 +124,7 @@ class UserManager: NSObject {
                 
                 success(user)
             }
-        }, failure: { (operation, error) -> Void in
+        }, failure: { (operation, error) in
             failure()
         })
         

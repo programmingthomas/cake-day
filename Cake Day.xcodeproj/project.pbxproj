@@ -32,6 +32,7 @@
 		E93036D61A34513C0013EA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D51A34513C0013EA56 /* User.swift */; };
 		E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D71A3455830013EA56 /* NotificationManager.swift */; };
 		E93036DA1A346F460013EA56 /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D91A346F450013EA56 /* UserListDataSource.swift */; };
+		E93036DC1A3476340013EA56 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036DB1A3476340013EA56 /* UserListViewController.swift */; };
 		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
 		E9AF9CE41A339813004E351B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CE31A339813004E351B /* Images.xcassets */; };
@@ -135,6 +136,7 @@
 		E93036D51A34513C0013EA56 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E93036D71A3455830013EA56 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E93036D91A346F450013EA56 /* UserListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		E93036DB1A3476340013EA56 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Bridging-Header.h"; sourceTree = "<group>"; };
 		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
 				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
 				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
+				E93036DB1A3476340013EA56 /* UserListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				E93036DA1A346F460013EA56 /* UserListDataSource.swift in Sources */,
 				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
 				E93036D61A34513C0013EA56 /* User.swift in Sources */,
+				E93036DC1A3476340013EA56 /* UserListViewController.swift in Sources */,
 				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 				E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */,
