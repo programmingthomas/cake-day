@@ -7,7 +7,6 @@
 //
 
 #import "CDUserListViewController.h"
-#import "CDCakeViewController.h"
 #import "Cake_Day-Swift.h"
 
 @interface CDUserListViewController ()
@@ -76,7 +75,7 @@
     while (low <= high) {
         NSUInteger mid = (low + high) / 2;
         
-        CDUser * user = (CDUser*)users[mid];
+        User * user = (User*)users[mid];
         
         NSComparisonResult compare = [user.originalCakeDay compareOrderInYear:current];
         if (compare == NSOrderedDescending || compare == NSOrderedSame) {
@@ -129,7 +128,7 @@
 }
 
 - (BOOL)showUserWithName:(NSString*)username {
-    for (CDUser * user in self.users) {
+    for (User * user in self.users) {
         if ([user.username isEqualToString:username]) {
             [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.users indexOfObject:user] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
             [self performSegueWithIdentifier:@"userSegue" sender:self];

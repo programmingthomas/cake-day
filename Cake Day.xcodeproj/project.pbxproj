@@ -24,7 +24,6 @@
 		E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F617CA824F00CB59DB /* CDUtility.m */; };
 		E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F917CA83E500CB59DB /* CDUserListViewController.m */; };
 		E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FC17CA85D500CB59DB /* CDUser.m */; };
-		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
 		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
 		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
 		E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036BD1A344D120013EA56 /* AppDelegate.swift */; };
@@ -129,8 +128,6 @@
 		E91F39F917CA83E500CB59DB /* CDUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserListViewController.m; sourceTree = "<group>"; };
 		E91F39FB17CA85D500CB59DB /* CDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUser.h; sourceTree = "<group>"; };
 		E91F39FC17CA85D500CB59DB /* CDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUser.m; sourceTree = "<group>"; };
-		E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeViewController.h; sourceTree = "<group>"; };
-		E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeViewController.m; sourceTree = "<group>"; };
 		E91F3A2F17CB410C00CB59DB /* CDCakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeView.h; sourceTree = "<group>"; };
 		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
 		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
@@ -278,8 +275,6 @@
 				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
 				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
 				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
-				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
-				E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */,
 				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
 			);
 			name = Controller;
@@ -549,7 +544,6 @@
 				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
 				E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */,
 				E93036D61A34513C0013EA56 /* User.swift in Sources */,
-				E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */,
 				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 				E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */,
