@@ -27,7 +27,7 @@
     return [self initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
 }
 
-+ (void)createNewUser:(NSString *)username success:(void (^)(CDUser *))success failure:(void (^)())failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager *)opManager {
++ (void)createNewUser:(NSString *)username success:(void (^)(CDUser *))success failure:(void (^)(NSError*))failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager *)opManager {
     [database open];
     //Firstly we need to check to see if the user already exists
     FMResultSet * existingUserQuery = [database executeQuery:@"select * from users where username = ?", username];
@@ -52,7 +52,7 @@
             
             //Handle reddit errors
             if (json[@"error"]) {
-                failure();
+                failure([NSError errorWithDomain:@"reddit" code:404 userInfo:@{@"message":json[@"error"]}]);
             }
             else {
                 NSDictionary * userData = json[@"data"];
@@ -66,11 +66,11 @@
                     success(user);
                 }
                 else {
-                    failure();
+                    failure([NSError errorWithDomain:@"database" code:1 userInfo:@{@"message":@"Insert failed"}]);
                 }
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure();
+            failure(error);
         }];
         
         [opManager.operationQueue addOperation:operation];

@@ -16,13 +16,10 @@
 
 @implementation CDAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.database = [CDUtility database];
-    if ([self.database open])
-    {
-        if (![self.database executeUpdate:@"create table users (id integer primary key autoincrement, username string, cakeday int)"])
-        {
+    if ([self.database open]) {
+        if (![self.database executeUpdate:@"create table users (id integer primary key autoincrement, username string, cakeday int)"]) {
             NSLog(@"Database create failed = %@", self.database.lastErrorMessage);
         }
         [self.database close];
@@ -40,6 +37,14 @@
     
     CDUserListViewController * viewController = (CDUserListViewController*)[primaryNavController.childViewControllers firstObject];
     viewController.database = self.database;
+    
+    //In iOS 8 and above you have to first get permission from the user to send notifications
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings * settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    
+    
     return YES;
 }
 							

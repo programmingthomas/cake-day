@@ -12,7 +12,7 @@
 
 @interface CDUser : NSObject
 
-+ (void)createNewUser:(NSString*)username success:(void(^)(CDUser*))success failure:(void(^)())failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager*)opManager;
++ (void)createNewUser:(NSString*)username success:(void(^)(CDUser*))success failure:(void(^)(NSError*))failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager*)opManager;
 
 - (instancetype)initWithUsername:(NSString*)username cakeDay:(double)cakeDay databaseID:(NSUInteger)databaseID;
 - (instancetype)initWithDatabaseResult:(FMResultSet*)result;

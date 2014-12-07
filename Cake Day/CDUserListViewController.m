@@ -105,7 +105,7 @@
                   success:^(CDUser * user) {
                       [self update];
                       [self showUserWithName:user.username];
-                  } failure:^{
+                  } failure:^(NSError * error){
                       [self usernameError:username];
                   } database:self.database operationManager:[CDUtility operationManager]];
 }
