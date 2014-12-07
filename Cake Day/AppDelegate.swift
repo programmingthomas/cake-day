@@ -58,7 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             let secondaryNavController = secondaryViewController as UINavigationController
             if secondaryNavController.topViewController.isKindOfClass(CakeViewController) {
                 let cakeVC = secondaryNavController.topViewController as CakeViewController
-                if cakeVC.user == nil {
+
+                if let user = cakeVC.user {
+                    return false
+                } else {
                     return true
                 }
             }

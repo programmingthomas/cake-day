@@ -20,9 +20,21 @@ class CakeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTimer()
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
-        title = user?.username
+        
+        if let user = user {
+            title = user.username
+            cakeView.hidden = false
+            countdownLabel.hidden = false
+            
+            updateTimer()
+            NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+        } else {
+            title = ""
+            cakeView.hidden = true
+            countdownLabel.hidden = true
+            
+            //Do navigation
+        }
     }
 
     override func didReceiveMemoryWarning() {

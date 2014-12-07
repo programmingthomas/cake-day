@@ -127,6 +127,9 @@ class UserListViewController: UITableViewController {
                 //Won't work in Swift yet
                 let detailVC = nav.childViewControllers.first! as CakeViewController
                 detailVC.user = users[tableView.indexPathForSelectedRow()!.row]
+                
+                detailVC.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                detailVC.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
