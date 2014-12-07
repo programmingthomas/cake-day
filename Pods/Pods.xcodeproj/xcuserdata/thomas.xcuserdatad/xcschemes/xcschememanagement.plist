@@ -2,34 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SchemeUserState</key>
-	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ChameleonFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-FormatterKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1EE0048B5B85B17AF769DEB1</key>
@@ -38,19 +10,6 @@
 			<true/>
 		</dict>
 		<key>28EDA86E0F09A092FE63E2D2</key>
-<<<<<<< HEAD
-=======
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2A1AC1F8734CF142E69C05A3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>33185D9300BE3C224F544B7B</key>
->>>>>>> v2
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -61,20 +20,6 @@
 			<true/>
 		</dict>
 		<key>AAAB595F7D01E98FF5BD4F4C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-<<<<<<< HEAD
-		<key>E268E5E7CB5786F5DCB36102</key>
-=======
-		<key>AAAB595F7D01E98FF5BD4F4C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D8D8A3DBB64C5938877764D1</key>
->>>>>>> v2
 		<dict>
 			<key>primary</key>
 			<true/>
