@@ -21,9 +21,7 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController!.navigationBar.tintColor = UIColor.flatWhiteColor()
-        self.navigationController!.navigationBar.barStyle = .Black
-        self.navigationController!.navigationBar.barTintColor = UIColor.flatBlueColorDark()
+
         
         self.navigationItem.title = NSLocalizedString("app.name", comment:"")
         self.addButton.accessibilityLabel = NSLocalizedString("user.add", comment: "")

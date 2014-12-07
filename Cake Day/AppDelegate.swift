@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound | .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
+        //Configure appearance
+        UINavigationBar.appearance().tintColor = UIColor.flatWhiteColor()
+        UINavigationBar.appearance().barStyle = .Black
+        UINavigationBar.appearance().barTintColor = UIColor.flatBlueColorDark()
+        
         return true
     }
     
