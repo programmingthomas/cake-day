@@ -27,6 +27,7 @@
 		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
 		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
 		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
+		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
 		E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AF9CE11A339440004E351B /* CDUserListDataSource.m */; };
 		E9AF9CE41A339813004E351B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CE31A339813004E351B /* Images.xcassets */; };
@@ -81,6 +82,8 @@
 		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
 		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
 		E91F3A3317CB48BB00CB59DB /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
+		E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Bridging-Header.h"; sourceTree = "<group>"; };
+		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
 		E95F36E917CB55FB002A0CA7 /* Candle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candle.m; sourceTree = "<group>"; };
 		E9AF9CE01A339440004E351B /* CDUserListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserListDataSource.h; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E9AF9CEE1A34343D004E351B /* Localizable.strings */,
+				E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */,
 				E9AF9CDF1A338C7F004E351B /* Utility */,
 				E91F3A2117CB291700CB59DB /* Model */,
 				E91F3A2217CB292F00CB59DB /* View */,
@@ -217,6 +221,7 @@
 				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
 				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
 				E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */,
+				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 			files = (
 				E91F397317CA7FAA00CB59DB /* main.m in Sources */,
 				E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */,
+				E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */,
 				E9AF9CE71A342C00004E351B /* NSDate+CD.m in Sources */,
 				E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */,
 				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
@@ -557,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,7 +573,10 @@
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake Day/Cake Day-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -577,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,8 +597,10 @@
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake Day/Cake Day-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
