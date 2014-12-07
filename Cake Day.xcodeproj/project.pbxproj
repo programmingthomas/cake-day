@@ -274,6 +274,7 @@
 				E91F396017CA7FA900CB59DB /* Frameworks */,
 				E91F396117CA7FA900CB59DB /* Resources */,
 				8365BB05656410061F3FEFE6 /* Copy Pods Resources */,
+				E9AF9CE81A343288004E351B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -401,6 +402,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		E9AF9CE81A343288004E351B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find \"$TARGET_BUILD_DIR\" -maxdepth 8 -type f -name \"FormatterKit.strings\" -execdir rm -r -v {} \\;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
