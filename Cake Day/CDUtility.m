@@ -8,20 +8,17 @@
 
 #import "CDUtility.h"
 
-static char S(int v)
-{
+static char S(int v) {
     return v == 1 ? 0 : 's';
 }
 
 @implementation CDUtility
 
-+(NSString*)documentsDirectory
-{
++ (NSString*)documentsDirectory {
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
 }
 
-+(FMDatabase*)database
-{
++ (FMDatabase*)database {
     return [FMDatabase databaseWithPath:[[CDUtility documentsDirectory] stringByAppendingPathComponent:@"database.sqlite"]];
 }
 
@@ -34,8 +31,7 @@ static char S(int v)
     return operationManager;
 }
 
-+(NSString*)durationString:(NSTimeInterval)dur
-{
++ (NSString*)durationString:(NSTimeInterval)dur {
     int duration = (int)round((double)dur);
     int seconds = duration % 60;
     int minutes = (duration / 60) % 60;
@@ -44,36 +40,28 @@ static char S(int v)
     
     NSMutableArray * components = [NSMutableArray new];
     
-    if (days > 0)
-    {
+    if (days > 0) {
         [components addObject:[NSString stringWithFormat:@"%d day%c", days, S(days)]];
     }
-    if (hours > 0)
-    {
+    if (hours > 0) {
         [components addObject:[NSString stringWithFormat:@"%d hour%c", hours, S(hours)]];
     }
-    if (minutes > 0)
-    {
+    if (minutes > 0) {
         [components addObject:[NSString stringWithFormat:@"%d minute%c", minutes, S(minutes)]];
     }
-    if (seconds > 0)
-    {
+    if (seconds > 0) {
         [components addObject:[NSString stringWithFormat:@"%d second%c", seconds, S(seconds)]];
     }
     
     NSMutableString * durationString = [NSMutableString new];
     
-    for (int n = 0; n < components.count; n++)
-    {
+    for (int n = 0; n < components.count; n++) {
         [durationString appendString:components[n]];
-        if (components.count > 1)
-        {
-            if (n == components.count - 2)
-            {
+        if (components.count > 1) {
+            if (n == components.count - 2) {
                 [durationString appendString:@" and "];
             }
-            else if (n < components.count - 1)
-            {
+            else if (n < components.count - 1) {
                 [durationString appendString:@", "];
             }
         }

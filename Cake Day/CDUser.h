@@ -10,6 +10,8 @@
 #import <FMDatabase.h>
 #import <AFNetworking.h>
 
+#import "NSDate+CD.h"
+
 @interface CDUser : NSObject
 
 + (void)createNewUser:(NSString*)username success:(void(^)(CDUser*))success failure:(void(^)(NSError*))failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager*)opManager;
@@ -21,10 +23,10 @@
 @property (nonatomic, readonly) NSString * username;
 @property (nonatomic, readonly) NSDate * originalCakeDay;
 
--(NSDate*)nextCakeDay;
--(NSTimeInterval)timeToCakeDay;
+- (NSDate*)nextCakeDay;
+- (NSTimeInterval)timeToCakeDay;
 - (NSUInteger)yearsOld;
--(NSString*)usernameWithApostrophe;
+- (NSString*)usernameWithApostrophe;
 
 -(void)createLocalNotification;
 -(void)deleteLocalNotification;
