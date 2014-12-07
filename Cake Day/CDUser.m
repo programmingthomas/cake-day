@@ -90,6 +90,19 @@
         [user createLocalNotification];
         [users addObject:user];
     }
+    
+    
+    //We want to make sure that the users appear in order of when their cake day is, so the month and day have to be compared
+    [users sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        CDUser * user1 = (CDUser*)obj1;
+        CDUser * user2 = (CDUser*)obj2;
+        
+        NSDate * date1 = user1.originalCakeDay;
+        NSDate * date2 = user2.originalCakeDay;
+        
+        return [date1 cd_compareOrderInYear:date2];
+    }];
+    
     return users;
 }
 
