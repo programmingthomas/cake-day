@@ -32,8 +32,6 @@ class UserManager: NSObject {
         
         super.init()
         
-        database.trace(println)
-        
         database.create(table:userTable, ifNotExists: true) { t in
             t.column(self.columnID, primaryKey: true)
             t.column(self.columnUsername)
