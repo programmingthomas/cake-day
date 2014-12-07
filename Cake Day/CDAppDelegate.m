@@ -41,7 +41,6 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     }
     
-    
     return YES;
 }
 							

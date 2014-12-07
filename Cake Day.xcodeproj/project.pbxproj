@@ -32,6 +32,7 @@
 		E93036D21A344E470013EA56 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E93036C71A344E240013EA56 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D31A344E9E0013EA56 /* NSDateExtensions.swift */; };
 		E93036D61A34513C0013EA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D51A34513C0013EA56 /* User.swift */; };
+		E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D71A3455830013EA56 /* NotificationManager.swift */; };
 		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
 		E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AF9CE11A339440004E351B /* CDUserListDataSource.m */; };
@@ -138,6 +139,7 @@
 		E93036BF1A344E240013EA56 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		E93036D31A344E9E0013EA56 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		E93036D51A34513C0013EA56 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E93036D71A3455830013EA56 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Bridging-Header.h"; sourceTree = "<group>"; };
 		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				E91F39FB17CA85D500CB59DB /* CDUser.h */,
 				E91F39FC17CA85D500CB59DB /* CDUser.m */,
 				E93036D51A34513C0013EA56 /* User.swift */,
+				E93036D71A3455830013EA56 /* NotificationManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 				E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */,
 				E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */,
+				E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */,
 				E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */,
 				E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */,
 			);

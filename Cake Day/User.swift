@@ -52,6 +52,10 @@ class User: NSObject {
         self.databaseID = databaseID
         self.username = username
         self.originalCakeDay = cakeDay
+        
+        super.init()
+        
+        scheduleNewNotification()
     }
     
     func nextCakeDay() -> NSDate {
@@ -60,5 +64,55 @@ class User: NSObject {
     
     func timeIntervalToNextCakeDay() -> NSTimeInterval {
         return self.nextCakeDay().timeIntervalSinceNow
+    }
+    
+    var usernameWithApostrophe: String {
+        get {
+            if self.username.hasSuffix("s") {
+                return self.username + "'"
+            } else {
+                return self.username + "'s"
+            }
+        }
+    }
+    
+    // MARK: - Notification management
+    
+    var notificationID: String {
+        get {
+            return "cakeday-\(databaseID)"
+        }
+    }
+    
+    var localNotification: UILocalNotification {
+        get {
+            if let note = NotificationManager.manager()[notificationID] {
+                return note
+            } else {
+                return scheduleNewNotification()
+            }
+        }
+    }
+    
+    private func scheduleNewNotification() -> UILocalNotification {
+        let manager = NotificationManager.manager()
+        
+        //Cancel any existing notifications
+        manager.cancelNotificationWithUID(notificationID)
+        
+        //Create new notification obejct
+        let notification = UILocalNotification()
+        notification.fireDate = nextCakeDay()
+        notification.repeatInterval = .YearCalendarUnit
+        
+        //Used localised notification body
+        notification.alertBody = NSString(format: NSLocalizedString("notification.message", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: ""), usernameWithApostrophe)
+        notification.timeZone = NSTimeZone.systemTimeZone()
+        notification.soundName = UILocalNotificationDefaultSoundName
+        
+        //Schedules the notification
+        manager[notificationID] = notification
+        
+        return notification
     }
 }

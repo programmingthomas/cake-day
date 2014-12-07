@@ -25,3 +25,5 @@
 
 "cakeday.next" = "%@ to next cakeday!";
 "user.age" = "redditor since %@";
+
+"notification.message" = "It's %@ cake day!";
