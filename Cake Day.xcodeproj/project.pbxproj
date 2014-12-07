@@ -223,8 +223,6 @@
 			children = (
 				E91F39FB17CA85D500CB59DB /* CDUser.h */,
 				E91F39FC17CA85D500CB59DB /* CDUser.m */,
-				E9AF9CE01A339440004E351B /* CDUserListDataSource.h */,
-				E9AF9CE11A339440004E351B /* CDUserListDataSource.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -236,6 +234,8 @@
 				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
 				E91F3A2F17CB410C00CB59DB /* CDCakeView.h */,
 				E91F3A3017CB410C00CB59DB /* CDCakeView.m */,
+				E9AF9CE01A339440004E351B /* CDUserListDataSource.h */,
+				E9AF9CE11A339440004E351B /* CDUserListDataSource.m */,
 			);
 			name = View;
 			sourceTree = "<group>";

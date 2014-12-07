@@ -21,6 +21,8 @@
 
 - (void)deleteFromDatabase:(FMDatabase*)database;
 
++ (NSArray*)allUsersInDatabase:(FMDatabase*)database;
+
 @property (nonatomic, readonly) NSUInteger databaseID;
 @property (nonatomic, readonly) NSString * username;
 @property (nonatomic, readonly) NSDate * originalCakeDay;

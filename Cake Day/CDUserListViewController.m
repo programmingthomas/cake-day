@@ -38,20 +38,9 @@
 #pragma mark - Model
 
 - (void)update {
-    NSMutableArray * users = [NSMutableArray new];
-    FMResultSet * results = [self.database executeQuery:@"select * from users"];
-    while ([results next]) {
-        NSString * username = [results stringForColumn:@"username"];
-        double cakeDay = [results doubleForColumn:@"cakeday"];
-        NSUInteger databaseID = [results unsignedLongLongIntForColumn:@"id"];
-        CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
-        [user createLocalNotification];
-        [users addObject:user];
-    }
+    self.users = [CDUser allUsersInDatabase:self.database];
     
-    self.users = users;
-    
-    self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:users];
+    self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:self.users];
     self.tableView.dataSource = self.userDataSource;
     
     [self.tableView reloadData];

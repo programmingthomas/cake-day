@@ -76,7 +76,22 @@
     }
 }
 
-#pragma mark - Removing from database
+#pragma mark - Database management
+
++ (NSArray*)allUsersInDatabase:(FMDatabase *)database {
+    NSMutableArray * users = [NSMutableArray new];
+    FMResultSet * results = [database executeQuery:@"select * from users"];
+    while ([results next]) {
+        NSString * username = [results stringForColumn:@"username"];
+        double cakeDay = [results doubleForColumn:@"cakeday"];
+        NSUInteger databaseID = [results unsignedLongLongIntForColumn:@"id"];
+        
+        CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
+        [user createLocalNotification];
+        [users addObject:user];
+    }
+    return users;
+}
 
 - (void)deleteFromDatabase:(FMDatabase *)database {
     if (![database executeUpdate:@"delete from users where id = ?", @(self.databaseID)]) {
