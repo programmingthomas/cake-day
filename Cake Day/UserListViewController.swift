@@ -14,6 +14,8 @@ class UserListViewController: UITableViewController, UIAlertViewDelegate {
     var users: [User]?
     var dataSource: UserListDataSource?
     
+    lazy var operationManager: AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var rateButton: UIBarButtonItem!
     override func viewDidLoad() {
