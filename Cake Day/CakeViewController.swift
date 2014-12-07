@@ -11,7 +11,7 @@ import UIKit
 class CakeViewController: UIViewController, UIActionSheetDelegate {
 
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var cakeView: CDCakeView!
+    @IBOutlet weak var cakeView: CakeView!
     @IBOutlet weak var countdownLabel: UILabel!
     
     var user: User?
