@@ -38,7 +38,7 @@
 #pragma mark - Model
 
 - (void)update {
-    self.users = [CDUser allUsersInDatabase:self.database];
+    self.users = [self sortUsersByCurrentDate:[CDUser allUsersInDatabase:self.database]];
     
     self.userDataSource = [[CDUserListDataSource alloc] initWithUsers:self.users];
     self.tableView.dataSource = self.userDataSource;
@@ -46,6 +46,40 @@
     [self.tableView reloadData];
 }
 
+/**
+ When we show the list of users we want to display them in order they are coming up. For example, if the date is the 7th December, we want to display users with cake days between December 7th and December 31st first, and then the remainder from January onwards through the year. To do this you just do a simple binary search to find the first cake day >= the current day in the year
+ */
+- (NSArray*)sortUsersByCurrentDate:(NSArray*)users {
+    NSInteger partitionIndex = [self positionOfFirstCakeDayAfterCurrent:users];
+    NSArray * datesAfter = [users subarrayWithRange:NSMakeRange(partitionIndex, users.count - partitionIndex)];
+    NSArray * datesBefore = [users subarrayWithRange:NSMakeRange(0, partitionIndex)];
+    return [datesAfter arrayByAddingObjectsFromArray:datesBefore];
+}
+
+/**
+ Does the binary search for the above function
+ */
+- (NSInteger)positionOfFirstCakeDayAfterCurrent:(NSArray*)users {
+    NSUInteger low = 0;
+    NSUInteger high = users.count - 1;
+    NSDate * current = [NSDate date];
+    
+    while (low <= high) {
+        NSUInteger mid = (low + high) / 2;
+        
+        CDUser * user = (CDUser*)users[mid];
+        
+        NSComparisonResult compare = [user.originalCakeDay cd_compareOrderInYear:current];
+        if (compare == NSOrderedDescending || compare == NSOrderedSame) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
+    
+    return low;
+}
 
 #pragma mark - Table view delegate
 

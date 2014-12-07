@@ -50,7 +50,7 @@
         return NSOrderedAscending;
     }
     else if (components1.day > components2.day) {
-        return NSOrderedAscending;
+        return NSOrderedDescending;
     }
     return NSOrderedSame;
 }
