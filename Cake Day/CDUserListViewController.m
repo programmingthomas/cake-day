@@ -25,6 +25,10 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationController.navigationBar setBarTintColor:FlatBlueDark];
     
+    self.navigationItem.title = NSLocalizedString(@"app.name", nil);
+    self.addButton.accessibilityLabel = NSLocalizedString(@"user.add", nil);
+    self.rateButton.accessibilityLabel = NSLocalizedString(@"app.rate", nil);
+    
     [self update];
 }
 
@@ -97,13 +101,23 @@
 }
 
 - (void)usernameError:(NSString*)username {
-    [[[UIAlertView alloc] initWithTitle:@"Failed to find user" message:[NSString stringWithFormat:@"Sorry, the user %@ could not be found", username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    NSString * title = NSLocalizedString(@"user.failed", nil);
+    NSString * message = [NSString stringWithFormat:NSLocalizedString(@"user.failed.message", nil), username];
+    NSString * ok = NSLocalizedString(@"ok", nil);
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:ok otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - Bar button actions
 
 - (IBAction)addTapped:(id)sender {
-    self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    NSString * title = NSLocalizedString(@"user.add", nil);
+    NSString * message = NSLocalizedString(@"user.add.message", nil);
+    NSString * add = NSLocalizedString(@"add", nil);
+    NSString * cancel = NSLocalizedString(@"cancel", nil);
+    
+    self.addUserAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancel otherButtonTitles:add, nil];
     self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [self.addUserAlert show];
 }

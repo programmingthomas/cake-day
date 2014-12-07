@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Cake Day
+
+  Created by Thomas Denney on 07/12/2014.
+  Copyright (c) 2014 Thomas Denney. All rights reserved.
+*/
+
+"ok" = "OK";
+"add" = "Add";
+"cancel" = "Cancel";
+
+"app.name" = "Cake Day";
+"app.rate" = "Rate app";
+
+"user.add" = "Add user";
+"user.add.message" = "Enter reddit username here:";
+"user.failed" = "Failed to find user";
+"user.failed.message" = "Sorry, the user %@ could not be found";
