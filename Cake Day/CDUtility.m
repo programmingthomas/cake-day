@@ -25,51 +25,13 @@ static char S(int v)
     return [FMDatabase databaseWithPath:[[CDUtility documentsDirectory] stringByAppendingPathComponent:@"database.sqlite"]];
 }
 
-+(NSDictionary*)redditData:(NSString *)redditURL withError:(NSError *__autoreleasing *)errorPtr
-{
-    NSString* userAgent = @"cakeday/1.0 by /u/ProgrammingThomas";
-    NSURL* url = [NSURL URLWithString:redditURL];
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request addValue:userAgent forHTTPHeaderField:@"User-Agent"];
-    
-    NSURLResponse* response = nil;
-    NSError* error = nil;
-    NSData* jsonData = [NSURLConnection sendSynchronousRequest:request
-                                         returningResponse:&response
-                                                     error:&error];
-    if (error != nil)
-    {
-        *errorPtr = error;
-    }
-    else
-    {
-        NSError * jsonError;
-        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&jsonError];
-        if (jsonError != nil)
-        {
-            *errorPtr = jsonError;
-        }
-        else
-        {
-            if ([json objectForKey:@"error"] != nil)
-            {
-                *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
-            }
-            else
-            {
-                NSDictionary * data = json[@"data"];
-                if (data)
-                {
-                    return data;
-                }
-                else
-                {
-                    *errorPtr = [NSError errorWithDomain:@"" code:404 userInfo:@{NSLocalizedDescriptionKey: [json objectForKey:@"error"]}];
-                }
-            }
-        }
-    }
-    return nil;
++ (AFHTTPRequestOperationManager*)operationManager {
+    static AFHTTPRequestOperationManager * operationManager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        operationManager = [AFHTTPRequestOperationManager manager];
+    });
+    return operationManager;
 }
 
 +(NSString*)durationString:(NSTimeInterval)dur

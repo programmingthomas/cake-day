@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <FMDatabase.h>
 #import <Chameleon.h>
+#import <AFNetworking.h>
 
 /**
  This class needs refactoring
  */
 @interface CDUtility : NSObject
 
+/**
+ I don't like the fact that I'm using singletons here
+ */
 + (FMDatabase*)database;
 + (NSString*)documentsDirectory;
-+ (NSDictionary*)redditData:(NSString*)redditURL withError:(NSError**)errorPtr;
++ (AFHTTPRequestOperationManager*)operationManager;
 
 + (NSString*)durationString:(NSTimeInterval)dur;
 

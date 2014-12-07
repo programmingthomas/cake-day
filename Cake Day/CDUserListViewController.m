@@ -100,47 +100,14 @@
     }
 }
 
--(void)addUserForName:(NSString*)username
-{
-    NSString * usernameURLString = [NSString stringWithFormat:@"http://reddit.com/user/%@/about.json", username];
-    [[NSOperationQueue new] addOperationWithBlock:^{
-        NSError * error;
-        NSDictionary * data = [CDUtility redditData:usernameURLString withError:&error];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            if (error == nil)
-            {
-                NSString * username = data[@"name"];
-                NSNumber * createdUTC = data[@"created_utc"];
-                [self createNewUser:username andCreationDate:createdUTC];
-            }
-            else
-            {
-                NSLog(@"Failed to get Reddit data = %@", error.localizedDescription);
-                [self usernameError:username];
-            }
-        }];
-    }];
-}
-
--(void)createNewUser:(NSString*)username andCreationDate:(NSNumber*)created
-{
-    //Check if the username has already been added
-    if (![self showUserWithName:username])
-    {
-        if ([self.database open])
-        {
-            if ([self.database executeUpdate:@"insert into users(username, cakeday) values (?,?)", username, created])
-            {
-                [self update];
-                [self showUserWithName:username];
-            }
-            else
-            {
-                NSLog(@"Failed to insert user = %@", self.database.lastErrorMessage);
-            }
-            [self.database close];
-        }
-    }
+- (void)addUserForName:(NSString*)username {
+    [CDUser createNewUser:username
+                  success:^(CDUser * user) {
+                      [self update];
+                      [self showUserWithName:user.username];
+                  } failure:^{
+                      [self usernameError:username];
+                  } database:self.database operationManager:[CDUtility operationManager]];
 }
 
 - (BOOL)showUserWithName:(NSString*)username {

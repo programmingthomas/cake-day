@@ -20,6 +20,63 @@
     return self;
 }
 
+- (instancetype)initWithDatabaseResult:(FMResultSet *)results {
+    NSString * username = [results stringForColumn:@"username"];
+    double cakeDay = [results doubleForColumn:@"cakeday"];
+    NSUInteger databaseID = [results unsignedLongLongIntForColumn:@"id"];
+    return [self initWithUsername:username cakeDay:cakeDay databaseID:databaseID];
+}
+
++ (void)createNewUser:(NSString *)username success:(void (^)(CDUser *))success failure:(void (^)())failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager *)opManager {
+    [database open];
+    //Firstly we need to check to see if the user already exists
+    FMResultSet * existingUserQuery = [database executeQuery:@"select * from users where username = ?", username];
+    if ([existingUserQuery next]) {
+        CDUser * user = [[CDUser alloc] initWithDatabaseResult:existingUserQuery];
+        [database close];
+        success(user);
+    }
+    else {
+        //Now just do the JSON request to reddit using AFNetworking
+        NSString * userAgent = @"cakeday/1.0 by /u/ProgrammingThomas";
+        NSString * urlString = [NSString stringWithFormat:@"http://reddit.com/user/%@/about.json", username];
+        NSURL * url = [NSURL URLWithString:urlString];
+        NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request addValue:userAgent forHTTPHeaderField:@"User-Agent"];
+        
+        AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary * json = (NSDictionary*)responseObject;
+            
+            //Handle reddit errors
+            if (json[@"error"]) {
+                failure();
+            }
+            else {
+                NSDictionary * userData = json[@"data"];
+                
+                NSString * username = userData[@"name"];
+                NSNumber * createdUTC = userData[@"created_utc"];
+                
+                if ([database executeUpdate:@"insert into users(username, cakeday) values (?,?)", username, createdUTC]) {
+                    CDUser * user = [[CDUser alloc] initWithUsername:username cakeDay:createdUTC.doubleValue databaseID:(NSUInteger)database.lastInsertRowId];
+                    [database close];
+                    success(user);
+                }
+                else {
+                    failure();
+                }
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure();
+        }];
+        
+        [opManager.operationQueue addOperation:operation];
+    }
+}
+
 -(NSDate*)nextCakeDay
 {
     //This is inefficient as fuck, but it works
