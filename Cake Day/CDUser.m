@@ -95,13 +95,11 @@
     return [components year];
 }
 
--(NSString*)usernameWithApostrophe
-{
+- (NSString*)usernameWithApostrophe {
     return [NSString stringWithFormat:@"%@'%c", self.username, [self.username hasSuffix:@"s"] ? 0 : 's'];
 }
 
--(void)createLocalNotification
-{
+- (void)createLocalNotification {
     UILocalNotification * notification = [self localNotification];
     notification.fireDate = self.nextCakeDay;
     notification.repeatInterval = NSYearCalendarUnit;
@@ -113,23 +111,18 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
--(UILocalNotification*)localNotification
-{
+- (UILocalNotification*)localNotification {
     NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     UILocalNotification * notification;
     BOOL foundNotification = NO;
-    for (UILocalNotification * localNotification in localNotifications)
-    {
+    for (UILocalNotification * localNotification in localNotifications) {
         NSString * uid = localNotification.userInfo[@"uid"];
-        if ([uid isEqualToString:[self localNotificationUID]])
-        {
-            if (!foundNotification)
-            {
+        if ([uid isEqualToString:[self localNotificationUID]]) {
+            if (!foundNotification) {
                 notification = localNotification;
                 foundNotification = YES;
             }
-            else
-            {
+            else {
                 [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
             }
         }
@@ -145,8 +138,7 @@
     NSArray * localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     for (UILocalNotification * notification in localNotifications) {
         NSString * uid = notification.userInfo[@"uid"];
-        if ([uid isEqualToString:[self localNotificationUID]])
-        {
+        if ([uid isEqualToString:[self localNotificationUID]]) {
             [[UIApplication sharedApplication] cancelLocalNotification:notification];
         }
     }
