@@ -47,6 +47,7 @@ class CakeViewController: UIViewController {
             
             controller.addAction(UIAlertAction(title: shareText, style: .Default, handler: { action in
                 let shareController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
+                shareController.popoverPresentationController?.barButtonItem = self.shareButton
                 self.presentViewController(shareController, animated: true, completion: nil)
             }))
             
@@ -60,12 +61,15 @@ class CakeViewController: UIViewController {
                     
                     NSOperationQueue.mainQueue().addOperationWithBlock {
                         let shareController = UIActivityViewController(activityItems: [shareString, image], applicationActivities: nil)
+                        shareController.popoverPresentationController?.barButtonItem = self.shareButton
                         self.presentViewController(shareController, animated: true, completion: nil)
                     }
                 }
             }))
             
             controller.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: { (action) in }))
+            
+            controller.popoverPresentationController?.barButtonItem = self.shareButton
             
             presentViewController(controller, animated: true, completion: nil)
         }

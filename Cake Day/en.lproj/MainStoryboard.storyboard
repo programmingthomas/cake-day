@@ -38,7 +38,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="Ndp-BB-Yuh" kind="show" identifier="userSegue" id="z3a-cY-pJd"/>
+                                    <segue destination="Ndp-BB-Yuh" kind="showDetail" identifier="userSegue" id="z3a-cY-pJd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
