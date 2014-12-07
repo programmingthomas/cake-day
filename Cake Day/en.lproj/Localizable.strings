@@ -27,3 +27,4 @@
 "user.age" = "redditor since %@";
 
 "notification.message" = "It's %@ cake day!";
+"notification.title" = "Cake day!";
