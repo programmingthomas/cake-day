@@ -27,6 +27,9 @@
 		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
 		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
 		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
+		E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036BD1A344D120013EA56 /* AppDelegate.swift */; };
+		E93036D01A344E310013EA56 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93036C71A344E240013EA56 /* SQLite.framework */; };
+		E93036D21A344E470013EA56 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E93036C71A344E240013EA56 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
 		E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AF9CE11A339440004E351B /* CDUserListDataSource.m */; };
@@ -45,7 +48,55 @@
 			remoteGlobalIDString = E91F396217CA7FA900CB59DB;
 			remoteInfo = "Cake Day";
 		};
+		E93036C61A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		E93036C81A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS Tests";
+		};
+		E93036CA1A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741419C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		E93036CC1A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741E19C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac Tests";
+		};
+		E93036CE1A344E280013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E93036D11A344E3D0013EA56 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				E93036D21A344E470013EA56 /* SQLite.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		03243EBDE90CC22B4F8AC3FB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +133,8 @@
 		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
 		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
 		E91F3A3317CB48BB00CB59DB /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
+		E93036BD1A344D120013EA56 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E93036BF1A344E240013EA56 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Bridging-Header.h"; sourceTree = "<group>"; };
 		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
@@ -100,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93036D01A344E310013EA56 /* SQLite.framework in Frameworks */,
 				E9BA262217CE59250058CFB4 /* CoreImage.framework in Frameworks */,
 				E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */,
 				E91F39A317CA813000CB59DB /* libsqlite3.0.dylib in Frameworks */,
@@ -135,6 +189,7 @@
 		E91F395A17CA7FA900CB59DB = {
 			isa = PBXGroup;
 			children = (
+				E93036BF1A344E240013EA56 /* SQLite.xcodeproj */,
 				E91F396C17CA7FA900CB59DB /* Cake Day */,
 				E91F399017CA7FAA00CB59DB /* Cake DayTests */,
 				E91F396517CA7FA900CB59DB /* Frameworks */,
@@ -215,6 +270,7 @@
 		E91F3A2017CB290900CB59DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E93036BD1A344D120013EA56 /* AppDelegate.swift */,
 				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
 				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
 				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
@@ -246,6 +302,17 @@
 				E9AF9CE11A339440004E351B /* CDUserListDataSource.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		E93036C01A344E240013EA56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E93036C71A344E240013EA56 /* SQLite.framework */,
+				E93036C91A344E240013EA56 /* SQLite iOS Tests.xctest */,
+				E93036CB1A344E240013EA56 /* SQLite.framework */,
+				E93036CD1A344E240013EA56 /* SQLite Mac Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E95F36EB17CB6003002A0CA7 /* Opacity generated */ = {
@@ -283,10 +350,12 @@
 				E91F396117CA7FA900CB59DB /* Resources */,
 				8365BB05656410061F3FEFE6 /* Copy Pods Resources */,
 				E9AF9CE81A343288004E351B /* ShellScript */,
+				E93036D11A344E3D0013EA56 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E93036CF1A344E280013EA56 /* PBXTargetDependency */,
 			);
 			name = "Cake Day";
 			productName = "Cake Day";
@@ -338,6 +407,12 @@
 			mainGroup = E91F395A17CA7FA900CB59DB;
 			productRefGroup = E91F396417CA7FA900CB59DB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E93036C01A344E240013EA56 /* Products */;
+					ProjectRef = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E91F396217CA7FA900CB59DB /* Cake Day */,
@@ -345,6 +420,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E93036C71A344E240013EA56 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = E93036C61A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036C91A344E240013EA56 /* SQLite iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite iOS Tests.xctest";
+			remoteRef = E93036C81A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036CB1A344E240013EA56 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = E93036CA1A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036CD1A344E240013EA56 /* SQLite Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Mac Tests.xctest";
+			remoteRef = E93036CC1A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E91F396117CA7FA900CB59DB /* Resources */ = {
@@ -443,6 +549,7 @@
 				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
 				E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */,
+				E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */,
 				E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +569,11 @@
 			isa = PBXTargetDependency;
 			target = E91F396217CA7FA900CB59DB /* Cake Day */;
 			targetProxy = E91F398E17CA7FAA00CB59DB /* PBXContainerItemProxy */;
+		};
+		E93036CF1A344E280013EA56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = E93036CE1A344E280013EA56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -572,7 +684,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cake Day/Cake Day-Bridging-Header.h";
@@ -596,7 +708,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

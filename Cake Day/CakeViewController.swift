@@ -10,6 +10,10 @@ import UIKit
 
 class CakeViewController: UIViewController {
 
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cakeView: CDCakeView!
+    @IBOutlet weak var countdownLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +24,9 @@ class CakeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    @IBAction func shareTapped(sender: AnyObject) {
+    }
     /*
     // MARK: - Navigation
 

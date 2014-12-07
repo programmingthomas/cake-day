@@ -166,8 +166,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"userSegue"]) {
         UINavigationController * nav = (UINavigationController*)segue.destinationViewController;
-        CDCakeViewController * detailVC = (CDCakeViewController*)[nav.childViewControllers firstObject];
-        detailVC.user = self.users[self.tableView.indexPathForSelectedRow.row];
+        //Won't work in Swift yet
+//        CDCakeViewController * detailVC = (CDCakeViewController*)[nav.childViewControllers firstObject];
+//        detailVC.user = self.users[self.tableView.indexPathForSelectedRow.row];
     }
 }
 

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FRd-39-hZZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FRd-39-hZZ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Cake Day-->
@@ -10,7 +12,7 @@
             <objects>
                 <tableViewController id="OQe-X5-jPx" customClass="CDUserListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OCQ-D4-5da">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -37,7 +39,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="Ndp-BB-Yuh" kind="push" identifier="userSegue" id="z3a-cY-pJd"/>
+                                    <segue destination="Ndp-BB-Yuh" kind="show" identifier="userSegue" id="z3a-cY-pJd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-yi-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="1073"/>
+            <point key="canvasLocation" x="-200.625" y="1133.450704225352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kLU-8j-BMC">
@@ -82,7 +84,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27w-PF-W5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="1073"/>
+            <point key="canvasLocation" x="-1059.375" y="1133.450704225352"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="nrG-kJ-Wqh">
@@ -95,7 +97,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfb-jJ-Tff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="1388"/>
+            <point key="canvasLocation" x="-2071.875" y="1466.1971830985915"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZcB-HB-oh5">
@@ -111,76 +113,100 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Dt-MO-pFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="1779"/>
+            <point key="canvasLocation" x="-1059.375" y="1879.2253521126759"/>
         </scene>
         <!--User-->
         <scene sceneID="sf6-bZ-mhy">
             <objects>
-                <viewController id="Rgv-7q-qku" customClass="CDCakeViewController" sceneMemberID="viewController">
+                <viewController id="Rgv-7q-qku" customClass="CakeViewController" customModule="Cake_Day" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Atg-89-p0N"/>
                         <viewControllerLayoutGuide type="bottom" id="b6G-HJ-nNz"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wiH-jh-XvY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-ca-c4x" customClass="CDCakeView">
-                                <rect key="frame" x="20" y="84" width="280" height="280"/>
+                                <rect key="frame" x="146" y="84" width="308" height="308"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="WGP-Yy-JNf"/>
+                                    <constraint firstAttribute="width" secondItem="5YA-ca-c4x" secondAttribute="height" multiplier="1:1" id="ppz-3S-TWs"/>
                                     <constraint firstAttribute="width" constant="280" id="tqb-Ox-JwE"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WGP-Yy-JNf"/>
+                                        <exclude reference="tqb-Ox-JwE"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Countdown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="YEC-58-3te">
-                                <rect key="frame" x="20" y="372" width="280" height="176"/>
+                                <rect key="frame" x="20" y="400" width="560" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="B1j-2V-LsC"/>
+                                    <constraint firstAttribute="height" constant="200" id="Yra-Px-Hai"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="B1j-2V-LsC"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YEC-58-3te" secondAttribute="trailing" id="3lv-pO-lko"/>
+                            <constraint firstAttribute="centerX" secondItem="5YA-ca-c4x" secondAttribute="centerX" id="4Gp-2O-6UK"/>
+                            <constraint firstItem="b6G-HJ-nNz" firstAttribute="top" secondItem="YEC-58-3te" secondAttribute="bottom" id="B8l-6y-Ykc"/>
                             <constraint firstAttribute="bottom" secondItem="YEC-58-3te" secondAttribute="bottom" constant="20" symbolic="YES" id="D7B-BF-XAx"/>
+                            <constraint firstItem="5YA-ca-c4x" firstAttribute="top" secondItem="Atg-89-p0N" secondAttribute="bottom" constant="20" id="DZ2-oZ-P9u"/>
+                            <constraint firstItem="YEC-58-3te" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leadingMargin" id="Fqp-nC-keW"/>
                             <constraint firstItem="YEC-58-3te" firstAttribute="top" secondItem="5YA-ca-c4x" secondAttribute="bottom" constant="8" id="KFc-DA-mYx"/>
                             <constraint firstItem="5YA-ca-c4x" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" constant="20" id="WaK-VR-xrh"/>
                             <constraint firstItem="5YA-ca-c4x" firstAttribute="top" secondItem="Atg-89-p0N" secondAttribute="bottom" constant="20" id="cdU-sF-dHs"/>
                             <constraint firstAttribute="trailing" secondItem="YEC-58-3te" secondAttribute="trailing" constant="20" symbolic="YES" id="j1M-kB-nr4"/>
+                            <constraint firstItem="YEC-58-3te" firstAttribute="top" secondItem="5YA-ca-c4x" secondAttribute="bottom" constant="36" id="kf3-QG-kVg"/>
                             <constraint firstItem="YEC-58-3te" firstAttribute="leading" secondItem="wiH-jh-XvY" secondAttribute="leading" constant="20" id="vfr-xx-gId"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WaK-VR-xrh"/>
+                                <exclude reference="cdU-sF-dHs"/>
+                                <exclude reference="3lv-pO-lko"/>
+                                <exclude reference="D7B-BF-XAx"/>
+                                <exclude reference="Fqp-nC-keW"/>
+                                <exclude reference="kf3-QG-kVg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="User" id="Upi-XW-eS1">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="6hE-vI-Lwv">
                             <connections>
-                                <action selector="shareTapped:" destination="Rgv-7q-qku" id="cAh-HO-wsj"/>
+                                <action selector="shareTapped:" destination="Rgv-7q-qku" id="203-3q-8q6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="cakeView" destination="5YA-ca-c4x" id="6Yn-y3-8e4"/>
-                        <outlet property="countdownLabel" destination="YEC-58-3te" id="AAd-ax-V0b"/>
-                        <outlet property="shareButton" destination="6hE-vI-Lwv" id="ici-zF-cNO"/>
+                        <outlet property="cakeView" destination="5YA-ca-c4x" id="oZN-Pw-fKT"/>
+                        <outlet property="countdownLabel" destination="YEC-58-3te" id="or0-eL-bdK"/>
+                        <outlet property="shareButton" destination="6hE-vI-Lwv" id="ifg-Dt-g9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8R-xx-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="1779"/>
+            <point key="canvasLocation" x="-200.625" y="1879.2253521126759"/>
         </scene>
     </scenes>
     <resources>
         <image name="rate" width="20" height="20"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="z3a-cY-pJd"/>
     </inferredMetricsTieBreakers>
