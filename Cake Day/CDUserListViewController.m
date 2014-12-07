@@ -19,8 +19,7 @@
 
 #pragma mark - Initialization
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:FlatWhite];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
@@ -29,10 +28,8 @@
     [self update];
 }
 
--(void)setDatabase:(FMDatabase *)database
-{
-    if (database != _database)
-    {
+- (void)setDatabase:(FMDatabase *)database {
+    if (database != _database) {
         _database = database;
         [self update];
     }
@@ -66,8 +63,7 @@
 
 #pragma mark - Table view delegate
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
@@ -90,10 +86,8 @@
 
 #pragma mark - Alert view delegate
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView == self.addUserAlert && buttonIndex == 1)
-    {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView == self.addUserAlert && buttonIndex == 1) {
         NSString * username = [self.addUserAlert textFieldAtIndex:0].text;
         username = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         [self addUserForName:username];
@@ -121,22 +115,19 @@
     return NO;
 }
 
--(void)usernameError:(NSString*)username
-{
+- (void)usernameError:(NSString*)username {
     [[[UIAlertView alloc] initWithTitle:@"Failed to find user" message:[NSString stringWithFormat:@"Sorry, the user %@ could not be found", username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 #pragma mark - Bar button actions
 
-- (IBAction)addTapped:(id)sender
-{
+- (IBAction)addTapped:(id)sender {
     self.addUserAlert = [[UIAlertView alloc] initWithTitle:@"Add user" message:@"Enter reddit username here:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
     self.addUserAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [self.addUserAlert show];
 }
 
-- (IBAction)rateAction:(id)sender
-{
+- (IBAction)rateAction:(id)sender {
     NSURL * url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"];
     [[UIApplication sharedApplication] openURL:url];
 }
