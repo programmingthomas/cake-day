@@ -31,42 +31,44 @@ class CakeViewController: UIViewController {
     }
 
     @IBAction func shareTapped(sender: AnyObject) {
-        let title = NSLocalizedString("share", comment: "")
-        let shareText = NSLocalizedString("share.text", comment: "")
-        let shareCake = NSLocalizedString("share.cake", comment: "")
-        let cancel = NSLocalizedString("cancel", comment: "")
-        
-        let controller = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
-        
-        let formatString = NSLocalizedString("share.string", comment: "");
-        let interval = formatDurationString(user!.timeIntervalToNextCakeDay())
-        let usernameWithApostrophe = user!.usernameWithApostrophe;
-        
-        var shareString = String(format:formatString, arguments: [interval, usernameWithApostrophe])
-        
-        controller.addAction(UIAlertAction(title: shareText, style: .Default, handler: { action in
-            let shareController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
-            self.presentViewController(shareController, animated: true, completion: nil)
-        }))
-        
-        controller.addAction(UIAlertAction(title: shareCake, style: .Default, handler: { action in
-            NSOperationQueue().addOperationWithBlock {
-                //Good size for Instagram
-                UIGraphicsBeginImageContextWithOptions(CGSizeMake(612, 612), false, 0);
-                self.cakeView.drawRect(CGRect(x: 0, y: 0, width: 612, height: 612));
-                let image = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    let shareController = UIActivityViewController(activityItems: [shareString, image], applicationActivities: nil)
-                    self.presentViewController(shareController, animated: true, completion: nil)
+        if let user = user {
+            let title = NSLocalizedString("share", comment: "")
+            let shareText = NSLocalizedString("share.text", comment: "")
+            let shareCake = NSLocalizedString("share.cake", comment: "")
+            let cancel = NSLocalizedString("cancel", comment: "")
+            
+            let controller = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+            
+            let formatString = NSLocalizedString("share.string", comment: "");
+            let interval = formatDurationString(user.timeIntervalToNextCakeDay())
+            let usernameWithApostrophe = user.usernameWithApostrophe;
+            
+            var shareString = String(format:formatString, arguments: [interval, usernameWithApostrophe])
+            
+            controller.addAction(UIAlertAction(title: shareText, style: .Default, handler: { action in
+                let shareController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
+                self.presentViewController(shareController, animated: true, completion: nil)
+            }))
+            
+            controller.addAction(UIAlertAction(title: shareCake, style: .Default, handler: { action in
+                NSOperationQueue().addOperationWithBlock {
+                    //Good size for Instagram
+                    UIGraphicsBeginImageContextWithOptions(CGSizeMake(612, 612), false, 0);
+                    self.cakeView.drawRect(CGRect(x: 0, y: 0, width: 612, height: 612));
+                    let image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                        let shareController = UIActivityViewController(activityItems: [shareString, image], applicationActivities: nil)
+                        self.presentViewController(shareController, animated: true, completion: nil)
+                    }
                 }
-            }
-        }))
-        
-        controller.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: { (action) in }))
-        
-        presentViewController(controller, animated: true, completion: nil)
+            }))
+            
+            controller.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: { (action) in }))
+            
+            presentViewController(controller, animated: true, completion: nil)
+        }
     }
 
     func updateTimer() {
