@@ -64,7 +64,12 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (actionSheet == self.shareActionSheet) {
-        NSString * shareString = [NSString stringWithFormat:@"It is %@ until %@ cake day!", [CDUtility durationString:self.user.timeToCakeDay], [self.user usernameWithApostrophe]];
+        NSString * formatString = NSLocalizedString(@"share.string", nil);
+        NSString * interval = [CDUtility durationString:self.user.timeToCakeDay];
+        NSString * usernameWithApostrophe = self.user.usernameWithApostrophe;
+        
+        NSString * shareString = [NSString stringWithFormat:formatString, interval, usernameWithApostrophe];
+        
         if (buttonIndex == 0) {
             UIActivityViewController * shareController = [[UIActivityViewController alloc] initWithActivityItems:@[shareString] applicationActivities:nil];
             [self presentViewController:shareController animated:YES completion:nil];
