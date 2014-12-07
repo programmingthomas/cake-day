@@ -8,6 +8,7 @@
 
 #import "CDUserListViewController.h"
 #import "CDCakeViewController.h"
+#import "Cake_Day-Swift.h"
 
 @interface CDUserListViewController ()
 
@@ -73,7 +74,7 @@
         
         CDUser * user = (CDUser*)users[mid];
         
-        NSComparisonResult compare = [user.originalCakeDay cd_compareOrderInYear:current];
+        NSComparisonResult compare = [user.originalCakeDay compareOrderInYear:current];
         if (compare == NSOrderedDescending || compare == NSOrderedSame) {
             high = mid - 1;
         }

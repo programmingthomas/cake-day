@@ -7,6 +7,7 @@
 //
 
 #import "CDUser.h"
+#import "Cake_Day-Swift.h"
 
 @implementation CDUser
 
@@ -100,7 +101,7 @@
         NSDate * date1 = user1.originalCakeDay;
         NSDate * date2 = user2.originalCakeDay;
         
-        return [date1 cd_compareOrderInYear:date2];
+        return [date1 compareOrderInYear:date2];
     }];
     
     return users;
@@ -116,7 +117,7 @@
 #pragma mark - Date handling
 
 - (NSDate*)nextCakeDay {
-    return [self.originalCakeDay cd_nextDate];
+    return [self.originalCakeDay nextDate];
 }
 
 - (NSTimeInterval)timeToCakeDay {

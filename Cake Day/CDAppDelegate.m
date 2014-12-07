@@ -9,6 +9,7 @@
 #import "CDAppDelegate.h"
 #import "CDUserListViewController.h"
 #import "CDCakeViewController.h"
+#import "Cake_Day-Swift.h"
 
 @interface CDAppDelegate () <UISplitViewControllerDelegate>
 

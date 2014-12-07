@@ -10,8 +10,6 @@
 #import <FMDatabase.h>
 #import <AFNetworking.h>
 
-#import "NSDate+CD.h"
-
 @interface CDUser : NSObject
 
 + (void)createNewUser:(NSString*)username success:(void(^)(CDUser*))success failure:(void(^)(NSError*))failure database:(FMDatabase*)database operationManager:(AFHTTPRequestOperationManager*)opManager;
