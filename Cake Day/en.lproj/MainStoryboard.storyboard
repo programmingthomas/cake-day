@@ -50,7 +50,9 @@
                     <navigationItem key="navigationItem" title="Cake Day" id="whC-fS-Npo">
                         <barButtonItem key="leftBarButtonItem" image="rate" id="fOj-Cm-geR">
                             <connections>
-                                <action selector="rateTapped:" destination="OQe-X5-jPx" id="Iay-hH-OJT"/>
+                                <segue destination="R8B-2l-At0" kind="popoverPresentation" popoverAnchorBarButtonItem="fOj-Cm-geR" id="P8n-yT-mut">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Li4-U3-vVl">
@@ -68,6 +70,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-yi-LHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-200.625" y="1133.450704225352"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="fE7-Fv-w4w">
+            <objects>
+                <tableViewController id="Hei-Bw-cAp" customClass="AboutController" customModule="Cake_Day" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="YvP-Si-Re8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="hhg-Zs-YRn" style="IBUITableViewCellStyleDefault" id="Ltr-7f-LsE">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ltr-7f-LsE" id="abc-C4-aky">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Cake Day source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hhg-Zs-YRn">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Hei-Bw-cAp" id="NNg-bA-PkQ"/>
+                            <outlet property="delegate" destination="Hei-Bw-cAp" id="Gaj-Gh-ny7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About" id="luq-8c-kJd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Phv-x3-rwn">
+                            <connections>
+                                <action selector="doneTapped:" destination="Hei-Bw-cAp" id="AQU-QL-X7X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euw-CF-373" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333" y="446"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IYB-KP-g6T">
+            <objects>
+                <navigationController id="R8B-2l-At0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xyD-Wa-67d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hei-Bw-cAp" kind="relationship" relationship="rootViewController" id="2bx-sa-HHL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbj-IB-E0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="446"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kLU-8j-BMC">
