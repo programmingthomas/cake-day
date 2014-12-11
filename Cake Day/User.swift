@@ -52,6 +52,11 @@ class UserManager: NSObject {
             users.append(userFromRow(user))
         }
         
+        users.sort { (left, right) -> Bool in
+            let order = left.originalCakeDay.compareOrderInYear(right.originalCakeDay)
+            return order == .OrderedAscending || order == .OrderedSame
+        }
+        
         return users
     }
     
@@ -128,7 +133,7 @@ class UserManager: NSObject {
     }
 }
 
-class User: NSObject {
+class User: NSObject, DebugPrintable {
     var databaseID: Int
     var username: String
     var originalCakeDay: NSDate
@@ -216,5 +221,11 @@ class User: NSObject {
     
     func cancelLocalNotification() {
         NotificationManager.manager().cancelNotificationWithUID(notificationID)
+    }
+    
+    override var debugDescription: String {
+        get {
+            return "\(username) \(originalCakeDay)"
+        }
     }
 }
