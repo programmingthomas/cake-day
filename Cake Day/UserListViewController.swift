@@ -12,7 +12,6 @@ class UserListViewController: UITableViewController {
     
     var userManager: UserManager?
     var users: [User]?
-    var dataSource: UserListDataSource?
     
     lazy var operationManager: AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
     
@@ -25,16 +24,12 @@ class UserListViewController: UITableViewController {
         self.addButton.accessibilityLabel = NSLocalizedString("user.add", comment: "")
         self.rateButton.accessibilityLabel = NSLocalizedString("app.rate", comment: "")
         
+        
         update()
     }
     
     func update() {
         self.users = sortUsersByCurrentDate(self.userManager!.allUsers())
-        
-        self.dataSource = UserListDataSource(users: self.users!)
-        self.tableView.dataSource = self.dataSource!
-        
-        self.tableView.reloadData()
     }
     
     /**
@@ -77,6 +72,37 @@ class UserListViewController: UITableViewController {
     
     // MARK: - Table view delegate
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users!.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        //Inefficient to recreate this every time
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMMM d"
+        
+        let user = users![indexPath.row]
+        
+        cell.textLabel.text = user.username
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(user.originalCakeDay).uppercaseString
+        
+        //Fonts
+        cell.textLabel.font = UIFont(name: "OpenSans", size: 17)
+        cell.detailTextLabel?.font = UIFont(name: "OpenSans", size: 14)
+        
+        //Colors
+        cell.detailTextLabel?.textColor = UIColor.darkGrayColor()
+        
+        
+        return cell
+    }
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -85,8 +111,8 @@ class UserListViewController: UITableViewController {
         if editingStyle == .Delete {
             let user = users![indexPath.row]
             userManager!.deleteUser(user)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             update()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
     
@@ -138,6 +164,7 @@ class UserListViewController: UITableViewController {
         let username = username.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         userManager?.userFromReddit(username, success: { user in
             self.update()
+            self.tableView.reloadData()
             self.showUserForName(user.username)
         }, failure: {
             self.usernameError(username)
