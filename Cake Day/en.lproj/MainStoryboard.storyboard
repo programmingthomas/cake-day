@@ -48,7 +48,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cake Day" id="whC-fS-Npo">
-                        <barButtonItem key="leftBarButtonItem" image="rate" id="fOj-Cm-geR">
+                        <barButtonItem key="leftBarButtonItem" image="info" id="fOj-Cm-geR">
                             <connections>
                                 <segue destination="R8B-2l-At0" kind="popoverPresentation" popoverAnchorBarButtonItem="fOj-Cm-geR" id="P8n-yT-mut">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -264,7 +264,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="rate" width="20" height="20"/>
+        <image name="info" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z3a-cY-pJd"/>
