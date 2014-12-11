@@ -10,7 +10,6 @@
             <navigationBar key="navigationBar" contentMode="scaleToFill" id="GcL-Ng-wfW">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <color key="barTintColor" red="0.17119252681732178" green="0.22647438943386078" blue="0.43431675434112549" alpha="1" colorSpace="calibratedRGB"/>
             </navigationBar>
             <viewControllers>
                 <viewController id="r1G-wb-pGo">
