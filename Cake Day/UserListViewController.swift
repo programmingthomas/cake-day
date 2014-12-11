@@ -90,6 +90,10 @@ class UserListViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+    
     @IBAction func addTapped(sender: AnyObject) {
         let title = NSLocalizedString("user.add", comment: "")
         let message = NSLocalizedString("user.add.message", comment: "")
