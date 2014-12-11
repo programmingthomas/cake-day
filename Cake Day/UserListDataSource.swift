@@ -36,13 +36,12 @@ class UserListDataSource: NSObject, UITableViewDataSource {
     
         //Inefficient to recreate this every time
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateFormat = "MMMM d"
         
         let user = users[indexPath.row]
         
         cell.textLabel.text = user.username
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(user.originalCakeDay)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(user.originalCakeDay).uppercaseString
         
         //Fonts
         cell.textLabel.font = UIFont(name: "OpenSans", size: 17)
