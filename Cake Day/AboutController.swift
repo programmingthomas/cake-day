@@ -10,15 +10,10 @@ import UIKit
 
 let sectionHeaders = ["Open Source", "Support", "Share"]
 let sectionFooters = ["footer.opensource", "footer.support", "footer.share"]
-let sections = [
-    ["Cake Day": "https://github.com/programmingthomas/cake-day",
-        "AFNetworking": "https://github.com/afnetworking/afnetworking",
-        "FormatterKit": "https://github.com/mattt/FormatterKit",
-        "SQLite.swift": "https://github.com/stephencelis/SQLite.swift"],
-    ["Developer site":"http://programmingthomas.com",
-     "Support":"http://programmingthomas.com/contact"],
-    ["Rate this app": "https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"]
-]
+let sectionTitles = [["Cake Day", "AFNetworking", "FormatterKit", "SQLite.swift"], ["Developer site", "Support"], ["Rate this app"]]
+let sectionURLs = [["https://github.com/programmingthomas/cake-day", "https://github.com/afnetworking/afnetworking", "https://github.com/mattt/FormatterKit", "https://github.com/stephencelis/SQLite.swift"], ["http://programmingthomas.com", "http://programmingthomas.com/contact"],
+    ["https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"]]
+
 
 class AboutController: UITableViewController {
 
@@ -38,16 +33,16 @@ class AboutController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].count
+        return sectionTitles[section].count
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return sections.count
+        return sectionTitles.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = sections[indexPath.section].keys.array[indexPath.row]
+        cell.textLabel.text = sectionTitles[indexPath.section][indexPath.row]
         return cell
     }
     
@@ -60,7 +55,7 @@ class AboutController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        openURL(sections[indexPath.section].values.array[indexPath.row])
+        openURL(sectionURLs[indexPath.section][indexPath.row])
     }
     
     func openURL(address: String) {
