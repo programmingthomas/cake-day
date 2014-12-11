@@ -44,6 +44,13 @@ class UserListDataSource: NSObject, UITableViewDataSource {
         cell.textLabel.text = user.username
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(user.originalCakeDay)
         
+        //Fonts
+        cell.textLabel.font = UIFont(name: "OpenSans", size: 17)
+        cell.detailTextLabel?.font = UIFont(name: "OpenSans", size: 14)
+        
+        //Colors
+        cell.detailTextLabel?.textColor = UIColor.darkGrayColor()
+        
         return cell
     }
 }
