@@ -1,4 +1,3 @@
-pod 'FMDB'
 pod 'AFNetworking'
 pod 'FormatterKit'
 

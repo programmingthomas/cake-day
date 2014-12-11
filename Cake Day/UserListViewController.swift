@@ -112,11 +112,11 @@ class UserListViewController: UITableViewController {
         presentViewController(addUser, animated: true, completion: nil)
     }
     
-    @IBAction func rateTapped(sender: AnyObject) {
-        //TODO: - Make sure that this plays nicely on iOS 8
-        let url = NSURL(string: "https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8")!
-        UIApplication.sharedApplication().openURL(url)
-    }
+//    @IBAction func rateTapped(sender: AnyObject) {
+//        //TODO: - Make sure that this plays nicely on iOS 8
+//        let url = NSURL(string: "https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8")!
+//        UIApplication.sharedApplication().openURL(url)
+//    }
     
     // MARK: - Navigation
     
