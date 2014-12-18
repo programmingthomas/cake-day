@@ -11,8 +11,6 @@
 		E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
 		E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */; };
 		E91F397117CA7FAA00CB59DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */; };
-		E91F397317CA7FAA00CB59DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397217CA7FAA00CB59DB /* main.m */; };
-		E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */; };
 		E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */; };
 		E91F398C17CA7FAA00CB59DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396617CA7FA900CB59DB /* UIKit.framework */; };
 		E91F398D17CA7FAA00CB59DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F396817CA7FA900CB59DB /* Foundation.framework */; };
@@ -21,18 +19,23 @@
 		E91F39A317CA813000CB59DB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39A117CA813000CB59DB /* libsqlite3.0.dylib */; };
 		E91F39A417CA813000CB59DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39A217CA813000CB59DB /* QuartzCore.framework */; };
 		E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91F39F117CA81FE00CB59DB /* CoreText.framework */; };
-		E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F617CA824F00CB59DB /* CDUtility.m */; };
-		E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39F917CA83E500CB59DB /* CDUserListViewController.m */; };
-		E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FC17CA85D500CB59DB /* CDUser.m */; };
-		E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */; };
-		E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3017CB410C00CB59DB /* CDCakeView.m */; };
 		E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A3317CB48BB00CB59DB /* Cake.m */; };
+		E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036BD1A344D120013EA56 /* AppDelegate.swift */; };
+		E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D31A344E9E0013EA56 /* NSDateExtensions.swift */; };
+		E93036D61A34513C0013EA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D51A34513C0013EA56 /* User.swift */; };
+		E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036D71A3455830013EA56 /* NotificationManager.swift */; };
+		E93036DC1A3476340013EA56 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036DB1A3476340013EA56 /* UserListViewController.swift */; };
+		E93036DE1A34840A0013EA56 /* CakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93036DD1A34840A0013EA56 /* CakeView.swift */; };
+		E93036DF1A34920D0013EA56 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93036C71A344E240013EA56 /* SQLite.framework */; };
+		E93036E01A34920D0013EA56 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93036C71A344E240013EA56 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93036EA1A349F1A0013EA56 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93036E91A349F1A0013EA56 /* Launch Screen.xib */; };
+		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
-		E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AF9CE11A339440004E351B /* CDUserListDataSource.m */; };
 		E9AF9CE41A339813004E351B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CE31A339813004E351B /* Images.xcassets */; };
-		E9AF9CE71A342C00004E351B /* NSDate+CD.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AF9CE61A342C00004E351B /* NSDate+CD.m */; };
 		E9AF9CF01A34343D004E351B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CEE1A34343D004E351B /* Localizable.strings */; };
-		E9BA262217CE59250058CFB4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA262117CE59250058CFB4 /* CoreImage.framework */; };
+		E9ED932F1A3A338800EC91A4 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED932E1A3A338800EC91A4 /* AboutController.swift */; };
+		E9ED93381A3A41D000EC91A4 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9ED93371A3A40F000EC91A4 /* OpenSans-Regular.ttf */; };
+		E9ED933B1A3A450500EC91A4 /* AppearanceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ED933A1A3A450500EC91A4 /* AppearanceBridge.m */; };
 		F4013A18764E5868075F31E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A501440C96DFE4D467FD69FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +47,72 @@
 			remoteGlobalIDString = E91F396217CA7FA900CB59DB;
 			remoteInfo = "Cake Day";
 		};
+		E93036C61A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		E93036C81A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS Tests";
+		};
+		E93036CA1A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741419C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		E93036CC1A344E240013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741E19C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac Tests";
+		};
+		E93036CE1A344E280013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		E93036E11A34920E0013EA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E93036D11A344E3D0013EA56 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E93036E31A34920E0013EA56 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E93036E01A34920D0013EA56 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		03243EBDE90CC22B4F8AC3FB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,10 +124,7 @@
 		E91F396A17CA7FA900CB59DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake Day-Info.plist"; sourceTree = "<group>"; };
 		E91F397017CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E91F397217CA7FAA00CB59DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Prefix.pch"; sourceTree = "<group>"; };
-		E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
-		E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		E91F397F17CA7FAA00CB59DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E91F398917CA7FAA00CB59DB /* Cake DayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake DayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91F399217CA7FAA00CB59DB /* Cake DayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cake DayTests-Info.plist"; sourceTree = "<group>"; };
@@ -69,27 +134,28 @@
 		E91F39A117CA813000CB59DB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E91F39A217CA813000CB59DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E91F39F117CA81FE00CB59DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		E91F39F517CA824F00CB59DB /* CDUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUtility.h; sourceTree = "<group>"; };
-		E91F39F617CA824F00CB59DB /* CDUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUtility.m; sourceTree = "<group>"; };
-		E91F39F817CA83E400CB59DB /* CDUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserListViewController.h; sourceTree = "<group>"; };
-		E91F39F917CA83E500CB59DB /* CDUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserListViewController.m; sourceTree = "<group>"; };
-		E91F39FB17CA85D500CB59DB /* CDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUser.h; sourceTree = "<group>"; };
-		E91F39FC17CA85D500CB59DB /* CDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUser.m; sourceTree = "<group>"; };
-		E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeViewController.h; sourceTree = "<group>"; };
-		E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeViewController.m; sourceTree = "<group>"; };
-		E91F3A2F17CB410C00CB59DB /* CDCakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCakeView.h; sourceTree = "<group>"; };
-		E91F3A3017CB410C00CB59DB /* CDCakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCakeView.m; sourceTree = "<group>"; };
 		E91F3A3217CB48BB00CB59DB /* Cake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
 		E91F3A3317CB48BB00CB59DB /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
+		E93036BD1A344D120013EA56 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E93036BF1A344E240013EA56 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
+		E93036D31A344E9E0013EA56 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		E93036D51A34513C0013EA56 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E93036D71A3455830013EA56 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E93036DB1A3476340013EA56 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		E93036DD1A34840A0013EA56 /* CakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeView.swift; sourceTree = "<group>"; };
+		E93036E51A349B5B0013EA56 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = SOURCE_ROOT; };
+		E93036E91A349F1A0013EA56 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cake Day-Bridging-Header.h"; sourceTree = "<group>"; };
+		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
 		E95F36E917CB55FB002A0CA7 /* Candle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candle.m; sourceTree = "<group>"; };
-		E9AF9CE01A339440004E351B /* CDUserListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserListDataSource.h; sourceTree = "<group>"; };
-		E9AF9CE11A339440004E351B /* CDUserListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserListDataSource.m; sourceTree = "<group>"; };
 		E9AF9CE31A339813004E351B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E9AF9CE51A342C00004E351B /* NSDate+CD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CD.h"; sourceTree = "<group>"; };
-		E9AF9CE61A342C00004E351B /* NSDate+CD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CD.m"; sourceTree = "<group>"; };
 		E9AF9CEF1A34343D004E351B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9BA262117CE59250058CFB4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		E9ED932E1A3A338800EC91A4 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		E9ED93371A3A40F000EC91A4 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		E9ED93391A3A450500EC91A4 /* AppearanceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceBridge.h; sourceTree = "<group>"; };
+		E9ED933A1A3A450500EC91A4 /* AppearanceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BA262217CE59250058CFB4 /* CoreImage.framework in Frameworks */,
 				E91F39F217CA81FE00CB59DB /* CoreText.framework in Frameworks */,
 				E91F39A317CA813000CB59DB /* libsqlite3.0.dylib in Frameworks */,
 				E91F39A417CA813000CB59DB /* QuartzCore.framework in Frameworks */,
@@ -105,6 +170,7 @@
 				E91F396917CA7FA900CB59DB /* Foundation.framework in Frameworks */,
 				E91F396B17CA7FA900CB59DB /* CoreGraphics.framework in Frameworks */,
 				F4013A18764E5868075F31E2 /* libPods.a in Frameworks */,
+				E93036DF1A34920D0013EA56 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +198,7 @@
 		E91F395A17CA7FA900CB59DB = {
 			isa = PBXGroup;
 			children = (
+				E93036BF1A344E240013EA56 /* SQLite.xcodeproj */,
 				E91F396C17CA7FA900CB59DB /* Cake Day */,
 				E91F399017CA7FAA00CB59DB /* Cake DayTests */,
 				E91F396517CA7FA900CB59DB /* Frameworks */,
@@ -167,7 +234,10 @@
 		E91F396C17CA7FA900CB59DB /* Cake Day */ = {
 			isa = PBXGroup;
 			children = (
+				E9ED93371A3A40F000EC91A4 /* OpenSans-Regular.ttf */,
+				E93036E51A349B5B0013EA56 /* iTunesArtwork.png */,
 				E9AF9CEE1A34343D004E351B /* Localizable.strings */,
+				E95BC6B21A344A14005E3E66 /* Cake Day-Bridging-Header.h */,
 				E9AF9CDF1A338C7F004E351B /* Utility */,
 				E91F3A2117CB291700CB59DB /* Model */,
 				E91F3A2217CB292F00CB59DB /* View */,
@@ -183,7 +253,6 @@
 			children = (
 				E91F396E17CA7FAA00CB59DB /* Cake Day-Info.plist */,
 				E91F396F17CA7FAA00CB59DB /* InfoPlist.strings */,
-				E91F397217CA7FAA00CB59DB /* main.m */,
 				E91F397417CA7FAA00CB59DB /* Cake Day-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -211,12 +280,12 @@
 		E91F3A2017CB290900CB59DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E91F397517CA7FAA00CB59DB /* CDAppDelegate.h */,
-				E91F397617CA7FAA00CB59DB /* CDAppDelegate.m */,
-				E91F39F817CA83E400CB59DB /* CDUserListViewController.h */,
-				E91F39F917CA83E500CB59DB /* CDUserListViewController.m */,
-				E91F39FE17CA8A2300CB59DB /* CDCakeViewController.h */,
-				E91F39FF17CA8A2300CB59DB /* CDCakeViewController.m */,
+				E93036BD1A344D120013EA56 /* AppDelegate.swift */,
+				E95BC6B31A344A14005E3E66 /* CakeViewController.swift */,
+				E93036DB1A3476340013EA56 /* UserListViewController.swift */,
+				E9ED932E1A3A338800EC91A4 /* AboutController.swift */,
+				E9ED93391A3A450500EC91A4 /* AppearanceBridge.h */,
+				E9ED933A1A3A450500EC91A4 /* AppearanceBridge.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -224,8 +293,8 @@
 		E91F3A2117CB291700CB59DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E91F39FB17CA85D500CB59DB /* CDUser.h */,
-				E91F39FC17CA85D500CB59DB /* CDUser.m */,
+				E93036D51A34513C0013EA56 /* User.swift */,
+				E93036D71A3455830013EA56 /* NotificationManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -235,12 +304,21 @@
 			children = (
 				E95F36EB17CB6003002A0CA7 /* Opacity generated */,
 				E91F397E17CA7FAA00CB59DB /* MainStoryboard.storyboard */,
-				E91F3A2F17CB410C00CB59DB /* CDCakeView.h */,
-				E91F3A3017CB410C00CB59DB /* CDCakeView.m */,
-				E9AF9CE01A339440004E351B /* CDUserListDataSource.h */,
-				E9AF9CE11A339440004E351B /* CDUserListDataSource.m */,
+				E93036DD1A34840A0013EA56 /* CakeView.swift */,
+				E93036E91A349F1A0013EA56 /* Launch Screen.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		E93036C01A344E240013EA56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E93036C71A344E240013EA56 /* SQLite.framework */,
+				E93036C91A344E240013EA56 /* SQLite iOS Tests.xctest */,
+				E93036CB1A344E240013EA56 /* SQLite.framework */,
+				E93036CD1A344E240013EA56 /* SQLite Mac Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E95F36EB17CB6003002A0CA7 /* Opacity generated */ = {
@@ -257,10 +335,7 @@
 		E9AF9CDF1A338C7F004E351B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				E91F39F517CA824F00CB59DB /* CDUtility.h */,
-				E91F39F617CA824F00CB59DB /* CDUtility.m */,
-				E9AF9CE51A342C00004E351B /* NSDate+CD.h */,
-				E9AF9CE61A342C00004E351B /* NSDate+CD.m */,
+				E93036D31A344E9E0013EA56 /* NSDateExtensions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -278,10 +353,14 @@
 				E91F396117CA7FA900CB59DB /* Resources */,
 				8365BB05656410061F3FEFE6 /* Copy Pods Resources */,
 				E9AF9CE81A343288004E351B /* ShellScript */,
+				E93036D11A344E3D0013EA56 /* CopyFiles */,
+				E93036E31A34920E0013EA56 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E93036CF1A344E280013EA56 /* PBXTargetDependency */,
+				E93036E21A34920E0013EA56 /* PBXTargetDependency */,
 			);
 			name = "Cake Day";
 			productName = "Cake Day";
@@ -333,6 +412,12 @@
 			mainGroup = E91F395A17CA7FA900CB59DB;
 			productRefGroup = E91F396417CA7FA900CB59DB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E93036C01A344E240013EA56 /* Products */;
+					ProjectRef = E93036BF1A344E240013EA56 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E91F396217CA7FA900CB59DB /* Cake Day */,
@@ -341,15 +426,48 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		E93036C71A344E240013EA56 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = E93036C61A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036C91A344E240013EA56 /* SQLite iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite iOS Tests.xctest";
+			remoteRef = E93036C81A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036CB1A344E240013EA56 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = E93036CA1A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E93036CD1A344E240013EA56 /* SQLite Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Mac Tests.xctest";
+			remoteRef = E93036CC1A344E240013EA56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		E91F396117CA7FA900CB59DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9ED93381A3A41D000EC91A4 /* OpenSans-Regular.ttf in Resources */,
 				E91F397117CA7FAA00CB59DB /* InfoPlist.strings in Resources */,
 				E9AF9CF01A34343D004E351B /* Localizable.strings in Resources */,
 				E91F398017CA7FAA00CB59DB /* MainStoryboard.storyboard in Resources */,
 				E9AF9CE41A339813004E351B /* Images.xcassets in Resources */,
+				E93036EA1A349F1A0013EA56 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,17 +545,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E91F397317CA7FAA00CB59DB /* main.m in Sources */,
-				E91F397717CA7FAA00CB59DB /* CDAppDelegate.m in Sources */,
-				E9AF9CE71A342C00004E351B /* NSDate+CD.m in Sources */,
-				E91F39F717CA824F00CB59DB /* CDUtility.m in Sources */,
-				E91F39FA17CA83E500CB59DB /* CDUserListViewController.m in Sources */,
-				E91F39FD17CA85D500CB59DB /* CDUser.m in Sources */,
-				E91F3A0017CA8A2300CB59DB /* CDCakeViewController.m in Sources */,
-				E91F3A3117CB410C00CB59DB /* CDCakeView.m in Sources */,
+				E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */,
+				E93036D61A34513C0013EA56 /* User.swift in Sources */,
+				E93036DC1A3476340013EA56 /* UserListViewController.swift in Sources */,
 				E91F3A3417CB48BB00CB59DB /* Cake.m in Sources */,
+				E93036DE1A34840A0013EA56 /* CakeView.swift in Sources */,
+				E93036D41A344E9E0013EA56 /* NSDateExtensions.swift in Sources */,
 				E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */,
-				E9AF9CE21A339440004E351B /* CDUserListDataSource.m in Sources */,
+				E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */,
+				E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */,
+				E9ED933B1A3A450500EC91A4 /* AppearanceBridge.m in Sources */,
+				E9ED932F1A3A338800EC91A4 /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +574,16 @@
 			isa = PBXTargetDependency;
 			target = E91F396217CA7FA900CB59DB /* Cake Day */;
 			targetProxy = E91F398E17CA7FAA00CB59DB /* PBXContainerItemProxy */;
+		};
+		E93036CF1A344E280013EA56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = E93036CE1A344E280013EA56 /* PBXContainerItemProxy */;
+		};
+		E93036E21A34920E0013EA56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = E93036E11A34920E0013EA56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -557,7 +685,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -565,8 +695,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake Day/Cake Day-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -577,7 +711,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -585,9 +721,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cake Day/Cake Day-Prefix.pch";
 				INFOPLIST_FILE = "Cake Day/Cake Day-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cake Day/Cake Day-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

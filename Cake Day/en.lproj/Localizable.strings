@@ -9,6 +9,7 @@
 "ok" = "OK";
 "add" = "Add";
 "cancel" = "Cancel";
+"username" = "Username";
 
 "app.name" = "Cake Day";
 "app.rate" = "Rate app";
@@ -25,3 +26,13 @@
 
 "cakeday.next" = "%@ to next cakeday!";
 "user.age" = "redditor since %@";
+
+"notification.message" = "It's %@ cake day!";
+"notification.title" = "Cake day!";
+
+"Open Source" = "Open Source";
+"Support" = "Support";
+
+"footer.opensource" = "Cake Day is open source and uses several open source libraries";
+"footer.share" = "Help other redditors discover Cake Day";
+"footer.support" = "";

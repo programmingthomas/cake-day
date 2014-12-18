@@ -20,13 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - ChameleonFramework (1.1.1)
-  - FMDB (2.4):
-    - FMDB/standard
-  - FMDB/common (2.4)
-  - FMDB/standard (2.4):
-    - FMDB/common
-  - FormatterKit (1.7.4):
+  - FormatterKit (1.7.5):
     - FormatterKit/AddressFormatter
     - FormatterKit/ArrayFormatter
     - FormatterKit/ColorFormatter
@@ -36,26 +30,22 @@ PODS:
     - FormatterKit/TimeIntervalFormatter
     - FormatterKit/UnitOfInformationFormatter
     - FormatterKit/URLRequestFormatter
-  - FormatterKit/AddressFormatter (1.7.4)
-  - FormatterKit/ArrayFormatter (1.7.4)
-  - FormatterKit/ColorFormatter (1.7.4)
-  - FormatterKit/LocationFormatter (1.7.4)
-  - FormatterKit/NameFormatter (1.7.4)
-  - FormatterKit/OrdinalNumberFormatter (1.7.4)
-  - FormatterKit/TimeIntervalFormatter (1.7.4)
-  - FormatterKit/UnitOfInformationFormatter (1.7.4)
-  - FormatterKit/URLRequestFormatter (1.7.4)
+  - FormatterKit/AddressFormatter (1.7.5)
+  - FormatterKit/ArrayFormatter (1.7.5)
+  - FormatterKit/ColorFormatter (1.7.5)
+  - FormatterKit/LocationFormatter (1.7.5)
+  - FormatterKit/NameFormatter (1.7.5)
+  - FormatterKit/OrdinalNumberFormatter (1.7.5)
+  - FormatterKit/TimeIntervalFormatter (1.7.5)
+  - FormatterKit/UnitOfInformationFormatter (1.7.5)
+  - FormatterKit/URLRequestFormatter (1.7.5)
 
 DEPENDENCIES:
   - AFNetworking
-  - ChameleonFramework
-  - FMDB
   - FormatterKit
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  ChameleonFramework: c60096686e3771f5d78f26cfbfd08955a8a88cbd
-  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
-  FormatterKit: 54b81d587a6c448bbdbadc716b744c6aa6e3125b
+  FormatterKit: 758bef4552d11454f0eb7e73669f81c225247904
 
 COCOAPODS: 0.34.2

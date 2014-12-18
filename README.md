@@ -1,18 +1,7 @@
 #Cake Day
 
-Cake Day is a simple iPhone app that reminds you when your Cake Day is on Reddit.
+Cake Day is a simple iPhone app that reminds you when your Cake Day is on reddit. I have chosen to open source the app so that people can see how it is relatively easy to transition a pure Objective-C app to a pure Swift app.
 
-##Screenshots
+To get started with the source you'll need to clone the repository and run `pod install` to fetch the CocoaPods that the project uses.
 
-* View of countdown for reddit
-* View of list of users (just reddit)
-* View of sharing
-
-##Future features/TODO
-
-* Support for iOS 5
-* Add cake day to calendar
-* More accurate notifications
-* Notifications for 42nd day, 1337th day
-* Add reddit login so that you can wish people a happy cake day
-* Link to buy gold?
+The app is available under the MIT license.
