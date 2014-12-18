@@ -28,6 +28,14 @@ class UserListViewController: UITableViewController {
         update()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.users?.count == 0 {
+            addTapped(self)
+        }
+    }
+    
     func update() {
         self.users = sortUsersByCurrentDate(self.userManager!.allUsers())
     }
