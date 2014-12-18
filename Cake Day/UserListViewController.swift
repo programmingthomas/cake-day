@@ -32,7 +32,7 @@ class UserListViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if self.users?.count == 0 {
-            addTapped(self)
+//            addTapped(self)
         }
     }
     
