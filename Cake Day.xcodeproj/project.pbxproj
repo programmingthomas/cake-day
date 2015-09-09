@@ -30,6 +30,7 @@
 		E93036EA1A349F1A0013EA56 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93036E91A349F1A0013EA56 /* Launch Screen.xib */; };
 		E95BC6B41A344A14005E3E66 /* CakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC6B31A344A14005E3E66 /* CakeViewController.swift */; };
 		E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */ = {isa = PBXBuildFile; fileRef = E95F36E917CB55FB002A0CA7 /* Candle.m */; };
+		E97E31781BA0D7AB005B87BE /* DatabaseBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E97E31771BA0D7AB005B87BE /* DatabaseBridge.m */; settings = {ASSET_TAGS = (); }; };
 		E9AF9CE41A339813004E351B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CE31A339813004E351B /* Images.xcassets */; };
 		E9AF9CF01A34343D004E351B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9AF9CEE1A34343D004E351B /* Localizable.strings */; };
 		E9ED932F1A3A338800EC91A4 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED932E1A3A338800EC91A4 /* AboutController.swift */; };
@@ -103,6 +104,8 @@
 		E95BC6B31A344A14005E3E66 /* CakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CakeViewController.swift; sourceTree = "<group>"; };
 		E95F36E817CB55FB002A0CA7 /* Candle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candle.h; sourceTree = "<group>"; };
 		E95F36E917CB55FB002A0CA7 /* Candle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candle.m; sourceTree = "<group>"; };
+		E97E31761BA0D7AB005B87BE /* DatabaseBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseBridge.h; sourceTree = "<group>"; };
+		E97E31771BA0D7AB005B87BE /* DatabaseBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseBridge.m; sourceTree = "<group>"; };
 		E9AF9CE31A339813004E351B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9AF9CEF1A34343D004E351B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9BA262117CE59250058CFB4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -247,6 +250,8 @@
 			children = (
 				E93036D51A34513C0013EA56 /* User.swift */,
 				E93036D71A3455830013EA56 /* NotificationManager.swift */,
+				E97E31761BA0D7AB005B87BE /* DatabaseBridge.h */,
+				E97E31771BA0D7AB005B87BE /* DatabaseBridge.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				E95F36EA17CB55FB002A0CA7 /* Candle.m in Sources */,
 				E93036D81A3455830013EA56 /* NotificationManager.swift in Sources */,
 				E93036BE1A344D120013EA56 /* AppDelegate.swift in Sources */,
+				E97E31781BA0D7AB005B87BE /* DatabaseBridge.m in Sources */,
 				E9ED933B1A3A450500EC91A4 /* AppearanceBridge.m in Sources */,
 				E9ED932F1A3A338800EC91A4 /* AboutController.swift in Sources */,
 			);
@@ -598,6 +604,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,6 +632,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

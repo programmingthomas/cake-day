@@ -20,6 +20,11 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - FormatterKit (1.8.0):
     - FormatterKit/AddressFormatter (= 1.8.0)
     - FormatterKit/ArrayFormatter (= 1.8.0)
@@ -42,10 +47,12 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - FMDB
   - FormatterKit
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
 
 COCOAPODS: 0.39.0.beta.4
