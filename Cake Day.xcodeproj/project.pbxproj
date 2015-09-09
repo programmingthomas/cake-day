@@ -393,6 +393,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CD;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Thomas Denney";

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2BED015B0344CB0F0E117D9D9F49AEB6881ACED6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2BED015B0344CB0F0E117D9D9F49AEB6881ACED6" : 0,
+    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1BF3AFF6-CF57-46FC-8ADF-BAE2906A5F40",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2BED015B0344CB0F0E117D9D9F49AEB6881ACED6" : "cake-day",
+    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : "cake-day\/SQLite.swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Cake Day",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Cake Day.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/programmingthomas\/cake-day.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2BED015B0344CB0F0E117D9D9F49AEB6881ACED6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stephencelis\/SQLite.swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD"
+    }
+  ]
+}
