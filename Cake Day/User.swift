@@ -74,7 +74,7 @@ class UserManager: NSObject {
                 let username = data["name"]! as! String
                 let createdUTC = data["created_utc"] as! NSNumber
                 
-                var user = User(databaseID: 0, username: username, cakeDay: NSDate(timeIntervalSince1970: createdUTC.doubleValue))
+                let user = User(databaseID: 0, username: username, cakeDay: NSDate(timeIntervalSince1970: createdUTC.doubleValue))
                 self.insert(user)
                 
                 success(user)
