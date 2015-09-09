@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let window = self.window!
         //Configure the split view controller
-        let splitViewController = window.rootViewController! as UISplitViewController
+        let splitViewController = window.rootViewController! as! UISplitViewController
         let navigationController = splitViewController.viewControllers.last! as UINavigationController
         
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let listVC = primaryNavController.viewControllers.first! as UserListViewController
         listVC.userManager = userManager
         
-        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound | .Badge, categories: nil)
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         //Configure appearance
@@ -61,9 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
     }
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         if secondaryViewController.isKindOfClass(UINavigationController) {
-            let secondaryNavController = secondaryViewController as UINavigationController
+            let secondaryNavController = secondaryViewController as! UINavigationController
             if secondaryNavController.topViewController.isKindOfClass(CakeViewController) {
                 let cakeVC = secondaryNavController.topViewController as CakeViewController
 

@@ -55,7 +55,7 @@ class CakeViewController: UIViewController {
             let interval = formatDurationString(user.timeIntervalToNextCakeDay())
             let usernameWithApostrophe = user.usernameWithApostrophe;
             
-            var shareString = String(format:formatString, arguments: [interval, usernameWithApostrophe])
+            let shareString = String(format:formatString, arguments: [interval, usernameWithApostrophe])
             
             controller.addAction(UIAlertAction(title: shareText, style: .Default, handler: { action in
                 let shareController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)

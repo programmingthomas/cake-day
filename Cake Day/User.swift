@@ -52,7 +52,7 @@ class UserManager: NSObject {
             users.append(userFromRow(user))
         }
         
-        users.sort { (left, right) -> Bool in
+        users.sortInPlace { (left, right) -> Bool in
             let order = left.originalCakeDay.compareOrderInYear(right.originalCakeDay)
             return order == .OrderedAscending || order == .OrderedSame
         }
@@ -112,7 +112,7 @@ class UserManager: NSObject {
         operation.responseSerializer = AFJSONResponseSerializer()
         
         operation.setCompletionBlockWithSuccess({ (operation, responseObject) -> Void in
-            let json = responseObject as NSDictionary
+            let json = responseObject as! NSDictionary
             if json["error"] != nil {
                 failure()
             } else {
@@ -133,7 +133,7 @@ class UserManager: NSObject {
     }
 }
 
-class User: NSObject, DebugPrintable {
+class User: NSObject, CustomDebugStringConvertible {
     var databaseID: Int
     var username: String
     var originalCakeDay: NSDate
@@ -168,7 +168,7 @@ class User: NSObject, DebugPrintable {
     
     var yearsOld: Int {
         let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        let components = calendar.components(NSCalendarUnit.CalendarUnitYear, fromDate: originalCakeDay, toDate: NSDate(), options: NSCalendarOptions.allZeros)
+        let components = calendar.components(NSCalendarUnit.Year, fromDate: originalCakeDay, toDate: NSDate(), options: NSCalendarOptions())
         return components.year
     }
     
@@ -206,10 +206,10 @@ class User: NSObject, DebugPrintable {
         }
         
         notification.fireDate = nextCakeDay()
-        notification.repeatInterval = .YearCalendarUnit
+        notification.repeatInterval = .NSYearCalendarUnit
         
         //Used localised notification body
-        notification.alertBody = NSString(format: NSLocalizedString("notification.message", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: ""), usernameWithApostrophe)
+        notification.alertBody = NSString(format: NSLocalizedString("notification.message", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: ""), usernameWithApostrophe) as String
         notification.timeZone = NSTimeZone.systemTimeZone()
         notification.soundName = UILocalNotificationDefaultSoundName
         

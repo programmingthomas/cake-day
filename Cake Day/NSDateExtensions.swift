@@ -19,7 +19,7 @@ extension NSDate {
         offset.year = 1;
         
         while cakeday.compare(today) != NSComparisonResult.OrderedDescending {
-            cakeday = calendar.dateByAddingComponents(offset, toDate: cakeday, options: NSCalendarOptions.allZeros)!
+            cakeday = calendar.dateByAddingComponents(offset, toDate: cakeday, options: NSCalendarOptions())!
         }
         
         return cakeday
@@ -28,7 +28,7 @@ extension NSDate {
     func compareOrderInYear(date2: NSDate) -> NSComparisonResult {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
-        let calendarUnits = NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.MonthCalendarUnit
+        let calendarUnits: NSCalendarUnit = [NSCalendarUnit.NSDayCalendarUnit, NSCalendarUnit.NSMonthCalendarUnit]
         
         let components1 = calendar.components(calendarUnits, fromDate: self)
         let components2 = calendar.components(calendarUnits, fromDate: date2)

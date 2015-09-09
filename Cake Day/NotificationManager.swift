@@ -25,7 +25,7 @@ class NotificationManager: NSObject {
     func notificationsWithUID(uid: String) -> [UILocalNotification] {
         return allScheduledNotifications().filter{ note in
             let userInfo = note.userInfo!
-            let notificationUID = userInfo["uid"] as String
+            let notificationUID = userInfo["uid"] as! String
             return notificationUID == uid
         }
     }

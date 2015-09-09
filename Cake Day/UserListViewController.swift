@@ -155,7 +155,7 @@ class UserListViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let users = users {
             if segue.identifier == "userSegue" {
-                let nav = segue.destinationViewController as UINavigationController
+                let nav = segue.destinationViewController as! UINavigationController
                 //Won't work in Swift yet
                 let detailVC = nav.childViewControllers.first! as CakeViewController
                 detailVC.user = users[tableView.indexPathForSelectedRow()!.row]
@@ -181,7 +181,7 @@ class UserListViewController: UITableViewController {
     
     func showUserForName(username: String) -> Bool {
         if let users = self.users {
-            for (index, user) in enumerate(users) {
+            for (index, user) in users.enumerate() {
                 if user.username == username {
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Middle)
