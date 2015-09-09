@@ -36,7 +36,7 @@ void CandleDrawingFunction(CGContextRef context, CGRect bounds)
     CGFloat locations[2];
     
     transform = CGContextGetUserSpaceToDeviceSpaceTransform(context);
-    resolution = sqrtf(fabsf(transform.a * transform.d - transform.b * transform.c)) * 0.5f * (bounds.size.width / imageBounds.size.width + bounds.size.height / imageBounds.size.height);
+    resolution = sqrtf(fabs(transform.a * transform.d - transform.b * transform.c)) * 0.5f * (bounds.size.width / imageBounds.size.width + bounds.size.height / imageBounds.size.height);
     
     CGContextSaveGState(context);
     CGContextClipToRect(context, bounds);
