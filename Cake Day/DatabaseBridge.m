@@ -35,8 +35,8 @@
     [self.database close];
 }
 
-- (NSArray*)allUsers {
-    NSMutableArray * users = [NSMutableArray new];
+- (NSArray<User*>*)allUsers {
+    NSMutableArray<User*> * users = [NSMutableArray new];
     FMResultSet * row = [self.database executeQuery:@"SELECT * FROM users"];
     while ([row next]) {
         [users addObject:[self _userFromRow:row]];
@@ -44,7 +44,7 @@
     return users;
 }
 
-- (User*)_userFromRow:(FMResultSet*)row {
+- (User* _Nonnull)_userFromRow:(FMResultSet*)row {
     User * user = [[User alloc] initWithDatabaseID:[row intForColumn:@"id"]
                                           username:[row stringForColumn:@"username"]
                                            cakeDay:[row dateForColumn:@"cakeday"]];

@@ -12,14 +12,14 @@
 
 @interface DatabaseBridge : NSObject
 
-@property (readonly, nonatomic) NSString * databasePath;
+@property (readonly, nonatomic) NSString * _Nonnull databasePath;
 
-- (NSArray*)allUsers;
+- (NSArray<User*>* _Nonnull)allUsers;
 
-- (User*)userForUsername:(NSString*)username;
+- (User* _Nullable)userForUsername:(NSString* _Nonnull)username;
 
-- (void)insertUser:(User*)user;
+- (void)insertUser:(User* _Nonnull)user;
 
-- (void)deleteUser:(User*)user;
+- (void)deleteUser:(User* _Nonnull)user;
 
 @end

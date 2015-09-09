@@ -25,7 +25,7 @@ class UserManager: NSObject {
     }
     
     func allUsers() -> [User] {
-        var users = dbBridge.allUsers() as! [User]
+        var users = dbBridge.allUsers() 
         
         users.sortInPlace { (left, right) -> Bool in
             let order = left.originalCakeDay.compareOrderInYear(right.originalCakeDay)
