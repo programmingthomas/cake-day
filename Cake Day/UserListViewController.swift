@@ -97,11 +97,11 @@ class UserListViewController: UITableViewController {
         
         let user = users![indexPath.row]
         
-        cell.textLabel.text = user.username
+        cell.textLabel!.text = user.username
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(user.originalCakeDay).uppercaseString
         
         //Fonts
-        cell.textLabel.font = UIFont(name: "OpenSans", size: 17)
+        cell.textLabel!.font = UIFont(name: "OpenSans", size: 17)
         cell.detailTextLabel?.font = UIFont(name: "OpenSans", size: 14)
         
         //Colors
@@ -144,7 +144,7 @@ class UserListViewController: UITableViewController {
         
         addUser.addAction(UIAlertAction(title: add, style: .Default, handler: { _ in
             let textfield = addUser.textFields![0] as UITextField
-            self.addUserForName(textfield.text)
+            self.addUserForName(textfield.text!)
         }))
         
         presentViewController(addUser, animated: true, completion: nil)
@@ -157,8 +157,8 @@ class UserListViewController: UITableViewController {
             if segue.identifier == "userSegue" {
                 let nav = segue.destinationViewController as! UINavigationController
                 //Won't work in Swift yet
-                let detailVC = nav.childViewControllers.first! as CakeViewController
-                detailVC.user = users[tableView.indexPathForSelectedRow()!.row]
+                let detailVC = nav.childViewControllers.first! as! CakeViewController
+                detailVC.user = users[tableView.indexPathForSelectedRow!.row]
                 
                 detailVC.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 detailVC.navigationItem.leftItemsSupplementBackButton = true
