@@ -160,7 +160,7 @@ class UserManager: NSObject {
         }
         
         notification.fireDate = nextCakeDay()
-        notification.repeatInterval = NSCalendarUnit.NSYearCalendarUnit
+        notification.repeatInterval = NSCalendarUnit.Year
         
         //Used localised notification body
         notification.alertBody = NSString(format: NSLocalizedString("notification.message", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: ""), usernameWithApostrophe) as String

@@ -28,7 +28,7 @@ extension NSDate {
     func compareOrderInYear(date2: NSDate) -> NSComparisonResult {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
-        let calendarUnits: NSCalendarUnit = [NSCalendarUnit.NSDayCalendarUnit, NSCalendarUnit.NSMonthCalendarUnit]
+        let calendarUnits: NSCalendarUnit = [NSCalendarUnit.Day, NSCalendarUnit.Month]
         
         let components1 = calendar.components(calendarUnits, fromDate: self)
         let components2 = calendar.components(calendarUnits, fromDate: date2)
