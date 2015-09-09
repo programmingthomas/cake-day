@@ -42,7 +42,7 @@ class AboutController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = sectionTitles[indexPath.section][indexPath.row]
+        cell.textLabel!.text = sectionTitles[indexPath.section][indexPath.row]
         return cell
     }
     

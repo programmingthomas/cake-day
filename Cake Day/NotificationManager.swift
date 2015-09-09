@@ -19,7 +19,7 @@ class NotificationManager: NSObject {
     }
     
     func allScheduledNotifications() -> [UILocalNotification] {
-        return UIApplication.sharedApplication().scheduledLocalNotifications as [UILocalNotification]
+        return UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification]
     }
     
     func notificationsWithUID(uid: String) -> [UILocalNotification] {

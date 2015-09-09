@@ -7,34 +7,13 @@
 //
 
 import UIKit
-import SQLite
 
 class UserManager: NSObject {
-    var database: Database
-    var userTable: Query
-    var columnID: Expression<Int>
-    var columnUsername: Expression<String>
-    var columnCakeDay: Expression<Int>
+    var dbBridge: DatabaseBridge
     
     override init() {
-        let directories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documents = directories[0] as String
-        let path = documents.stringByAppendingPathComponent("database.sqlite")
-        
-        database = Database(path)
-        
-        userTable = database["users"]
-        columnID = Expression<Int>("id")
-        columnUsername = Expression<String>("username")
-        columnCakeDay = Expression<Int>("cakeday")
-        
+        self.dbBridge = DatabaseBridge()
         super.init()
-        
-        database.create(table:userTable, ifNotExists: true) { t in
-            t.column(self.columnID, primaryKey: true)
-            t.column(self.columnUsername)
-            t.column(self.columnCakeDay)
-        }
     }
     
     class var sharedManager: UserManager {
@@ -46,11 +25,7 @@ class UserManager: NSObject {
     }
     
     func allUsers() -> [User] {
-        var users = [User]()
-        
-        for user in userTable {
-            users.append(userFromRow(user))
-        }
+        var users = dbBridge.allUsers() as! [User]
         
         users.sortInPlace { (left, right) -> Bool in
             let order = left.originalCakeDay.compareOrderInYear(right.originalCakeDay)
@@ -61,36 +36,15 @@ class UserManager: NSObject {
     }
     
     func userWithUsername(username: String) -> User? {
-        let query = userQuery(username)
-        
-        if let firstRow = query.first {
-            return userFromRow(firstRow)
-        }
-        
-        return nil
-    }
-    
-    func userFromRow(user: Row) -> User {
-        let id = user[columnID]
-        let username = user[columnUsername]
-        let cakeDay = Double(user[columnCakeDay])
-        return User(databaseID: id, username: username, cakeDay: NSDate(timeIntervalSince1970: cakeDay))
-    }
-    
-    func userQuery(username: String) -> Query {
-        return userTable.filter(columnUsername == username)
+        return dbBridge.userForUsername(username)
     }
     
     func insert(user: User) {
-        let cakeday = Int(user.originalCakeDay.timeIntervalSince1970)
-        if let insertedID = userTable.insert(columnUsername <- user.username, columnCakeDay <- cakeday) {
-            user.databaseID = insertedID
-        }
+        dbBridge.insertUser(user);
     }
     
     func deleteUser(user: User) {
-        user.cancelLocalNotification()
-        userQuery(user.username).delete()?
+        dbBridge.deleteUser(user);
     }
     
     func userFromReddit(username: String, success: User -> Void, failure: Void -> Void, manager: AFHTTPRequestOperationManager) {
@@ -102,7 +56,7 @@ class UserManager: NSObject {
         
         //Now just do the JSON request to reddit using AFNetworking
         let userAgent = "cakeday/1.0 by /u/ProgrammingThomas"
-        let urlString = "http://reddit.com/user/\(username)/about.json"
+        let urlString = "https://reddit.com/user/\(username)/about.json"
         let url = NSURL(string: urlString)!
         
         let request = NSMutableURLRequest(URL: url)
@@ -116,9 +70,9 @@ class UserManager: NSObject {
             if json["error"] != nil {
                 failure()
             } else {
-                let data = json["data"]! as NSDictionary
-                let username = data["name"]! as String
-                let createdUTC = data["created_utc"] as NSNumber
+                let data = json["data"]! as! NSDictionary
+                let username = data["name"]! as! String
+                let createdUTC = data["created_utc"] as! NSNumber
                 
                 var user = User(databaseID: 0, username: username, cakeDay: NSDate(timeIntervalSince1970: createdUTC.doubleValue))
                 self.insert(user)
@@ -133,7 +87,7 @@ class UserManager: NSObject {
     }
 }
 
-class User: NSObject, CustomDebugStringConvertible {
+@objc class User: NSObject, CustomDebugStringConvertible {
     var databaseID: Int
     var username: String
     var originalCakeDay: NSDate
@@ -206,7 +160,7 @@ class User: NSObject, CustomDebugStringConvertible {
         }
         
         notification.fireDate = nextCakeDay()
-        notification.repeatInterval = .NSYearCalendarUnit
+        notification.repeatInterval = NSCalendarUnit.NSYearCalendarUnit
         
         //Used localised notification body
         notification.alertBody = NSString(format: NSLocalizedString("notification.message", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: ""), usernameWithApostrophe) as String
