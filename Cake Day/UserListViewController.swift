@@ -24,16 +24,7 @@ class UserListViewController: UITableViewController {
         self.addButton.accessibilityLabel = NSLocalizedString("user.add", comment: "")
         self.rateButton.accessibilityLabel = NSLocalizedString("app.rate", comment: "")
         
-        
         update()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if self.users?.count == 0 {
-//            addTapped(self)
-        }
     }
     
     func update() {
