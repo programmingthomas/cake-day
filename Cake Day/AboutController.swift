@@ -10,8 +10,8 @@ import UIKit
 
 let sectionHeaders = ["Open Source", "Support", "Share"]
 let sectionFooters = ["footer.opensource", "footer.support", "footer.share"]
-let sectionTitles = [["Cake Day", "AFNetworking", "FormatterKit", "SQLite.swift"], ["Developer site", "Support"], ["Rate this app"]]
-let sectionURLs = [["https://github.com/programmingthomas/cake-day", "https://github.com/afnetworking/afnetworking", "https://github.com/mattt/FormatterKit", "https://github.com/stephencelis/SQLite.swift"], ["http://programmingthomas.com", "http://programmingthomas.com/contact"],
+let sectionTitles = [["Cake Day", "AFNetworking", "FormatterKit", "FMDB"], ["Developer site", "Support"], ["Rate this app"]]
+let sectionURLs = [["https://github.com/programmingthomas/cake-day", "https://github.com/afnetworking/afnetworking", "https://github.com/mattt/FormatterKit", "https://github.com/ccgus/fmdb"], ["http://programmingthomas.com", "http://programmingthomas.com/contact"],
     ["https://itunes.apple.com/us/app/cake-day/id694043166?ls=1&mt=8"]]
 
 
@@ -19,12 +19,6 @@ class AboutController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
