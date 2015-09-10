@@ -9,11 +9,21 @@
 import UIKit
 
 class UserManager: NSObject {
-    var dbBridge: DatabaseBridge
+    private var database: FMDatabase
+    var databasePath: String
     
     override init() {
-        self.dbBridge = DatabaseBridge()
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        databasePath = documentsDirectory.stringByAppendingPathComponent("database.sqlite")
+        database = FMDatabase(path: databasePath)
+        if database.open() {
+            database.executeStatements("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, cakeday INTEGER)")
+        }
         super.init()
+    }
+    
+    deinit {
+        database.close()
     }
     
     class var sharedManager: UserManager {
@@ -25,7 +35,11 @@ class UserManager: NSObject {
     }
     
     func allUsers() -> [User] {
-        var users = dbBridge.allUsers() 
+        var users = [User]()
+        let row = database.executeQuery("SELECT * FROM users", withArgumentsInArray: [])
+        while row.next() {
+            users.append(_userFromRow(row))
+        }
         
         users.sortInPlace { (left, right) -> Bool in
             let order = left.originalCakeDay.compareOrderInYear(right.originalCakeDay)
@@ -35,16 +49,28 @@ class UserManager: NSObject {
         return users
     }
     
+    private func _userFromRow(row: FMResultSet) -> User {
+        return User(databaseID: Int(row.intForColumn("id")), username: row.stringForColumn("username"), cakeDay: row.dateForColumn("cakeday"))
+    }
+    
     func userWithUsername(username: String) -> User? {
-        return dbBridge.userForUsername(username)
+        let row = database.executeQuery("SELECT * FROM users WHERE username = ?", withArgumentsInArray: [username])
+        if row.next() {
+            return _userFromRow(row)
+        }
+        return nil
     }
     
     func insert(user: User) {
-        dbBridge.insertUser(user);
+        if database.executeUpdate("INSERT INTO users(username,cakeday) VALUES (?,?)", withArgumentsInArray: [user.username, user.originalCakeDay]) {
+            user.databaseID = Int(database.lastInsertRowId())
+        }
     }
     
     func deleteUser(user: User) {
-        dbBridge.deleteUser(user);
+        if database.executeUpdate("DELTE FROM users WHERE id = ?", withArgumentsInArray: [NSNumber(integer: user.databaseID)]) {
+            user.cancelLocalNotification()
+        }
     }
     
     func userFromReddit(username: String, success: User -> Void, failure: Void -> Void, manager: AFHTTPRequestOperationManager) {
